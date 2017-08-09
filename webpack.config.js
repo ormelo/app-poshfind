@@ -33,6 +33,11 @@ var config = {
     new UglifyJSPlugin({
       minimize: true,
       compress: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
     })
   ]
 };
