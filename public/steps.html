@@ -264,53 +264,13 @@ html{
 </head>
 
 <body>
-<div class="container fader" id="container">
-<div>
-  <div class="logo"></div>
-  <div class="headline">No more shopping heartbreaks!</div><br/>
-  <div class="description">Poshfind helps you find fashion online that look & fit you as if tailormade!</div>
+<div class="container fader" id="containerWiz">
 
-  <div class="button-container">
-    <a href="/onboard" class="btn"><span>Tell me how</span></a>
-  </div>
-</div>
 </div>
 <!--Bundled file-->
-<script src="app.bundle.min.js"></script>
+<script src="wiz.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script language="Javascript">
-var campaignConfig = {
-  1: "Trial & Shop",
-  2: "Find dresses your size",
-  3: "Your next best dress in seconds",
-  4: "Shop the right fit"
-};
-var btnConfig = {
-  1: "Tell me how",
-  2: "Get Started",
-  3: "Know more",
-  4: "Trial & Shop now",
-  5: "Shop Now",
-  6: "Get Measured"
-};
-var url = window.location.href;
-url = url.substring(url.indexOf('/?')+2,url.length);
-var arr = url.split('&');
-localStorage.removeItem('m');
-if(arr.length > 0) {
-  var headline = campaignConfig[arr[0].split('=')[1]];
-  var buttonLabel = btnConfig[arr[1].split('=')[1]];
-  console.log(headline);
-  console.log(buttonLabel);
-  if(arr.length > 2) {
-    if(arr[2].split('=')[1]=="m") {
-      localStorage.setItem('m','true');
-    }
-  }
-  $('.headline').html(headline);
-  $('.btn span').html(buttonLabel);
-}
-</script>
+
 </body>
 </html>
 

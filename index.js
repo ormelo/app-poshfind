@@ -10,8 +10,19 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('*', function(request, response) {
+app.get('/fit-profile', function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'steps.html'));
+});
+
+app.get('/', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+
+app.get('/onboard/step2', function(request, response) {
+  response.writeHead(301,
+  {Location: '/onbaord'}
+);
+response.end();
 });
 
 app.listen(app.get('port'), function() {
