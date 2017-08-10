@@ -7,6 +7,7 @@
 <title>Poshfind - Trial & Shop</title>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 *{
     box-sizing: border-box;
@@ -19,9 +20,12 @@ html{
     font-family: 'Quicksand', sans-serif;
 }
 .content {
-    position: relative;
-    margin: 0 auto;
-    margin-top: 100px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 38px;
+  width: 80%;
+  text-align: center;
+  font-size: 18px;
 }
 @font-face{
   font-family:'proxima';
@@ -86,6 +90,291 @@ html{
 .fadedOut {
     opacity: 0;
 }
+
+.top-menu {
+  position: absolute;
+  top: 22px;
+  margin-left: 56px;
+}
+
+.step-indicator {
+  margin-bottom: 20px;
+  line-height: 30px;
+}
+
+.step {
+  display: block;
+  float: left;
+  padding-left: 2px;
+  font-weight: bold;
+  background: #f9f9f9;
+  padding-right: 10px;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 33px;
+  position: relative;
+  text-decoration: none;
+  color: #666;
+  cursor: default;
+}
+.step:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -30px;
+  border: 16px solid transparent;
+  border-color: #f9f9f9;
+  border-left-color: transparent;
+}
+.step:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: -32px;
+  border: 16px solid transparent;
+  border-left-color: #f9f9f9;
+}
+.step:first-of-type {
+  border-radius: 10px 0 0 10px;;
+  padding-left: 18px;
+}
+.step:first-of-type:before {
+  display: none;
+}
+.step:last-of-type {
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 25px;
+  padding-right: 15px;
+}
+.step:last-of-type:after {
+  display: none;
+}
+.step.completed {
+  background: #b180fb;
+  color: #fff;
+  cursor: pointer;
+}
+.step.completed:before {
+  border-color: #b180fb;
+  border-left-color: transparent;
+}
+.step.completed:after {
+  border-left-color: #b180fb;
+}
+.step.completed:hover {
+  background: #41A4F0;
+  border-color: #41A4F0;
+  color: #fff;
+  text-decoration: none;
+}
+.step.completed:hover:before {
+  border-color: #41A4F0;
+  border-left-color: transparent;
+}
+.step.completed:hover:after {
+  border-left-color: #41A4F0;
+}
+.outline {
+    width: 79%;
+    top: 154px;
+    position: absolute;
+    margin: 0 auto;
+    left: 10%;
+}
+.app{
+    width: 100%;
+    margin-top: 22px;
+    position: relative;
+}
+
+.app #start-camera{
+    display: none;
+    border-radius: 3px;
+    max-width: 400px;
+    color: #fff;
+    background-color: #448AFF;
+    text-decoration: none;
+    padding: 15px;
+    opacity: 0.8;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.app video#camera-stream{
+    display: none;
+    width: 100%;
+}
+
+.app img#snap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: none;
+}
+
+.app #error-message{
+    width: 100%;
+    background-color: #ccc;
+    color: #9b9b9b;
+    font-size: 28px;
+    padding: 200px 100px;
+    text-align: center;
+    display: none;
+}
+
+.app .controls{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 30px;
+    display: none;
+}
+
+.app .controls a{
+    color: #fff;
+    background-color: #fff;
+    text-decoration: none;
+    padding: 34px;
+    line-height: 0;
+    opacity: 1;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app a#take-photo {
+    position: absolute;
+    margin: 0px auto;
+    width: 50%;
+    text-align: center;
+    height: 55%;
+    top: 0%;
+    border-radius: 0px;
+    left: 25.4%;
+}
+
+.app a#delete-photo {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    left: 0%;
+    text-align: center;
+}
+
+.app a#download-photo {
+    visibility: hidden;
+}
+
+.app .controls a:hover{
+    opacity: 1;
+}
+
+.app .controls a.disabled{
+    background-color: transparent;
+    opacity: 1;
+    cursor: default;
+    pointer-events: none;
+    background: rgba(95, 95, 95, 0.69);
+    background-image: linear-gradient(to right, black 33%, rgba(255,255,255,0) 0%);
+    background-position: bottom;
+    background-size: 2px 1px;
+    background-repeat: repeat;
+}
+
+.app .controls a.disabled:hover{
+    opacity: 1;
+}
+
+.app .controls a i{
+    font-size: 18px;
+}
+
+.app .controls #take-photo i{
+    font-size: 32px;
+}
+
+.app canvas{
+    display: none;
+}
+
+.app video#camera-stream.visible,
+.app img#snap.visible,
+.app #error-message.visible
+{
+    display: block;
+}
+
+.app .controls.visible{
+    display: flex;
+}
+
+
+.scanning:after {
+    content: '';
+    display: block;
+    width: 100em;
+    height: 100em;
+    transform: rotate(90deg);
+    position: absolute;
+    top: -64px;
+    left: 0;
+    z-index: 9999;
+    background: linear-gradient(270deg, rgba(0,0,0,.7) 50%, rgba(0,255,0,.5) 55%, rgba(0,255,0,.7) 56%, rgba(0,0,0,.7) 56% );
+    background-size: 300% 100%;
+    background-repeat: no-repeat;
+    background-position: 84% center;
+    -webkit-animation: scan 1.7s infinite ease;
+}
+
+@-webkit-keyframes scan {
+  /* finish with the scan bar just off the right side */
+  100% { background-position: 30% center; }
+}
+
+/* these are just for the placeholder content */
+p, button { font-size: xx-large; font-family: sans-serif; }
+p img.left { float: left; margin-right: 1em; }
+p img.right { float: right; margin-left: 1em; }
+
+
+.circ{
+    opacity: 0;
+    stroke-dasharray: 130;
+    stroke-dashoffset: 130;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.tick{
+  fill-color:green;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
+    -moz-transition: stroke-dashoffset 1s 0.5s ease-out;
+    -ms-transition: stroke-dashoffset 1s 0.5s ease-out;
+    -o-transition: stroke-dashoffset 1s 0.5s ease-out;
+    transition: stroke-dashoffset 1s 0.5s ease-out;
+}
+.drawn + svg .path{
+    opacity: 1;
+    stroke-dashoffset: 0;
+}
 @media (max-width: 599px){
     .container{
         with: 100%;
@@ -101,12 +390,12 @@ html{
       background-position-y: -15px;
     }
     .logo {
-      background-image: url(img/logo.png);
-      width: 178px;
-      height: 44px;
-      margin: 0 auto;
+      background-image: url(img/logos.png);
+      width: 34px;
+      left: 12px;
+      top: 5px;
+      height: 50px;
       background-size: contain;
-      top: 26px;
       position: relative;
     }
     .headline {
@@ -136,7 +425,7 @@ html{
         position: relative;
     }
     .button-container {
-      padding-top: 36px;
+      padding-top: 2px;
       margin: 0 auto;
       position: relative;
       width: 212px;
@@ -153,6 +442,19 @@ html{
     .btn {
       width: 275px;
     }
+    .top-menu {
+      position: absolute;
+      top: 24px;
+      margin-left: 190px;
+    }
+    .content {
+      margin-top: 80px;
+      font-size: 20px;
+    }
+    .outline {
+    width: 400px;
+    margin-top: 44px;
+    }
     .glitter {
       background-image: url(img/bg.png);
       height: 100%;
@@ -161,12 +463,11 @@ html{
     }
     .logo {
       background-image: url(img/logo.png);
-      width: 178px;
-      height: 44px;
-      margin-top: 0px;
-      margin-left: 60px;
+      width: 145px;
+      left: 12px;
+      top: 21px;
+      height: 36px;
       background-size: contain;
-      top: 40px;
       position: relative;
     }
     .headline {
@@ -210,8 +511,18 @@ html{
     .btn {
       width: 275px;
     }
+    .top-menu {
+      position: absolute;
+      top: 24px;
+      margin-left: 280px;
+    }
     .content {
-      margin-top: 100px;
+      margin-top: 54px;
+      font-size: 22px;
+    }
+    .outline {
+    width: 440px;
+    margin-top: 14px;
     }
     .glitter {
       background-image: url(img/bg.png);
@@ -221,14 +532,12 @@ html{
     }
     .logo {
       background-image: url(img/logo.png);
+      width: 145px;
+      left: 12px;
+      top: 21px;
+      height: 36px;
       background-size: contain;
       position: relative;
-      width: 178px;
-      height: 44px;
-      left: 80px;
-      margin-top: 0px;
-      margin-left: 0px;
-      top: 30px;
     }
     .headline {
       margin-left: 85px;
@@ -253,7 +562,7 @@ html{
         margin: 0 auto;
     }
     .button-container {
-      padding-top: 36px;
+      padding-top: 16px;
       margin: 0 auto;
       position: relative;
       width: 240px;
@@ -261,16 +570,45 @@ html{
 }
 
 </style>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="scripts/selfie.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat-samples/js/jsfeat-min.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat-samples/js/frontalface.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat/cascades/mouth.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat/cascades/eye.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat/cascades/upperbody.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat-samples/js/compatibility.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat-samples/js/profiler.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat-samples/js/dat.gui.min.js"></script>
 </head>
 
 <body>
 <div class="container fader" id="containerWiz">
 
 </div>
+<div class="app" >
+                    <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
+                    <video id="camera-stream" ></video>
+                    <img id="snap" />
+                    <p id="error-message"></p>
+                    <div class="controls">
+                      <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><span>WAIST</span></a>
+                      <a href="#" id="take-photo" title="Take Photo" class="disabled"><span>FACE</span></a>
+                      <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a>  
+                    </div>
+                    <canvas id="canvas" width="640" height="480"></canvas>
+                    <canvas id="sampleCanvas" width="640" height="480" style="display: none"></canvas>
+                  </div>
+                  <img src="img/outline.png" class="outline content"/>
+                </div>
+                <div class="button-container">
+                  <a class="btn" id="capture-photo"><i class="material-icons" style="position: absolute;top: 13px;left: 31px;">camera_alt</i><span style="position: absolute;left: 66px;">Capture</span></a>
+                </div>
 <!--Bundled file-->
 <script src="wiz.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
 </body>
 </html>
 

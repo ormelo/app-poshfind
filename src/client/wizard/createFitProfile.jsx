@@ -9,10 +9,9 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 class CreateFitProfile extends Component {
     render(){
         return (<div>
-                <div className="wiz-headline">Create Fit Profile1</div><br/>
-                <div className="button-container">
-                  <Link to="/fit-profile/update" className="btn"><span>Next</span></Link>
-                </div>
+                <div className="content">
+                  <div>Position yourself inside the dotted outline and tap 'Scan' button</div>
+                </div> 
               </div>
           );
     }
@@ -22,6 +21,7 @@ render(<Router>
         <div>
         <Route path="/fit-profile" render={()=>(
             <div>
+            <div className="logo"/>
             <WizTitle />
             <Route exact path="/fit-profile" component={CreateFitProfile}/>
             <Route exact path="/fit-profile/update" component={CaptureMeasurements}/>

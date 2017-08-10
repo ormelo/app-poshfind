@@ -20,7 +20,7 @@ app.get('/', function(request, response) {
 
 app.get('/onboard/step2', function(request, response) {
   response.writeHead(301,
-  {Location: '/onbaord'}
+  {Location: '/'}
 );
 response.end();
 });
