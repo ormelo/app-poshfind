@@ -7,7 +7,6 @@
 <title>Poshfind - Trial & Shop</title>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 *{
     box-sizing: border-box;
@@ -574,15 +573,7 @@ p img.right { float: right; margin-left: 1em; }
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
-<script src="scripts/selfie.js"></script>
-<script type="text/javascript" src="haar/lib/jsfeat-samples/js/jsfeat-min.js"></script>
-<script type="text/javascript" src="haar/lib/jsfeat-samples/js/frontalface.js"></script>
-<script type="text/javascript" src="haar/lib/jsfeat/cascades/mouth.js"></script>
-<script type="text/javascript" src="haar/lib/jsfeat/cascades/eye.js"></script>
-<script type="text/javascript" src="haar/lib/jsfeat/cascades/upperbody.js"></script>
-<script type="text/javascript" src="haar/lib/jsfeat-samples/js/compatibility.js"></script>
-<script type="text/javascript" src="haar/lib/jsfeat-samples/js/profiler.js"></script>
-<script type="text/javascript" src="haar/lib/jsfeat-samples/js/dat.gui.min.js"></script>
+
 </head>
 
 <body>
@@ -591,7 +582,7 @@ p img.right { float: right; margin-left: 1em; }
 </div>
 <div class="app" >
                     <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
-                    <video id="camera-stream" ></video>
+                    <video id="camera-stream" style="visibility: hidden"></video>
                     <img id="snap" />
                     <p id="error-message"></p>
                     <div class="controls">
@@ -605,10 +596,142 @@ p img.right { float: right; margin-left: 1em; }
                   <img src="img/outlinew.png" class="outline content"/>
                 </div>
                 <div class="button-container">
-                  <a class="btn" id="capture-photo" style="position: absolute;bottom: 20px;"><i class="material-icons" style="position: absolute;top: 13px;left: 31px;">camera_alt</i><span style="position: absolute;left: 82px;">Capture</span></a>
+                  <a class="btn" id="capture-photo" style="position:fixed; bottom:20px;margin: 0 auto;"><span>Capture</span></a>
                 </div>
+                <div class="mask" style="position: absolute;top: 216px;"></div>
 <!--Bundled file-->
 <script src="wiz.bundle.min.js"></script>
+<script src="scripts/selfie.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat-samples/js/jsfeat-min.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat/cascades/upperbody.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat-samples/js/compatibility.js"></script>
+<script type="text/javascript" src="haar/lib/jsfeat-samples/js/frontalface.js"></script>
+<script type="text/javascript">
+  
+var gui,options,ctx,canvasWidth,canvasHeight;
+var img_u8,work_canvas,work_ctx,ii_sum,ii_sqsum,ii_tilted,edg,ii_canny;
+var faceClassifier = jsfeat.haar['frontalface'];
+var upperBodyClassifier = jsfeat.haar['upperbody'];
+var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr;
+
+var max_work_size = 160;
+if(screen.width < 500){
+  $('body').css('overflow-x','hidden');
+  $('body').css('overflow-y','hidden');
+}
+
+var demo_opt = function(){
+                this.min_scale = 2;
+                this.scale_factor = 1.15;
+                this.use_canny = false;
+                this.edges_density = 0.13;
+                this.equalize_histogram = true;
+            }
+
+  var canvas = document.getElementById('canvas');
+  var video = document.getElementById('camera-stream');
+  ctx = canvas.getContext('2d');
+
+
+function demo_app() {
+    canvasWidth  = canvas.width;
+    canvasHeight = canvas.height;
+    ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = "rgb(0,255,0)";
+    ctx.strokeStyle = "rgb(0,255,0)";
+
+    var scale = Math.min(max_work_size/canvasWidth, max_work_size/canvasHeight);
+    var w = (canvasWidth*scale)|0;
+    var h = (canvasHeight*scale)|0;
+
+    img_u8 = new jsfeat.matrix_t(w, h, jsfeat.U8_t | jsfeat.C1_t);
+    edg = new jsfeat.matrix_t(w, h, jsfeat.U8_t | jsfeat.C1_t);
+    work_canvas = document.createElement('canvas');
+    work_canvas.width = w;
+    work_canvas.height = h;
+    work_ctx = work_canvas.getContext('2d');
+    ii_sum = new Int32Array((w+1)*(h+1));
+    ii_sqsum = new Int32Array((w+1)*(h+1));
+    ii_tilted = new Int32Array((w+1)*(h+1));
+    ii_canny = new Int32Array((w+1)*(h+1));
+
+    options = new demo_opt();
+
+}
+
+function tick(classifier, type) {
+  var snap = document.getElementById('snap');
+    ctx.drawImage(video, 0, 0, canvasWidth, canvasHeight);
+
+    work_ctx.drawImage(video, 0, 0, work_canvas.width, work_canvas.height);
+    var imageData = work_ctx.getImageData(0, 0, work_canvas.width, work_canvas.height);
+
+    jsfeat.imgproc.grayscale(imageData.data, img_u8.data);
+
+    // possible options
+    if(options.equalize_histogram) {
+        jsfeat.imgproc.equalize_histogram(img_u8, img_u8);
+    }
+    //jsfeat.imgproc.gaussian_blur(img_u8, img_u8, 3);
+
+    jsfeat.imgproc.compute_integral_image(img_u8, ii_sum, ii_sqsum, classifier.tilted ? ii_tilted : null);
+
+    if(options.use_canny) {
+        jsfeat.imgproc.canny(img_u8, edg, 10, 50);
+        jsfeat.imgproc.compute_integral_image(edg, ii_canny, null, null);
+    }
+
+    jsfeat.haar.edges_density = options.edges_density;
+    var rects = jsfeat.haar.detect_multi_scale(ii_sum, ii_sqsum, ii_tilted, options.use_canny? ii_canny : null, img_u8.cols, img_u8.rows, classifier, options.scale_factor, options.min_scale);
+    rects = jsfeat.haar.group_rectangles(rects, 1);
+
+    // draw only most confident one
+    captureSizes(ctx, rects, canvasWidth/img_u8.cols, 1, type);
+}
+
+function captureSizes(ctx, rects, sc, max, type) {
+    var on = rects.length;
+    console.log('rects: ', rects);
+    if(on && max) {
+        jsfeat.math.qsort(rects, 0, on-1, function(a,b){return (b.confidence<a.confidence);})
+    }
+    var n = max || on;
+    n = Math.min(n, on);
+    var r;
+    for(var i = 0; i < n; ++i) {
+        r = rects[i];
+        if(type == 'face') {
+          faceX = r.x*sc;
+          faceY = r.y*sc;
+          faceW = r.width*sc;
+          faceH = r.height*sc;
+        } else if(type == 'upperbody') {
+          shoulderX = r.x*sc;
+          shoulderY = r.y*sc;
+          shoulderW = r.width*sc;
+          shoulderH = r.height*sc;
+          localStorage.setItem('shoulderX', shoulderX);
+          localStorage.setItem('shoulderY', shoulderY);
+          localStorage.setItem('shoulderW', shoulderW);
+          localStorage.setItem('shoulderH', shoulderH);
+          if(shoulderX > faceX*2.2) {
+            demo_app();
+            tick(upperBodyClassifier, 'upperbody');
+            retryCount++;
+            if(retryCount >10) {
+              break;
+            }
+          }
+        }
+        // ctx.strokeRect((r.x*sc)|0,(r.y*sc)|0,(r.width*sc)|0,(r.height*sc)|0);
+    }
+}
+
+
+</script>
+
+
 </body>
 </html>
 

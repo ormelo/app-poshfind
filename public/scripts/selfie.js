@@ -1,3 +1,30 @@
+function demo_app() {
+    canvasWidth  = canvas.width;
+    canvasHeight = canvas.height;
+    ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = "rgb(0,255,0)";
+    ctx.strokeStyle = "rgb(0,255,0)";
+
+    var scale = Math.min(max_work_size/canvasWidth, max_work_size/canvasHeight);
+    var w = (canvasWidth*scale)|0;
+    var h = (canvasHeight*scale)|0;
+
+    img_u8 = new jsfeat.matrix_t(w, h, jsfeat.U8_t | jsfeat.C1_t);
+    edg = new jsfeat.matrix_t(w, h, jsfeat.U8_t | jsfeat.C1_t);
+    work_canvas = document.createElement('canvas');
+    work_canvas.width = w;
+    work_canvas.height = h;
+    work_ctx = work_canvas.getContext('2d');
+    ii_sum = new Int32Array((w+1)*(h+1));
+    ii_sqsum = new Int32Array((w+1)*(h+1));
+    ii_tilted = new Int32Array((w+1)*(h+1));
+    ii_canny = new Int32Array((w+1)*(h+1));
+
+    options = new demo_opt();
+
+}
+
 window.onload=function(){
 // References to all the element we will need.
 var video = document.querySelector('#camera-stream'),
@@ -75,7 +102,6 @@ var forceRedraw = function(element){
 scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
 
 take_photo_btn.addEventListener("click", function(e){
-
   e.preventDefault();
   clearInterval(scr);
   var snap = takeSnapshot();
@@ -110,21 +136,19 @@ take_photo_btn.addEventListener("click", function(e){
       }
       var fswRatio = faceW/(shoulderW*2);
       // alert('F/S:'+fswRatio);
-      $('.app').css('opacity','0');
+      //$('.app').css('opacity','0');
       $('#take-photo').html('');
       $('.capture').css('visibility','hidden');
       $('#confirmation').show();
       $(".trigger").toggleClass("drawn");
 
       
-      
-      setTimeout(function(){ $(".tick-container").hide();
         localStorage.setItem('pic',canvas.toDataURL());
         localStorage.setItem('faceX',faceX);
         localStorage.setItem('faceY',faceY);
         localStorage.setItem('faceW',faceW);
         localStorage.setItem('faceH',faceH);
-        stepEMeasure(); }, 1500);
+        stepEMeasure();
     }, 4000);
 
 });
@@ -132,7 +156,8 @@ take_photo_btn.addEventListener("click", function(e){
 function stepEMeasure() {
   $("#step_selfie").removeClass('completed');
   $("#step_emeasure").addClass('completed');
-  location.href='/emeasure';
+  //location.href='/update';
+  window.onScanComplete();
 }
 
 function getDataUri(url, callback) {
@@ -157,6 +182,7 @@ function getDataUri(url, callback) {
 
 function showVideo(){
   // Display the video stream and the controls.
+  $('#camera-stream').css('visibility', 'visible');
 
   hideUI();
   video.classList.add("visible");

@@ -292,6 +292,24 @@ html{
 <script src="app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script language="Javascript">
+function appendScripts() {
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "haar/lib/jsfeat-samples/js/jsfeat-min.js";
+document.head.append(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "haar/lib/jsfeat/cascades/upperbody.js";
+document.head.append(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "haar/lib/jsfeat-samples/js/compatibility.js";
+document.head.append(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "haar/lib/jsfeat-samples/js/frontalface.js";
+document.head.append(s);
+}
 var campaignConfig = {
   1: "Trial & Shop",
   2: "Find dresses your size",
@@ -324,7 +342,9 @@ if(arr.length > 0) {
   $('.headline').html(headline);
   $('.btn span').html(buttonLabel);
 }
+
 </script>
+
 </body>
 </html>
 
