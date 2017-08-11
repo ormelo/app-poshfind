@@ -19,7 +19,7 @@ class CreateFitProfile extends Component {
       var h = this.props.history;
       window.onScanComplete = function() {
         var fitStr = 'faceH:'+localStorage.getItem('faceH')+'faceW:'+localStorage.getItem('faceW')+'faceX:'+localStorage.getItem('faceX')+'faceY:'+localStorage.getItem('faceY')+'shoulderH:'+localStorage.getItem('shoulderH')+'shoulderW:'+localStorage.getItem('shoulderW')+'shoulderX:'+localStorage.getItem('shoulderX')+'shoulderY:'+localStorage.getItem('shoulderY');
-        alert(fitStr);
+        // alert(fitStr);
         h.push('/fit-profile/update');
         $('.outline').hide();
         $('#capture-photo').hide();
@@ -31,7 +31,7 @@ class CreateFitProfile extends Component {
         const { match, location, history } = this.props;
         return (<div>
                 <div className="content">
-                  <div>Position yourself inside the dotted outline and tap 'Scan' button</div>
+                  <div id="selfieMsg">Position yourself inside the dotted outline and tap 'Scan' button</div>
                 </div> 
               </div>
           );

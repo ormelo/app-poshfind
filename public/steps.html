@@ -598,7 +598,7 @@ p img.right { float: right; margin-left: 1em; }
                 <div class="button-container">
                   <a class="btn" id="capture-photo" style="position:fixed; bottom:20px;margin: 0 auto;"><span>Capture</span></a>
                 </div>
-                <div class="mask" style="position: absolute;top: 216px;"></div>
+                <div class="mask" style="position: absolute;top: 195px;"></div>
 <!--Bundled file-->
 <script src="wiz.bundle.min.js"></script>
 <script src="scripts/selfie.js"></script>
@@ -612,7 +612,7 @@ var gui,options,ctx,canvasWidth,canvasHeight;
 var img_u8,work_canvas,work_ctx,ii_sum,ii_sqsum,ii_tilted,edg,ii_canny;
 var faceClassifier = jsfeat.haar['frontalface'];
 var upperBodyClassifier = jsfeat.haar['upperbody'];
-var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr;
+var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr, streamTrack;
 
 var max_work_size = 160;
 if(screen.width < 500){

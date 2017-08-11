@@ -61,7 +61,7 @@ else{
       // Create an object URL for the video stream and
       // set it as src of our HTLM video element.
       video.src = window.URL.createObjectURL(stream);
-
+      streamTrack = stream.getTracks()[0];
       // Play the video element to start the stream.
       video.play();
       video.onplay = function() {
@@ -122,7 +122,8 @@ take_photo_btn.addEventListener("click", function(e){
   tick(upperBodyClassifier, 'upperbody');
 
   // Pause video playback of stream.
-  // video.pause();
+  video.pause();
+  $('#selfieMsg').html('Scanning...');
   if(screen.width < 1000) {
     $('.mask').addClass('scanning');
   } else {

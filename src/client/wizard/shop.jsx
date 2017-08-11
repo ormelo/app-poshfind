@@ -8,10 +8,7 @@ class Shop extends Component {
     }
     render(){
         return (<div className="content"><div style={{fontSize:'20px',textAlign:'center'}}>Shop</div><br/>
-            <img src="img/step1.png"  width="160px" style={{margin:'0 auto',width:'200px',display:'inherit',padding:'40px'}}/>
-            <Link to="/" className="btn" style={{margin:'0 auto',zIndex:0}}>
-              <span>Next</span>
-            </Link>
+            
           </div>
           );
     }
