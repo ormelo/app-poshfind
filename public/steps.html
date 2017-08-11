@@ -37,6 +37,65 @@ html{
     width: 212px;
     z-index: 1;
 }
+
+#tabs {
+background: #8d5fcc; /* Old browsers */
+background: -moz-linear-gradient(top,  #8d5fcc 0%, #9a6ddc 70%, #b084f8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #8d5fcc 0%,#9a6ddc 70%,#b084f8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #8d5fcc 0%,#9a6ddc 70%,#b084f8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d5fcc', endColorstr='#b084f8',GradientType=0 ); /* IE6-9 */
+}
+.tabs-menu {
+    height: 30px;
+    float: left;
+    clear: both;
+    list-style: none;
+    margin-left: 44px;
+    width: 100%;
+}
+
+.tabs-menu li {
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+
+.tabs-menu li.current {
+    position: relative;
+    font-weight: bold;
+    z-index: 5;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 0px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.tabs-menu li a {
+    padding: 6px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none; 
+}
+
+.tabs-menu .current a {
+    color: #fff;
+}
+
+.tab {
+    float: left;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab-content {
+    padding: 30px 4px 0px 0px;
+    display: none;
+}
+
+#tab-1 {
+ display: block;   
+}
 .btnMsg {
     display: block;
     height: 50px;
@@ -375,7 +434,7 @@ html{
 }
 
 /* these are just for the placeholder content */
-p, button { font-size: xx-large; font-family: sans-serif; }
+p, button { font-size: 16px;}
 p img.left { float: left; margin-right: 1em; }
 p img.right { float: right; margin-left: 1em; }
 
@@ -426,6 +485,7 @@ p img.right { float: right; margin-left: 1em; }
       height: 50px;
       background-size: contain;
       position: relative;
+      z-index: 1;
     }
     .headline {
       margin: 0 auto;
@@ -468,6 +528,13 @@ p img.right { float: right; margin-left: 1em; }
         background-size: cover;
         background-position-y: -31px;
     }
+    #tabs {
+      left: 0px;
+      width: 100%;
+    }
+    #tabs-container {
+      margin-left: 140px;
+    }
     .btn {
       width: 275px;
     }
@@ -477,7 +544,7 @@ p img.right { float: right; margin-left: 1em; }
       margin-left: 190px;
     }
     .content {
-      margin-top: 80px;
+      margin-top: 54px;
       font-size: 20px;
     }
     .outline {
@@ -498,6 +565,7 @@ p img.right { float: right; margin-left: 1em; }
       height: 36px;
       background-size: contain;
       position: relative;
+      z-index: 1;
     }
     .headline {
       margin-left: 65px;
@@ -567,6 +635,7 @@ p img.right { float: right; margin-left: 1em; }
       height: 36px;
       background-size: contain;
       position: relative;
+      z-index: 1;
     }
     .headline {
       margin-left: 85px;
