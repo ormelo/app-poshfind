@@ -150,7 +150,7 @@ take_photo_btn.addEventListener("click", function(e){
         localStorage.setItem('faceW',faceW);
         localStorage.setItem('faceH',faceH);
         stepEMeasure();
-    }, 4);
+    }, 4000);
 
 });
 
