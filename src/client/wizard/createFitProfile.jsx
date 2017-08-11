@@ -18,6 +18,8 @@ class CreateFitProfile extends Component {
       console.log('this.props.history:',this.props.history);
       var h = this.props.history;
       window.onScanComplete = function() {
+        var fitStr = 'faceH:'+localStorage.getItem('faceH')+'faceW:'+localStorage.getItem('faceW')+'faceX:'+localStorage.getItem('faceX')+'faceY:'+localStorage.getItem('faceY')+'shoulderH:'+localStorage.getItem('shoulderH')+'shoulderW:'+localStorage.getItem('shoulderW')+'shoulderX:'+localStorage.getItem('shoulderX')+'shoulderY:'+localStorage.getItem('shoulderY');
+        alert(fitStr);
         h.push('/fit-profile/update');
         $('.outline').hide();
         $('#capture-photo').hide();
