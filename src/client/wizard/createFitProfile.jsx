@@ -49,6 +49,11 @@ render(<Router>
             <Route exact path="/fit-profile" component={CreateFitProfileWithRouter}/>
             <Route exact path="/fit-profile/update" component={CaptureMeasurements}/>
           </div>)} />
-        <Route exact path="/shop" component={Shop}/>
+        <Route exact path="/shop" render={()=>(
+            <div>
+            <div className="logo"/>
+            <Route exact path="/shop" component={Shop}/>
+          </div>
+          )}/>
         </div>
     </Router>, document.getElementById('containerWiz'));
