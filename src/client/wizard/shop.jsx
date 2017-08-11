@@ -15,8 +15,8 @@ class Shop extends Component {
     render(){
         return (<div className="content" style={{minHeight:'600px',width:'100%'}}>
           <div style={{margin:'0 auto',marginTop:'18vh'}}>
-            <img id="d1" className="splashImg" src="img/dress1.png" style={{display:'none',width:'70px',position:'absolute',left:'10vw'}}/>
-            <img id="d2" className="splashImg" src="img/dress2.png" style={{display:'none',width:'70px',position:'absolute',float:'right',right:'10vw'}}/>
+            <img id="d1" className="splashImg" src="img/dress1.png" style={{display:'none',width:'70px',position:'absolute',left:'10vw',top:'-46px'}}/>
+            <img id="d2" className="splashImg" src="img/dress2.png" style={{display:'none',width:'70px',position:'absolute',float:'right',right:'10vw',top:'-46px'}}/>
             <div className="btnMsg" style={{margin:'0 auto',background:'rgba(234, 225, 244, 0.35)',top:'15vh'}}>
               <span>Finding best looks for you…</span>
             </div>
