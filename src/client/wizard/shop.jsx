@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 
 class Shop extends Component {
+
     componentDidMount(){
       $('.content').fadeOut(0).fadeIn(300);
       setTimeout("$('.splashImg').hide();$('#d1').fadeOut(0).fadeIn(500);",0);
@@ -10,7 +11,10 @@ class Shop extends Component {
       setTimeout("$('.splashImg').hide();$('#d3').fadeOut(0).fadeIn(500);",2000);
       setTimeout("$('.splashImg').hide();$('#d4').fadeOut(0).fadeIn(500);",3000);
       setTimeout("$('#d4').fadeOut(100);$('#splash').hide();$('#tabs').fadeOut(0).fadeIn(500);",4000);
+      showProducts();
+      $('.contentShop').css('margin-top','20px');
       $('.outline').hide();
+
       //click handler for tabs
       $(".tabs-menu a").click(function(event) {
           event.preventDefault();
@@ -22,8 +26,14 @@ class Shop extends Component {
       });
     }
     render(){
-        return (<div className="content" style={{minHeight:'600px',width:'100%'}}>
-        <div id="tabs" style={{display:'none',position: 'absolute',width:'100%',top:'-88px',left:'0px',height:'70px',textAlign:'center',padding:'22px'}}>
+        return (<div className="contentShop" style={{minHeight:'600px',width:'100%'}}>
+          
+          <div className="products">
+            <div className="product" id="product">
+            </div>
+          </div>
+
+        <div id="tabs" style={{display:'none',position: 'fixed',width:'100%',top:'0px',left:'0px',height:'70px',textAlign:'center',padding:'22px'}}>
 
 
 <div id="tabs-container">
@@ -52,6 +62,7 @@ class Shop extends Component {
 
 
         </div>
+
           <div id="splash" style={{margin:'0 auto',marginTop:'18vh'}}>
             <img id="d1" className="splashImg" src="img/dress1.png" style={{display:'none',width:'70px',position:'absolute',left:'10vw',top:'-46px'}}/>
             <img id="d2" className="splashImg" src="img/dress2.png" style={{display:'none',width:'70px',position:'absolute',float:'right',right:'10vw',top:'-46px'}}/>

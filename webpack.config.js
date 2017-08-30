@@ -16,6 +16,10 @@ var config = {
     filename: '[name].bundle.min.js',
     chunkFilename: "[id].chunk.js"
   },
+  node: {
+    fs: 'empty',
+    target: 'empty'
+  },
   module : {
     loaders : [
       {

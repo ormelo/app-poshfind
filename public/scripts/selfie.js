@@ -254,3 +254,57 @@ $('#btn_got_it').on('click', function(e) {
 function beeLeft(elemId) {
     $("#"+elemId).animate({left: "-=100"}, 1500, "swing", beeRight);
 }
+
+function showProducts() {
+  $.get("https://api.myjson.com/bins/13wfrx", function(data, status){
+    // console.log("Data: ", data[0]['name']);
+    // load product images
+    setTimeout("$('.products').show();$('.contentShop').css('margin-top','20px');", 4000);
+      for(var i=0;i<data.length;i++) {
+        var productBg = document.createElement('div');
+        productBg.className = 'product-bg';
+
+        var productCanvas = document.createElement('canvas');
+        productCanvas.id = 'canvas'+i;
+        productCanvas.height = '460';
+        productCanvas.width = $( window ).width();
+        productCanvas.style.position = 'relative';
+        productCanvas.style.top = '-23px';
+        productBg.appendChild(productCanvas);
+
+        var imageObj = new Image();
+        imageObj.id = 'img'+i;
+        imageObj.src = localStorage.getItem('pic');
+        imageObj.style.display = 'none';
+        document.body.appendChild(imageObj);
+        document.getElementById('img'+i).onload = function(img) {
+          var ctx=document.getElementById('canvas'+img.currentTarget.id.substr(3)).getContext("2d");
+          var faceX = localStorage.getItem('faceX');
+          var faceY = localStorage.getItem('faceY');
+          var faceW = localStorage.getItem('faceW');
+          var faceH = localStorage.getItem('faceH');
+
+          var newLeft = $(window).width()/2 - ((98)/2);
+          var newTop = 54;
+          ctx.drawImage(img.currentTarget, parseInt(faceX,10)-20, parseInt(faceY,10)-90, parseInt(faceW,10)+20, parseInt(faceH,10)+150, newLeft, newTop, 93, 124);
+        };
+
+
+        var transparentImg = document.createElement('img');
+        transparentImg.className = 'actual-prod';
+        transparentImg.src = 'img/tbg.png';
+        transparentImg.style.top = '28px';
+        productBg.appendChild(transparentImg);
+        
+
+        var productImg = document.createElement('img');
+        productImg.className = 'actual-prod';
+        productImg.src = 'img/products/'+getGender()+'/'+getCategory()+'/'+i+'/'+getSize()+'.png';
+        console.log('productImg.src: ', productImg.src);
+        productBg.appendChild(productImg);
+
+        document.getElementById('product').appendChild(productBg);
+
+      }
+  });
+}

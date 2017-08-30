@@ -14,6 +14,11 @@ app.get('/fit-profile', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'steps.html'));
 });
 
+app.get('/fit-test', function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'steps.html'));
+});
+
+
 app.get('/', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });

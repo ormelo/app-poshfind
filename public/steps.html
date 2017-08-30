@@ -25,6 +25,16 @@ html{
   width: 80%;
   text-align: center;
   font-size: 18px;
+  overflow-y: auto;
+}
+.contentShop {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 38px;
+  width: 80%;
+  text-align: center;
+  font-size: 18px;
+  overflow-y: auto;
 }
 @font-face{
   font-family:'proxima';
@@ -36,6 +46,27 @@ html{
     position: relative;
     width: 212px;
     z-index: 1;
+}
+.products {
+    position: absolute;
+    left: 0px;
+    top: -18px;
+    overflow-y: auto;
+    display: none;
+}
+.product-bg {
+  background-image: url(img/pbg.png);
+  width: 100vw;height: 460px;
+  background-size: cover;
+  position: relative;
+}
+.actual-prod {
+  width: 200px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 144px;
 }
 
 #tabs {
@@ -707,6 +738,7 @@ p img.right { float: right; margin-left: 1em; }
 <script type="text/javascript" src="haar/lib/jsfeat-samples/js/frontalface.js"></script>
 <script type="text/javascript">
   
+var selectedCat = 'tops';
 var gui,options,ctx,canvasWidth,canvasHeight;
 var img_u8,work_canvas,work_ctx,ii_sum,ii_sqsum,ii_tilted,edg,ii_canny;
 var faceClassifier = jsfeat.haar['frontalface'];
@@ -825,6 +857,18 @@ function captureSizes(ctx, rects, sc, max, type) {
         }
         // ctx.strokeRect((r.x*sc)|0,(r.y*sc)|0,(r.width*sc)|0,(r.height*sc)|0);
     }
+}
+
+function getCategory() {
+  return selectedCat;
+}
+
+function getGender() {
+  return localStorage.getItem('m') != null && localStorage.getItem('m')=='true' ? 'm' : 'f';
+}
+
+function getSize() {
+  return 'xxl';
 }
 
 
