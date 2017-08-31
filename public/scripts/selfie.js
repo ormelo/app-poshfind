@@ -49,7 +49,7 @@ if(!navigator.getMedia){
   displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
 }
 else{
-
+debugger;
   // Request the camera.
   navigator.getMedia(
     {
@@ -61,7 +61,7 @@ else{
       // Create an object URL for the video stream and
       // set it as src of our HTLM video element.
       video.src = window.URL.createObjectURL(stream);
-      streamTrack = stream.getTracks()[0];
+      streamTrack = stream.getTracks()[1];
       // Play the video element to start the stream.
       video.play();
       video.onplay = function() {
