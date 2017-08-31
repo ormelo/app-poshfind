@@ -97,7 +97,7 @@ navigator.getMedia = ( navigator.getUserMedia ||
                       navigator.msGetUserMedia);
 
 
-if(!navigator.getMedia){
+/*if(!navigator.getMedia){
   displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
 }
 else{
@@ -127,7 +127,7 @@ else{
     }
   );
 
-}
+}*/
 
 
   // Start video playback manually.
