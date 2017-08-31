@@ -12,7 +12,6 @@ class Shop extends Component {
       setTimeout("$('.splashImg').hide();$('#d4').fadeOut(0).fadeIn(500);",3000);
       setTimeout("$('#d4').fadeOut(100);$('#splash').hide();$('#tabs').fadeOut(0).fadeIn(500);",4000);
       showProducts();
-      $('.contentShop').css('margin-top','20px');
       $('.outline').hide();
 
       //click handler for tabs
