@@ -201,6 +201,7 @@ take_photo_btn.addEventListener("click", function(e){
         localStorage.setItem('faceY',faceY);
         localStorage.setItem('faceW',faceW);
         localStorage.setItem('faceH',faceH);
+        alert("faceX: "+faceX+", faceY: "+faceY+", faceW: "+faceW+", faceH: "+faceH+", shoulderX: "+localStorage.getItem('shoulderX')+", shoulderY: "+localStorage.getItem('shoulderY')+", shoulderW: "+localStorage.getItem('shoulderW')+", shoulderH: "+localStorage.getItem('shoulderH'));
         stepEMeasure();
     }, 4000);
 
