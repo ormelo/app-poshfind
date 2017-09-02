@@ -833,7 +833,7 @@ function captureSizes(ctx, rects, sc, max, type) {
     console.log('rects: ', rects);
     if(on == 0 && type == "upperbody") {
       upperBodyRetryCount++;
-      if(upperBodyRetryCount < 200) {
+      if(upperBodyRetryCount < 50) {
         demo_app();
         tick(upperBodyClassifier, 'upperbody');
       }
