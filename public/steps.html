@@ -744,6 +744,11 @@ var faceClassifier = jsfeat.haar['frontalface'];
 var upperBodyClassifier = jsfeat.haar['upperbody'];
 var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr, streamTrack;
 
+function clearLocalStorage() {
+  localStorage.removeItem('faceX');localStorage.removeItem('faceY');localStorage.removeItem('faceW');localStorage.removeItem('faceH');
+  localStorage.removeItem('shoulderX');localStorage.removeItem('shoulderY');localStorage.removeItem('shoulderW');localStorage.removeItem('shoulderH');localStorage.removeItem('pic');
+}
+
 var max_work_size = 160;
 if(screen.width < 500){
   $('body').css('overflow-x','hidden');
