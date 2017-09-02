@@ -361,14 +361,14 @@ function showProducts() {
       var open = false;
       $('.product-bg').click(function() {
           setTimeout("$('.products').css('-webkit-filter','blur(5px)');",200);
-          $('#footerSlideContent').animate({ height: '72vh' });
+          $('#footerSlideContent').animate({ height: '72vh' },200);
           $(this).css('backgroundPosition', 'bottom left');
           open = true;
           $('.close').show();
       });   
       $('.close').click(function() {
           setTimeout("$('.products').css('-webkit-filter','blur(0px)');",200);
-          $('#footerSlideContent').animate({ height: '0px' });
+          $('#footerSlideContent').animate({ height: '0px' },200);
           $(this).css('backgroundPosition', 'top left');
           open = false;
           $('.close').hide();

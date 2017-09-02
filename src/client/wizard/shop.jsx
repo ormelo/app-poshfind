@@ -78,16 +78,7 @@ class Shop extends Component {
           <div className="close">close x</div>
             <div id="footerSlideContent">
               <div id="footerSlideText">
-                <h3>Hey! I'm a Sliding Footer</h3>
-                <p>What's a Sliding Footer? Well I'm a cool little element which can be hidden from view, and revealed when the user wants to see me.</p>
-                <p>What can you use me for? Well look at all this stuff:</p>
-                <ul>
-                  <li>Sales information</li>
-                  <li>Important updates</li>
-                  <li>Unobtrusive about panel</li>
-                  <li>Or just a good ol' footer</li>
-                </ul>
-                <p>There are obviously many other uses, but these are the few useful ones I can think of.</p>
+                
               </div>
             </div>
           </div>
