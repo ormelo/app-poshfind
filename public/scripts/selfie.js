@@ -361,7 +361,7 @@ function showProducts() {
       var open = false;
       $('.product-bg').click(function() {
           setTimeout("$('.products').css('-webkit-filter','blur(5px)');",200);
-          $('#footerSlideContent').animate({ height: '80vh' });
+          $('#footerSlideContent').animate({ height: '72vh' });
           $(this).css('backgroundPosition', 'bottom left');
           open = true;
           $('.close').show();
