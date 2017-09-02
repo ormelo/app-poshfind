@@ -23,6 +23,7 @@ function gotDevices(deviceInfos) {
 
 function getStream() {
   if (window.stream) {
+    streamTrack = stream.getTracks()[0];
     window.stream.getTracks().forEach(function(track) {
       track.stop();
     });
@@ -42,6 +43,7 @@ function getStream() {
 
 function gotStream(stream) {
   window.stream = stream; // make stream available to console
+  streamTrack = stream.getTracks()[0];
   videoElement.srcObject = stream;
 }
 
@@ -169,11 +171,7 @@ take_photo_btn.addEventListener("click", function(e){
   // Set the href attribute of the download button to the snap url.
   download_photo_btn.href = snap;
   $('#selfieMsg').html('Scanning...');
-  if(screen.width < 1000) {
-    $('.mask').addClass('scanning');
-  } else {
-    $('body').css('opacity','0.4');
-  }
+  setTimeout("if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}",100);
   demo_app();
   tick(faceClassifier, 'face');
   tick(upperBodyClassifier, 'upperbody');
@@ -359,5 +357,21 @@ function showProducts() {
         document.getElementById('product').appendChild(productBg);
 
       }
+
+      var open = false;
+      $('.product-bg').click(function() {
+          setTimeout("$('.products').css('-webkit-filter','blur(5px)');",200);
+          $('#footerSlideContent').animate({ height: '80vh' });
+          $(this).css('backgroundPosition', 'bottom left');
+          open = true;
+          $('.close').show();
+      });   
+      $('.close').click(function() {
+          setTimeout("$('.products').css('-webkit-filter','blur(0px)');",200);
+          $('#footerSlideContent').animate({ height: '0px' });
+          $(this).css('backgroundPosition', 'top left');
+          open = false;
+          $('.close').hide();
+      });
   });
 }

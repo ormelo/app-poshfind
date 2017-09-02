@@ -63,8 +63,8 @@ class Shop extends Component {
         </div>
 
           <div id="splash" style={{margin:'0 auto',marginTop:'18vh'}}>
-            <img id="d1" className="splashImg" src="img/dress1.png" style={{display:'none',width:'70px',position:'absolute',left:'10vw',top:'-46px'}}/>
-            <img id="d2" className="splashImg" src="img/dress2.png" style={{display:'none',width:'70px',position:'absolute',float:'right',right:'10vw',top:'-46px'}}/>
+            <img id="d1" className="splashImg" src="img/dress1.png" style={{display:'none',width:'70px',position:'absolute',left:'10vw',top:'76px'}}/>
+            <img id="d2" className="splashImg" src="img/dress2.png" style={{display:'none',width:'70px',position:'absolute',float:'right',right:'10vw',top:'76px'}}/>
             <div className="btnMsg" style={{margin:'0 auto',background:'rgba(234, 225, 244, 0.35)',top:'15vh'}}>
               <span>Finding best looks for you…</span>
             </div>
@@ -72,6 +72,25 @@ class Shop extends Component {
             <img id="d4" className="splashImg" src="img/dress4.png" style={{display:'none',width:'70px',position:'absolute',float:'right',right:'10vw', marginTop: '130px'}}/>
           </div>
           <br/>
+
+
+          <div id="footerSlideContainer">
+          <div className="close">close x</div>
+            <div id="footerSlideContent">
+              <div id="footerSlideText">
+                <h3>Hey! I'm a Sliding Footer</h3>
+                <p>What's a Sliding Footer? Well I'm a cool little element which can be hidden from view, and revealed when the user wants to see me.</p>
+                <p>What can you use me for? Well look at all this stuff:</p>
+                <ul>
+                  <li>Sales information</li>
+                  <li>Important updates</li>
+                  <li>Unobtrusive about panel</li>
+                  <li>Or just a good ol' footer</li>
+                </ul>
+                <p>There are obviously many other uses, but these are the few useful ones I can think of.</p>
+              </div>
+            </div>
+          </div>
             
           </div>
           );

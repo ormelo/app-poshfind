@@ -67,6 +67,40 @@ html{
   right: 0;
   top: 144px;
 }
+#footerSlideContainer {
+  position: fixed;
+  bottom:0;
+  width: 100%;
+}
+#footerSlideContent {
+  width: 100%;
+  height: 0px;
+  background: rgba(255,255,255,0.9);
+  color: #CCCCCC;
+  font-size: 0.8em;
+  border: none;
+  font-family: DejaVuSansBook, Sans-Serif;
+}
+#footerSlideText {
+  padding: 15px 10px 25px 25px;
+}
+.close {
+  text-align: center;
+  display: none;
+  position: relative;
+  font-weight: bold;
+  z-index: 5;
+  width: 100px;
+  background: rgba(156, 111, 223, 0.9);
+  border-radius: 20px;
+  padding: 0px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  margin: 0 auto;
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  top: 17px;
+}
 
 #tabs {
 background: #8d5fcc; /* Old browsers */
@@ -746,7 +780,7 @@ var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retr
 
 function clearLocalStorage() {
   localStorage.removeItem('faceX');localStorage.removeItem('faceY');localStorage.removeItem('faceW');localStorage.removeItem('faceH');
-  localStorage.removeItem('shoulderX');localStorage.removeItem('shoulderY');localStorage.removeItem('shoulderW');localStorage.removeItem('shoulderH');localStorage.removeItem('pic');
+  localStorage.removeItem('shoulderX');localStorage.removeItem('shoulderY');localStorage.removeItem('shoulderW');localStorage.removeItem('shoulderH');localStorage.removeItem('pic');localStorage.removeItem('userSize');
 }
 
 clearLocalStorage();
@@ -860,6 +894,21 @@ function captureSizes(ctx, rects, sc, max, type) {
           localStorage.setItem('shoulderY', shoulderY);
           localStorage.setItem('shoulderW', shoulderW);
           localStorage.setItem('shoulderH', shoulderH);
+          var size = localStorage.getItem('shoulderW');
+          size = size == null ? 250 : size;
+          if(size > 80 && size < 151) {
+            size = 's';
+          } else if(size > 150 && size < 178) {
+            size = 's';
+          } else if(size > 177 && size < 191) {
+            size = 'm';
+          } else if(size > 190 && size < 230) {
+            size = 'xl';
+          } else {
+            size = 'xxl';
+          }
+          localStorage.setItem('userSize', size);
+
           if(shoulderX > faceX*2.2) {
             demo_app();
             tick(upperBodyClassifier, 'upperbody');
@@ -882,7 +931,7 @@ function getGender() {
 }
 
 function getSize() {
-  return 'xxl';
+  return localStorage.getItem('userSize') == null ? 'xxl' : localStorage.getItem('userSize');
 }
 
 
