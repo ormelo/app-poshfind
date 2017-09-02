@@ -168,19 +168,19 @@ take_photo_btn.addEventListener("click", function(e){
 
   // Set the href attribute of the download button to the snap url.
   download_photo_btn.href = snap;
-
-  demo_app();
-  tick(faceClassifier, 'face');
-  tick(upperBodyClassifier, 'upperbody');
-
-  // Pause video playback of stream.
-  video.pause();
   $('#selfieMsg').html('Scanning...');
   if(screen.width < 1000) {
     $('.mask').addClass('scanning');
   } else {
     $('body').css('opacity','0.4');
   }
+  demo_app();
+  tick(faceClassifier, 'face');
+  tick(upperBodyClassifier, 'upperbody');
+
+  // Pause video playback of stream.
+  video.pause();
+  
     setTimeout(function () {
       if(screen.width < 1000) {
         $('.mask').removeClass('scanning');
