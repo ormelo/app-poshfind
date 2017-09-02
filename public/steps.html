@@ -827,12 +827,16 @@ function tick(classifier, type) {
     captureSizes(ctx, rects, canvasWidth/img_u8.cols, 1, type);
 }
 
+var upperBodyRetryCount = 0;
 function captureSizes(ctx, rects, sc, max, type) {
     var on = rects.length;
     console.log('rects: ', rects);
     if(on == 0 && type == "upperbody") {
-      demo_app();
-      tick(upperBodyClassifier, 'upperbody');
+      upperBodyRetryCount++;
+      if(upperBodyRetryCount < 200) {
+        demo_app();
+        tick(upperBodyClassifier, 'upperbody');
+      }
     }
     if(on && max) {
         jsfeat.math.qsort(rects, 0, on-1, function(a,b){return (b.confidence<a.confidence);})
