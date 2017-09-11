@@ -6,12 +6,18 @@ class Shop extends Component {
 
     componentDidMount(){
       $('.content').fadeOut(0).fadeIn(300);
-      setTimeout("$('.splashImg').hide();$('#d1').fadeOut(0).fadeIn(500);",0);
+      //temp: commented
+      /* setTimeout("$('.splashImg').hide();$('#d1').fadeOut(0).fadeIn(500);",0);
       setTimeout("$('.splashImg').hide();$('#d2').fadeOut(0).fadeIn(500);",1000);
       setTimeout("$('.splashImg').hide();$('#d3').fadeOut(0).fadeIn(500);",2000);
       setTimeout("$('.splashImg').hide();$('#d4').fadeOut(0).fadeIn(500);",3000);
-      setTimeout("$('#d4').fadeOut(100);$('#splash').hide();$('#tabs').fadeOut(0).fadeIn(500);",4000);
+      setTimeout("$('#d4').fadeOut(100);$('#splash').hide();$('#tabs').fadeOut(0).fadeIn(500);",4000); */
+      //temp: uncomment above and remove below line
+      $('#splash').hide();$('#tabs').fadeOut(0).fadeIn(500);
       showProducts();
+      if(document.body.clientWidth > 700) {
+        $('.products').css('left',document.body.clientWidth/40);
+      }
       $('.outline').hide();
 
       //click handler for tabs
@@ -25,7 +31,7 @@ class Shop extends Component {
       });
     }
     render(){
-        return (<div className="contentShop" style={{minHeight:'600px',width:'100%'}}>
+        return (<div className="contentShop" style={{minHeight:minHeightVal,width:'100%'}}>
           
           <div className="products">
             <div className="product" id="product">
@@ -78,7 +84,16 @@ class Shop extends Component {
           <div className="close">close x</div>
             <div id="footerSlideContent">
               <div id="footerSlideText">
-                
+                <section className="variable slider">
+                <div id="size1" className="size-slide">
+                </div>
+                <div id="size2" className="size-slide">
+                </div>
+                <div id="size3" className="size-slide">
+                </div>
+                <div id="size4" className="size-slide">
+                </div>
+              </section>
               </div>
             </div>
           </div>

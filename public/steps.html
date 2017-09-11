@@ -18,6 +18,20 @@ html{
     background-color: #ffffff;
     font-family: 'Quicksand', sans-serif;
 }
+.slider {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.slick-slide {
+  margin: 0px;
+}
+
+
+.slick-prev:before,
+.slick-next:before {
+    color: black;
+}
 .content {
   position: relative;
   margin: 0 auto;
@@ -49,6 +63,7 @@ html{
 }
 .products {
     position: absolute;
+    opacity: 1;
     left: 0px;
     top: -18px;
     display: none;
@@ -80,7 +95,7 @@ html{
   border: none;
 }
 #footerSlideText {
-  padding: 15px 10px 25px 25px;
+  padding: 1px 0px 25px 0px;
 }
 .close {
   text-align: center;
@@ -581,6 +596,14 @@ p img.right { float: right; margin-left: 1em; }
       position: relative;
       width: 212px;
     }
+    .tabs-menu {
+      height: 30px;
+      float: left;
+      clear: both;
+      list-style: none;
+      margin-left: 44px;
+      width: 100%;
+  }
 }
 @media (min-width: 600px){
     .container{
@@ -657,6 +680,14 @@ p img.right { float: right; margin-left: 1em; }
       position: relative;
       width: 240px;
     }
+    .tabs-menu {
+      height: 30px;
+      float: left;
+      clear: both;
+      list-style: none;
+      margin-left: 44px;
+      width: 100%;
+  }
 }
 @media (min-width: 1025px){
     .container{
@@ -727,14 +758,24 @@ p img.right { float: right; margin-left: 1em; }
       position: relative;
       width: 240px;
     }
+    .tabs-menu {
+      height: 30px;
+      float: left;
+      clear: both;
+      list-style: none;
+      margin-left: 344px;
+      width: 100%;
+  }
 }
 
 </style>
+<link rel="stylesheet" type="text/css" href="css/slick.css">
+<link rel="stylesheet" type="text/css" href="css/slick-theme.css">
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
-
+<script src="scripts/slick.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
@@ -774,7 +815,8 @@ var gui,options,ctx,canvasWidth,canvasHeight;
 var img_u8,work_canvas,work_ctx,ii_sum,ii_sqsum,ii_tilted,edg,ii_canny;
 var faceClassifier = jsfeat.haar['frontalface'];
 var upperBodyClassifier = jsfeat.haar['upperbody'];
-var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr, streamTrack;
+var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr, streamTrack, minHeightVal;
+minHeightVal = screen.height-80;
 
 function clearLocalStorage() {
   localStorage.removeItem('faceX');localStorage.removeItem('faceY');localStorage.removeItem('faceW');localStorage.removeItem('faceH');
@@ -782,6 +824,12 @@ function clearLocalStorage() {
 }
 
 clearLocalStorage();
+
+var onresize = function() {
+  minHeightVal = screen.height-80;
+
+}
+window.addEventListener("resize", onresize);
 
 var max_work_size = 160;
 if(screen.width < 500){
