@@ -99,6 +99,10 @@ class Shop extends Component {
               </div>
             </div>
           </div>
+
+          <div class="button-container">
+                  <a className="btn" id="buy-now" style={{position:"fixed",bottom:"20px",margin: "0 auto",display:"none"}}><span>Buy Now</span></a>
+                </div>
             
           </div>
           );

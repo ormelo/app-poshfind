@@ -368,6 +368,7 @@ function showProducts() {
 
       var open = false;
       $('.product-bg').click(function() {
+          $('#buy-now').show();
           for(var i=0;i<4;i++) {
             var suffix = i+1;
             $('#size'+(i+1)).html('');
@@ -444,6 +445,7 @@ function showProducts() {
           $('.close').show();
       });   
       $('.close').click(function() {
+          $('#buy-now').hide();
           setTimeout("$('.products').css('-webkit-filter','blur(0px)');",250);
           $('#footerSlideContent').animate({ height: '0px' },200);
           $(this).css('backgroundPosition', 'top left');
