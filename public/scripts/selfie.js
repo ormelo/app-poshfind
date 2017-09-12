@@ -375,7 +375,7 @@ function showProducts() {
           var prodId = $(this).attr('id');
               for(var i=0;i<4;i++) {
                 var productBg = document.createElement('div');
-                productBg.className = 'product-bg';
+                productBg.className = 'product-bg-size';
 
                 var productCanvas = document.createElement('canvas');
                 productCanvas.id = 'sizecanvas'+i;
@@ -438,7 +438,7 @@ function showProducts() {
                   ctx.drawImage(document.getElementById('sizeimg0'), parseInt(faceX,10)-20, parseInt(faceY,10)-90, parseInt(faceW,10)+20, parseInt(faceH,10)+150, newLeft, newTop, 93, 124);
                   }
           setTimeout("$('.products').css('-webkit-filter','blur(5px)');",250);
-          $('#footerSlideContent').animate({ height: '74vh' },200);
+          $('#footerSlideContent').animate({ height: '86vh' },200);
           $(this).css('backgroundPosition', 'bottom left');
           open = true;
           $('.close').show();
