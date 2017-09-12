@@ -69,12 +69,19 @@
     font-family: 'slick';
     font-size: 20px;
     line-height: 1;
-
     opacity: .75;
     color: rgba(156, 111, 223);
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #a57ce1;
+    color: white;
+    border-radius: 33px;
+    padding: 14px;
+    left: -14px;
+    position: relative;
+    padding-bottom: 9px;
+    padding-top: 15px;
+    top: 47px;
 }
 
 .slick-prev
@@ -88,7 +95,11 @@
 }
 .slick-prev:before
 {
-    content: '←';
+    content: '\003C';
+    padding: 15px;
+    padding-right: 20px;
+    padding-left: 18px;
+    padding-top: 13px;
 }
 [dir='rtl'] .slick-prev:before
 {
@@ -106,7 +117,11 @@
 }
 .slick-next:before
 {
-    content: '→';
+    content: '\003E';
+    padding: 15px;
+    padding-right: 17px;
+    padding-left: 21px;
+    padding-top: 13px;
 }
 [dir='rtl'] .slick-next:before
 {

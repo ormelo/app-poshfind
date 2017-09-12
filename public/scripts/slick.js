@@ -703,6 +703,7 @@
                 if (_.slideCount > _.options.slidesToShow) {
                     _.slideHandler(_.currentSlide - slideOffset, false, dontAnimate);
                 }
+                showSizeVal(_.currentSlide);
                 break;
 
             case 'next':
@@ -710,6 +711,7 @@
                 if (_.slideCount > _.options.slidesToShow) {
                     _.slideHandler(_.currentSlide + slideOffset, false, dontAnimate);
                 }
+                showSizeVal(_.currentSlide);
                 break;
 
             case 'index':

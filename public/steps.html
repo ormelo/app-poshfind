@@ -80,7 +80,7 @@ html{
   background-size: cover;
   position: relative;
   left: -34px;
-  top: -20px;
+  top: 66px;
   opacity: 1;
 }
 .actual-prod {
@@ -112,7 +112,7 @@ html{
   position: relative;
   font-weight: bold;
   z-index: 5;
-  width: 100px;
+  width: 120px;
   background: rgba(156, 111, 223, 0.9);
   border-radius: 20px;
   padding: 0px 10px;
@@ -121,9 +121,35 @@ html{
   color: white;
   padding: 8px;
   font-size: 16px;
-  top: 17px;
+  top: 87px;
 }
-
+.close::after {
+  content: "x";
+  padding-left: 10px;
+  top: -1px;
+  position: relative;
+}
+.size-title {
+  display: block;
+  position: relative;
+  top: 82px;
+  z-index: 0;
+  border-bottom: 1px solid #dfa04c;
+  color: #4f5063;
+  width: 162px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 23px;
+  padding: 6px;
+  font-size: 18px;
+  border-left: 1px solid #dfa04c;
+  border-right: 1px solid #dfa04c;
+}
+.size-hanger {
+  width: 84px;
+  top: 87px;
+  position: relative;
+}
 #tabs {
 background: #8d5fcc; /* Old browsers */
 background: -moz-linear-gradient(top,  #8d5fcc 0%, #9a6ddc 70%, #b084f8 100%); /* FF3.6-15 */
@@ -836,9 +862,18 @@ clearLocalStorage();
 
 var onresize = function() {
   minHeightVal = screen.height-80;
-
 }
 window.addEventListener("resize", onresize);
+
+function showSizeVal(slideNum) {
+  
+  var sizeSrc = $($($('.slick-active').children()[0]).children()[2]).attr('src');
+  console.log(sizeSrc);
+  if(sizeSrc.indexOf('s.png') > 0) $('.size-title').html('Trying size M');
+  if(sizeSrc.indexOf('m.png') > 0) $('.size-title').html('Trying size L');
+  if(sizeSrc.indexOf('xl.png') > 0) $('.size-title').html('Trying size XL');
+  if(sizeSrc.indexOf('xxl.png') > 0) $('.size-title').html('Trying size XXL');
+}
 
 var max_work_size = 160;
 if(screen.width < 500){
