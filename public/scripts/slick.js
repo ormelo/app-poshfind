@@ -2608,7 +2608,7 @@
             }
 
         }
-
+        showSizeVal(_.currentSlide);
     };
 
     Slick.prototype.swipeHandler = function(event) {
