@@ -107,28 +107,51 @@ html{
 #footerSlideText {
   padding: 1px 0px 25px 0px;
 }
+@keyframes blinking {
+    0% { opacity: 1; }
+    20% { opacity: 1; }
+    50% { opacity: 0; }
+    80% { opacity: 1; }
+    100% { opacity: 1; }
+}
+@-webkit-keyframes blinking {
+    0% { opacity: 1; }
+    20% { opacity: 1; }
+    50% { opacity: 0; }
+    80% { opacity: 1; }
+    100% { opacity: 1; }
+}
+.blink {
+    animation: blinking 3s ease-in-out infinite;
+    -webkit-animation: blinking 3s ease-in-out infinite;
+}
 .close {
   text-align: center;
   display: none;
-  position: relative;
+  position: absolute;
+  float: right;
+  right: 8px;
   font-weight: bold;
   z-index: 5;
-  width: 120px;
-  background: rgba(156, 111, 223, 0.9);
+  width: 40px;
+  background: rgb(240, 240, 240);
   border-radius: 20px;
   padding: 0px 10px;
   border-bottom: 1px solid rgba(255,255,255,0.2);
   margin: 0 auto;
-  color: white;
-  padding: 8px;
+  color: #898888;
+  padding: 10px;
   font-size: 16px;
-  top: 116px;
+  top: 97px;
+  border: 1px solid #ccc;
 }
 .close::after {
-  content: "x";
-  padding-left: 10px;
-  top: -1px;
+  content: "X";
+  padding-left: 1px;
+  top: 0px;
   position: relative;
+  font-family: quicksand;
+  font-size: 16px;
 }
 #buy-now {
   position: fixed;
