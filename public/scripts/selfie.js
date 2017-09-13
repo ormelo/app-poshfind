@@ -444,10 +444,29 @@ function showProducts() {
           $(this).css('backgroundPosition', 'bottom left');
           open = true;
           $('.close').show();
+
+          var fitCircleLeft = document.querySelector('.actual-prod').getBoundingClientRect().left;
+          var fitCircleRight = document.querySelector('.actual-prod').getBoundingClientRect().right;
+          $('.fit-shoulder-left').css('left',fitCircleLeft);
+          $('.fit-shoulder-left').show();
+          $('.fit-shoulder-left').addClass('bad');
+          $('.fit-shoulder-right').css('left',fitCircleRight);
+          $('.fit-shoulder-right').show();
+          $('.fit-shoulder-right').addClass('bad');
+          $('.fit-waist-left').css('left',fitCircleLeft);
+          $('.fit-waist-left').addClass('bad');
+          $('.fit-waist-left').show();
+          $('.fit-waist-right').css('left',fitCircleRight);
+          $('.fit-waist-right').addClass('bad');
+          $('.fit-waist-right').show();
       });   
       $('.close').click(function() {
           $('#tabs').show();
           $('#buy-now').hide();
+          $('.fit-shoulder-left').hide();
+          $('.fit-shoulder-right').hide();
+          $('.fit-waist-left').hide();
+          $('.fit-waist-right').hide();
           setTimeout("$('.products').css('-webkit-filter','blur(0px)');",250);
           $('#footerSlideContent').animate({ height: '0px' },200);
           $(this).css('backgroundPosition', 'top left');

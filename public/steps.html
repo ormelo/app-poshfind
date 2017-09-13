@@ -125,6 +125,66 @@ html{
     animation: blinking 1.2s ease-in-out infinite;
     -webkit-animation: blinking 1.2s ease-in-out infinite;
 }
+.bad {
+  border: 3px solid #ff4f4f !important;
+}
+.fit-shoulder-left {
+    border: 3px solid #5bb056;
+    -webkit-border-radius: 30px;
+    height: 18px;
+    width: 18px;
+    position: fixed;
+    left: 109px;
+    top: 258px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0;
+    display: none;
+}
+.fit-shoulder-right {
+    border: 3px solid #5bb056;
+    -webkit-border-radius: 30px;
+    height: 18px;
+    width: 18px;
+    position: fixed;
+    float: right;
+    top: 258px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0;
+    display: none;
+}
+.fit-waist-left {
+    border: 3px solid #5bb056;
+    -webkit-border-radius: 30px;
+    height: 18px;
+    width: 18px;
+    position: fixed;
+    left: 149px;
+    top: 450px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0;
+    display: none;
+}
+.fit-waist-right {
+    border: 3px solid #5bb056;
+    -webkit-border-radius: 30px;
+    height: 18px;
+    width: 18px;
+    position: fixed;
+    left: 199px;
+    top: 450px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0;
+    display: none;
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(2, 2); opacity: 0.0;}
+}
 .close {
   text-align: center;
   display: none;
@@ -911,6 +971,27 @@ function showSizeVal(slideNum) {
   if(sizeSrc.indexOf('m.png') > 0) $('.size-title').html('Trying size L');
   if(sizeSrc.indexOf('xl.png') > 0) $('.size-title').html('Trying size XL');
   if(sizeSrc.indexOf('xxl.png') > 0) $('.size-title').html('Trying size XXL');
+
+  randomizeFitCircles();
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+function removeFitBadClass() {
+  $('.fit-shoulder-left').removeClass('bad');$('.fit-shoulder-right').removeClass('bad');
+  $('.fit-waist-left').removeClass('bad');$('.fit-waist-right').removeClass('bad');
+}
+
+function randomizeFitCircles() {
+  var num = getRandomInt(1,5);
+  if(num ==1 ){ removeFitBadClass(); $('.fit-shoulder-left').addClass('bad'); $('.fit-waist-wight').addClass('bad'); }
+  else if(num ==2 ) { removeFitBadClass(); $('.fit-shoulder-right').addClass('bad'); $('.fit-waist-left').addClass('bad'); }
+  else if(num ==3 ) { removeFitBadClass(); $('.fit-shoulder-left').addClass('bad');  }
+  else if(num ==4 ) { removeFitBadClass(); $('.fit-shoulder-left').addClass('bad'); $('.fit-shoulder-right').addClass('bad'); }
 }
 
 var max_work_size = 160;
