@@ -463,6 +463,7 @@ function showProducts() {
           { 
             removeFitBadClass(); 
             computeFitCircles('M');
+            $('.size-title').html('Trying size M');
             $('.fit-shoulder-left').addClass('bad'); 
             $('.fit-waist-wight').addClass('bad');
             $('#buy-now').addClass('badfit').addClass('bubbledLeft').removeClass('btn');
