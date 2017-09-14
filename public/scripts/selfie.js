@@ -459,6 +459,14 @@ function showProducts() {
           $('.fit-waist-right').css('left',fitCircleRight);
           $('.fit-waist-right').addClass('bad');
           $('.fit-waist-right').show();
+          //ToDo: add this based on condition
+          { 
+            removeFitBadClass(); 
+            $('.fit-shoulder-left').addClass('bad'); 
+            $('.fit-waist-wight').addClass('bad');
+            $('#buy-now').addClass('badfit').addClass('bubbledLeft').removeClass('btn');
+            $('#buy-now').html('Tight around shoulders and waist.');
+          }
       });   
       $('.close').click(function() {
           $('#tabs').show();

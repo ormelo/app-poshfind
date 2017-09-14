@@ -126,10 +126,10 @@ html{
     -webkit-animation: blinking 1.2s ease-in-out infinite;
 }
 .bad {
-  border: 3px solid #ff4f4f !important;
+  border: 3px solid rgba(255, 79, 79, 0.4) !important;
 }
 .fit-shoulder-left {
-    border: 3px solid #5bb056;
+    border: 3px solid rgba(91, 176, 86, 0.4);
     -webkit-border-radius: 30px;
     height: 18px;
     width: 18px;
@@ -142,7 +142,7 @@ html{
     display: none;
 }
 .fit-shoulder-right {
-    border: 3px solid #5bb056;
+    border: 3px solid rgba(91, 176, 86, 0.4);
     -webkit-border-radius: 30px;
     height: 18px;
     width: 18px;
@@ -155,7 +155,7 @@ html{
     display: none;
 }
 .fit-waist-left {
-    border: 3px solid #5bb056;
+    border: 3px solid rgba(91, 176, 86, 0.4);
     -webkit-border-radius: 30px;
     height: 18px;
     width: 18px;
@@ -168,7 +168,7 @@ html{
     display: none;
 }
 .fit-waist-right {
-    border: 3px solid #5bb056;
+    border: 3px solid rgba(91, 176, 86, 0.4);
     -webkit-border-radius: 30px;
     height: 18px;
     width: 18px;
@@ -180,6 +180,38 @@ html{
     opacity: 0.0;
     display: none;
 }
+.bubbledLeft,.bubbledRight {
+    margin-top: 20px;
+    padding: 5px 9px;
+    max-width: 70%;
+    clear: both;
+    position: relative;
+}
+
+.bubbledLeft{
+    float: left;
+    margin-right: auto;
+    -webkit-border-radius: 8px 8px 8px 0px;
+    -moz-border-radius: 8px 8px 8px 0px;
+    -o-border-radius: 8px 8px 8px 0px;
+    -ms-border-radius: 8px 8px 8px 0px;
+    border-radius: 8px 8px 8px 0px;
+    background-color: rgb(227, 84, 84);
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 12px;
+}
+
+.bubbledLeft:before {
+    border-bottom: 10px solid rgb(227, 84, 84);
+    border-left: 9px solid rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 0;
+    left: -8px;
+    content: "";
+}
+
 @-webkit-keyframes pulsate {
     0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
     50% {opacity: 1.0;}
@@ -373,6 +405,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d5fcc', end
     transition: -webkit-transform 400ms ease-in;
     transition: transform 400ms ease-in;
     transition: transform 400ms ease-in, -webkit-transform 400ms ease-in;
+}
+.badfit:after {
+  background: linear-gradient(45deg, #a94343 0%, #F44336 25%, #f88484 81%, #f88484 100%);
+}
+.btn.badfit span {
+  font-size: 16px;
+}
+.btn.badfit {
+  width: 314px;
 }
 .btn:hover:after {
     -webkit-transform: translateX(-200px);
@@ -988,10 +1029,46 @@ function removeFitBadClass() {
 
 function randomizeFitCircles() {
   var num = getRandomInt(1,5);
-  if(num ==1 ){ removeFitBadClass(); $('.fit-shoulder-left').addClass('bad'); $('.fit-waist-wight').addClass('bad'); }
-  else if(num ==2 ) { removeFitBadClass(); $('.fit-shoulder-right').addClass('bad'); $('.fit-waist-left').addClass('bad'); }
-  else if(num ==3 ) { removeFitBadClass(); $('.fit-shoulder-left').addClass('bad');  }
-  else if(num ==4 ) { removeFitBadClass(); $('.fit-shoulder-left').addClass('bad'); $('.fit-shoulder-right').addClass('bad'); }
+  if(num ==1 ) { 
+    removeFitBadClass(); 
+    $('.fit-shoulder-left').addClass('bad'); 
+    $('.fit-waist-wight').addClass('bad');
+    $('#buy-now').addClass('badfit').addClass('bubbledLeft').removeClass('btn');
+    $('#buy-now').html('Tight around shoulders and waist.');
+    $('.size-hanger').attr('src','img/hanger.png');
+    $('.size-hanger').css('width','84px');
+    $('#size-title').html('Trying Size');
+  } else if(num ==2 ) { 
+    removeFitBadClass();
+    $('.fit-shoulder-right').addClass('bad');
+    $('.fit-waist-left').addClass('bad');
+    $('#buy-now').removeClass('badfit').removeClass('bubbledLeft').addClass('btn'); 
+    $('#buy-now').html('<span>Buy now!</span>');
+    $($('#buy-now').children()[0]).css('top','14px');
+    $($('#buy-now').children()[0]).css('font-size','18px');
+    $('.size-hanger').attr('src','img/success.png');
+    $('.size-hanger').css('width','38px');
+    $('#size-title').html($('#size-title').html()+' fits you!');
+  } else if(num ==3 ) { 
+    removeFitBadClass(); 
+    $('.fit-shoulder-left').addClass('bad'); 
+    $('#buy-now').removeClass('badfit').removeClass('bubbledLeft').addClass('btn'); 
+    $('#buy-now').html('<span>Buy now!</span>');
+    $($('#buy-now').children()[0]).css('top','14px');
+    $($('#buy-now').children()[0]).css('font-size','18px');
+    $('.size-hanger').attr('src','img/success.png');
+    $('.size-hanger').css('width','38px');
+    $('#size-title').html($('#size-title').html()+' fits you!');
+  } else if(num ==4 ) { 
+    removeFitBadClass();
+    $('.fit-shoulder-left').addClass('bad');
+    $('.fit-shoulder-right').addClass('bad');
+    $('#buy-now').addClass('badfit').addClass('bubbledLeft').removeClass('btn');
+    $('#buy-now').html('Tight around waist.');
+    $('.size-hanger').attr('src','img/hanger.png');
+    $('.size-hanger').css('width','84px');
+    $('#size-title').html('Trying Size');
+  }
 }
 
 var max_work_size = 160;
