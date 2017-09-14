@@ -83,7 +83,7 @@ class Shop extends Component {
           <div id="footerSlideContainer">
           <div className="close"></div>
           <img className="size-hanger" src="img/hanger.png"></img>
-          <div className="size-title blink">Trying size S</div>
+          <div className="size-title blink">Trying size M</div>
             <div id="footerSlideContent">
               <div id="footerSlideText">
                 <section className="variable slider">
