@@ -1158,7 +1158,7 @@ function computeFitCircles(hangerSize) {
   }
 }
 
-var max_work_size = 660;
+var max_work_size = 160;
 if(screen.width < 500){
   $('body').css('overflow-x','hidden');
   $('body').css('overflow-y','hidden');
@@ -1222,7 +1222,7 @@ function tick(classifier, type) {
     jsfeat.imgproc.compute_integral_image(img_u8, ii_sum, ii_sqsum, classifier.tilted ? ii_tilted : null);
 
     if(options.use_canny) {
-        jsfeat.imgproc.canny(img_u8, edg, 110, 150);
+        jsfeat.imgproc.canny(img_u8, edg, 100, 300);
         jsfeat.imgproc.compute_integral_image(edg, ii_canny, null, null);
     }
 
