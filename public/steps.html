@@ -1222,7 +1222,7 @@ function tick(classifier, type) {
     jsfeat.imgproc.compute_integral_image(img_u8, ii_sum, ii_sqsum, classifier.tilted ? ii_tilted : null);
 
     if(options.use_canny) {
-        jsfeat.imgproc.canny(img_u8, edg, 100, 300);
+        jsfeat.imgproc.canny(img_u8, edg, 110, 50);
         jsfeat.imgproc.compute_integral_image(edg, ii_canny, null, null);
     }
 
@@ -1240,7 +1240,7 @@ function captureSizes(ctx, rects, sc, max, type) {
     console.log('rects: ', rects);
     if(on == 0 && type == "upperbody") {
       upperBodyRetryCount++;
-      if(upperBodyRetryCount < 5) {
+      if(upperBodyRetryCount < 50) {
         demo_app();
         tick(upperBodyClassifier, 'upperbody');
       }
