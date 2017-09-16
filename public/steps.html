@@ -992,6 +992,36 @@ var upperBodyClassifier = jsfeat.haar['upperbody'];
 var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr, streamTrack, minHeightVal;
 minHeightVal = screen.height-80;
 
+var voteS=0, voteM=0, voteXL=0, voteXXL=0;
+var sarrShoulderW = [306,250,234];
+var sarrShoulderX = [158,204,58];
+var sarrFaceW = [166,162,174];
+var sarrFaceX = [131,154,156];
+
+var marrShoulderW = [234,234,234];
+var marrShoulderX = [154,154,242];
+var marrFaceW = [188,187,171];
+var marrFaceX = [148,151,145];
+
+var xlarrShoulderW = [234,234,234,234];
+var xlarrShoulderX = [154,122,21,130];
+var xlarrFaceW = [186,196,195,188];
+var xlarrFaceX = [138,143,143,150];
+
+var xxlarrShoulderW = [234,178,234,178];
+var xxlarrShoulderX = [194,66,34,242];
+var xxlarrFaceW = [169,181,258,188];
+var xxlarrFaceX = [145,123,105,159];
+
+function closest(arr, closestTo){
+
+    var closest = Math.max.apply(null, arr); //Get the highest number in arr in case it match nothing.
+    for(var i = 0; i < arr.length; i++){ //Loop the array
+        if(arr[i] >= closestTo && arr[i] < closest) closest = arr[i]; //Check if it's higher than your number, but lower than your closest value
+    }
+    return closest; // return the value
+}
+
 function clearLocalStorage() {
   localStorage.removeItem('faceX');localStorage.removeItem('faceY');localStorage.removeItem('faceW');localStorage.removeItem('faceH');
   localStorage.removeItem('shoulderX');localStorage.removeItem('shoulderY');localStorage.removeItem('shoulderW');localStorage.removeItem('shoulderH');localStorage.removeItem('pic');localStorage.removeItem('userSize');
@@ -1268,7 +1298,7 @@ function captureSizes(ctx, rects, sc, max, type) {
           localStorage.setItem('shoulderW', shoulderW);
           localStorage.setItem('shoulderH', shoulderH);
           var size = localStorage.getItem('shoulderW');
-          size = size == null ? 250 : size;
+          /*size = size == null ? 250 : size;
           if(size > 80 && size < 151) {
             size = 'm';
           } else if(size > 150 && size < 178) {
@@ -1279,8 +1309,7 @@ function captureSizes(ctx, rects, sc, max, type) {
             size = 'xl';
           } else {
             size = 'xxl';
-          }
-          localStorage.setItem('userSize', size);
+          }*/
 
           if(shoulderX > faceX*2.2) {
             demo_app();

@@ -200,6 +200,96 @@ take_photo_btn.addEventListener("click", function(e){
         localStorage.setItem('faceW',faceW);
         localStorage.setItem('faceH',faceH);
         alert("faceX: "+faceX+", faceY: "+faceY+", faceW: "+faceW+", faceH: "+faceH+", shoulderX: "+localStorage.getItem('shoulderX')+", shoulderY: "+localStorage.getItem('shoulderY')+", shoulderW: "+localStorage.getItem('shoulderW')+", shoulderH: "+localStorage.getItem('shoulderH'));
+        
+
+        //find closest in shoulderW
+          var closestValS = closest(sarrShoulderW, shoulderW);
+          var closestValM = closest(marrShoulderW, shoulderW);
+          var closestValXL = closest(xlarrShoulderW, shoulderW);
+          var closestValXXL = closest(xxlarrShoulderW, shoulderW);
+          var newArr = new Array();
+          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+          var closestValueAmongSizes = closest(newArr, shoulderW);
+          
+          if(closestValueAmongSizes == closestValS)
+            voteS++;
+          if(closestValueAmongSizes == closestValM)
+            voteM++;
+          if(closestValueAmongSizes == closestValXL)
+            voteXL++;
+          if(closestValueAmongSizes == closestValXXL)
+            voteXXL++;
+
+          //find closest in shoulderX
+          var closestValS = closest(sarrShoulderX, shoulderX);
+          var closestValM = closest(marrShoulderX, shoulderX);
+          var closestValXL = closest(xlarrShoulderX, shoulderX);
+          var closestValXXL = closest(xxlarrShoulderX, shoulderX);
+          newArr = new Array();
+          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+          closestValueAmongSizes = closest(newArr, shoulderX);
+          
+          if(closestValueAmongSizes == closestValS)
+            voteS++;
+          if(closestValueAmongSizes == closestValM)
+            voteM++;
+          if(closestValueAmongSizes == closestValXL)
+            voteXL++;
+          if(closestValueAmongSizes == closestValXXL)
+            voteXXL++;
+
+          //find closest in faceW
+          var closestValS = closest(sarrFaceW, faceW);
+          var closestValM = closest(marrFaceW, faceW);
+          var closestValXL = closest(xlarrFaceW, faceW);
+          var closestValXXL = closest(xxlarrFaceW, faceW);
+          newArr = new Array();
+          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+          closestValueAmongSizes = closest(newArr, faceW);
+          
+          if(closestValueAmongSizes == closestValS)
+            voteS++;
+          if(closestValueAmongSizes == closestValM)
+            voteM++;
+          if(closestValueAmongSizes == closestValXL)
+            voteXL++;
+          if(closestValueAmongSizes == closestValXXL)
+            voteXXL++;
+
+          //find closest in faceX
+          var closestValS = closest(sarrFaceX, faceX);
+          var closestValM = closest(marrFaceX, faceX);
+          var closestValXL = closest(xlarrFaceX, faceX);
+          var closestValXXL = closest(xxlarrFaceX, faceX);
+          newArr = new Array();
+          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+          closestValueAmongSizes = closest(newArr, faceX);
+          
+          if(closestValueAmongSizes == closestValS)
+            voteS++;
+          if(closestValueAmongSizes == closestValM)
+            voteM++;
+          if(closestValueAmongSizes == closestValXL)
+            voteXL++;
+          if(closestValueAmongSizes == closestValXXL)
+            voteXXL++;
+
+          var largestVotes = Math.max(voteS,voteM,voteXL,voteXXL);
+          if(largestVotes == voteXXL) {
+            size = 'xxl';
+          } else if(largestVotes == voteXL) {
+            size = 'xl';
+          } else if(largestVotes == voteM) {
+            size = 'l';
+          } else if(largestVotes == voteS) {
+            size = 'm';
+          } else {
+            size = 'xl';
+          }
+
+          alert('largest votes for '+size+' total: '+largestVotes);
+          localStorage.setItem('userSize', size);
+
         stepEMeasure();
     //temp: 100, actual: 4000
     }, 100);
