@@ -287,7 +287,8 @@ take_photo_btn.addEventListener("click", function(e){
             size = 'xl';
           }
 
-          alert('largest votes for '+size+' total: '+largestVotes);
+          //alert('largest votes for '+size+' total: '+largestVotes);
+          alert('votes for m:'+voteS+', l:'+voteM+', xl:'+voteXL+', xxl:'+voteXXL);
           localStorage.setItem('userSize', size);
 
         stepEMeasure();
