@@ -565,6 +565,7 @@ function showProducts() {
           { 
             removeFitBadClass(); 
             computeFitCircles('M');
+            showSizeVal(0);
             $('.size-title').html('Trying size M');
             $('.fit-shoulder-left').addClass('bad'); 
             $('.fit-waist-wight').addClass('bad');
