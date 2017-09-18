@@ -291,7 +291,7 @@ take_photo_btn.addEventListener("click", function(e){
           
           if((voteM == 1 || voteM ==2) && voteS <=1 && voteXL <= 1)
             size = 'l';
-          else if(voteS >= 2 && voteM == 0 || voteM == 1 || voteM == 2)
+          else if(voteS >= 2 && (voteM == 0 || voteM == 1 || voteM == 2))
             size = 'm';
           else if(voteS <= 1 && voteM <= 1 && voteXXL >= 3)
             size = 'xxl';
