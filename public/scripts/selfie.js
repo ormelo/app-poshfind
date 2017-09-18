@@ -171,7 +171,7 @@ take_photo_btn.addEventListener("click", function(e){
   // Set the href attribute of the download button to the snap url.
   download_photo_btn.href = snap;
   $('#selfieMsg').html('Scanning...');
-  setTimeout("if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}",100);
+  if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}
   setTimeout("demo_app();",100);
   setTimeout("tick(faceClassifier, 'face');",100);
   setTimeout("tick(upperBodyClassifier, 'upperbody');",100);
