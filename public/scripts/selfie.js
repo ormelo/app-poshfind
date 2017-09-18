@@ -171,7 +171,7 @@ take_photo_btn.addEventListener("click", function(e){
   // Set the href attribute of the download button to the snap url.
   download_photo_btn.href = snap;
   $('#selfieMsg').html('Scanning...');
-  setTimeout("if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}",100);
+  setTimeout("if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}",1000);
   demo_app();
   tick(faceClassifier, 'face');
   tick(upperBodyClassifier, 'upperbody');
@@ -199,7 +199,7 @@ take_photo_btn.addEventListener("click", function(e){
         localStorage.setItem('faceY',faceY);
         localStorage.setItem('faceW',faceW);
         localStorage.setItem('faceH',faceH);
-        alert("faceX: "+faceX+", faceY: "+faceY+", faceW: "+faceW+", faceH: "+faceH+", shoulderX: "+localStorage.getItem('shoulderX')+", shoulderY: "+localStorage.getItem('shoulderY')+", shoulderW: "+localStorage.getItem('shoulderW')+", shoulderH: "+localStorage.getItem('shoulderH'));
+        // alert("faceX: "+faceX+", faceY: "+faceY+", faceW: "+faceW+", faceH: "+faceH+", shoulderX: "+localStorage.getItem('shoulderX')+", shoulderY: "+localStorage.getItem('shoulderY')+", shoulderW: "+localStorage.getItem('shoulderW')+", shoulderH: "+localStorage.getItem('shoulderH'));
         
 
         //find closest in shoulderW
@@ -297,12 +297,12 @@ take_photo_btn.addEventListener("click", function(e){
             size = 'xxl';
           else 
             size = 'xl';
-          alert('votes for m:'+voteS+', l:'+voteM+', xl:'+voteXL+', xxl:'+voteXXL+' Computed: '+size);
+          // alert('votes for m:'+voteS+', l:'+voteM+', xl:'+voteXL+', xxl:'+voteXXL+' Computed: '+size);
           localStorage.setItem('userSize', size);
 
         stepEMeasure();
     //temp: 100, actual: 4000
-    }, 100);
+    }, 2000);
 
 });
 
