@@ -14,6 +14,7 @@ class Shop extends Component {
       setTimeout("$('#d4').fadeOut(100);$('#splash').hide();$('#tabs').fadeOut(0).fadeIn(500);",4000); */
       //temp: uncomment above and remove below line
       $('#splash').hide();$('#tabs').fadeOut(0).fadeIn(500);
+      console.log('start showProducts()');
       showProducts();
       if(document.body.clientWidth > 700) {
         $('.products').css('left',document.body.clientWidth/40);

@@ -408,7 +408,9 @@ function beeLeft(elemId) {
 }
 
 function showProducts() {
-  $.get("https://api.myjson.com/bins/13wfrx", function(data, status){
+  console.log("showProducts() func call");
+  $.get("./tops.json", function(data, status){
+    console.log("showProducts() - Got data...");
     // console.log("Data: ", data[0]['name']);
     // load product images
     //temp: uncomment below and comment line next to it
@@ -583,6 +585,7 @@ function showProducts() {
           open = false;
           $('.close').hide();
       });
+      console.log("showProducts() - Paint done...");
   });
 
   $(".variable").slick({
