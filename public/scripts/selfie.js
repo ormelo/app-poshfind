@@ -302,7 +302,7 @@ take_photo_btn.addEventListener("click", function(e){
 
         stepEMeasure();
     //temp: 100, actual: 4000
-    }, 2000);
+    }, 2200);
 
 });
 
