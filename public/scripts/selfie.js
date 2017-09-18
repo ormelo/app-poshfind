@@ -563,14 +563,14 @@ function showProducts() {
           $('.fit-waist-right').show();
           //ToDo: add this based on condition
           { 
-            removeFitBadClass(); 
-            computeFitCircles('M');
-            showSizeVal(0);
             $('.size-title').html('Trying size M');
             $('.fit-shoulder-left').addClass('bad'); 
             $('.fit-waist-wight').addClass('bad');
             $('#buy-now').addClass('badfit').addClass('bubbledLeft').removeClass('btn');
             $('#buy-now').html('Tight around shoulders and waist.');
+            removeFitBadClass(); 
+            computeFitCircles('M');
+            showSizeVal(0);
           }
       });   
       $('.close').click(function() {
