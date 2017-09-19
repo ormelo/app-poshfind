@@ -11,7 +11,7 @@ class Home extends Component {
     render(){
         return (<div>
                   <div className="logo"></div>
-                  <div className="headline">No more shopping heartbreaks!</div><br/>
+                  <div className="headline">Trial & Shop</div><br/>
                   <div className="description">Poshfind helps you find fashion online that look & fit you as if tailormade!</div>
                   
                   <div className="button-container">
