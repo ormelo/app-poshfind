@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import CaptureMeasurements from './captureMeasurements.jsx';
+import Merchant from './merchant.jsx';
 import WizTitle from './wizTitle.jsx';
 import Shop from './shop.jsx';
 // Import routing components
@@ -42,6 +43,7 @@ class CreateFitProfile extends Component {
 }
 
 var CreateFitProfileWithRouter = withRouter(CreateFitProfile)
+var ShopWithRouter = withRouter(Shop)
 
 render(<Router>
         <div>
@@ -52,10 +54,11 @@ render(<Router>
             <Route exact path="/fit-profile" component={CreateFitProfileWithRouter}/>
             <Route exact path="/fit-profile/update" component={CaptureMeasurements}/>
           </div>)} />
-        <Route exact path="/shop" render={()=>(
+        <Route path="/shop" render={()=>(
             <div>
             <div className="logo"/>
-            <Route exact path="/shop" component={Shop}/>
+            <Route exact path="/shop" component={ShopWithRouter}/>
+            <Route path="/shop/buy" component={Merchant}/>
           </div>
           )}/>
         </div>

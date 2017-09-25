@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Shop extends Component {
-
+    propTypes: {
+      match: PropTypes.object.isRequired,
+      location: PropTypes.object.isRequired,
+      history: PropTypes.object.isRequired
+    }
     componentDidMount(){
       $('.content').fadeOut(0).fadeIn(300);
       //temp: commented
@@ -30,6 +36,11 @@ class Shop extends Component {
           $(".tab-content").not(tab).css("display", "none");
           $(tab).fadeIn();
       });
+
+      var h = this.props.history;
+      window.onBuy = function(url) {
+        h.push('/shop/buy');
+      }
     }
     render(){
         return (<div className="contentShop" style={{minHeight:minHeightVal,width:'100%'}}>
