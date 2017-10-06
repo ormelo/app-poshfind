@@ -21,7 +21,7 @@ class Shop extends Component {
       //temp: uncomment above and remove below line
       $('#splash').hide();$('#tabs').fadeOut(0).fadeIn(500);
       console.log('start showProducts()');
-      showProducts();
+      showProducts('tops');
       if(document.body.clientWidth > 700) {
         $('.products').css('left',document.body.clientWidth/40);
       }
@@ -55,10 +55,10 @@ class Shop extends Component {
 
 <div id="tabs-container">
     <ul className="tabs-menu">
-        <li className="current"><a href="#tab-1">Tops</a></li>
-        <li><a href="#tab-2">Dresses</a></li>
-        <li><a href="#tab-3">Jeans</a></li>
-        <li><a href="#tab-4">Kurtis</a></li>
+        <li className="current"><a id="tab1" href="#tab-1">Tops</a></li>
+        <li><a id="tab2" href="#tab-2">Dresses</a></li>
+        <li><a id="tab3" href="#tab-3">Jeans</a></li>
+        <li><a id="tab4" href="#tab-4">Kurtis</a></li>
     </ul>
     <div className="tab">
         <div id="tab-1" className="tab-content">

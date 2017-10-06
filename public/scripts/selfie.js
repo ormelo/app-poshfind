@@ -407,14 +407,16 @@ function beeLeft(elemId) {
     $("#"+elemId).animate({left: "-=100"}, 1500, "swing", beeRight);
 }
 
-function showProducts() {
+function showProducts(category) {
+  selectedCat = category;
   console.log("showProducts() func call");
-  $.get("./tops.json", function(data, status){
+  $.get("./"+category+".json", function(data, status){
     console.log("showProducts() - Got data...");
     // console.log("Data: ", data[0]['name']);
     // load product images
     //temp: uncomment below and comment line next to it
     //setTimeout("$('.products').show();$('.contentShop').css('margin-top','20px');", 4000);
+    $('#product').html(''); $('.face').remove(); $('.contentShop').scrollTop(0);
     $('.products').show();$('.contentShop').css('margin-top','20px');
       for(var i=0;i<data.length;i++) {
         var productBg = document.createElement('div');
@@ -431,6 +433,7 @@ function showProducts() {
 
         var imageObj = new Image();
         imageObj.id = 'img'+i;
+        imageObj.className = 'face';
         imageObj.src = localStorage.getItem('pic');
         imageObj.style.display = 'none';
         document.body.appendChild(imageObj);
@@ -585,6 +588,12 @@ function showProducts() {
           $(this).css('backgroundPosition', 'top left');
           open = false;
           $('.close').hide();
+      });
+      $('#tab1').click(function() {
+          showProducts('tops');
+      });
+      $('#tab2').click(function() {
+          showProducts('dresses');
       });
       console.log("showProducts() - Paint done...");
   });
