@@ -57,8 +57,7 @@ class Shop extends Component {
     <ul className="tabs-menu">
         <li className="current"><a id="tab1" href="#tab-1">Tops</a></li>
         <li><a id="tab2" href="#tab-2">Dresses</a></li>
-        <li><a id="tab3" href="#tab-3">Jeans</a></li>
-        <li><a id="tab4" href="#tab-4">Kurtis</a></li>
+        <li><a id="tab3" href="#tab-3">Kurtis</a></li>
     </ul>
     <div className="tab">
         <div id="tab-1" className="tab-content">

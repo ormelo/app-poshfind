@@ -595,6 +595,9 @@ function showProducts(category) {
       $('#tab2').click(function() {
           showProducts('dresses');
       });
+      $('#tab3').click(function() {
+          showProducts('kurtis');
+      });
       console.log("showProducts() - Paint done...");
   });
 
