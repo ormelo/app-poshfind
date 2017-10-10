@@ -16,6 +16,11 @@ class Merchant extends Component {
           $('#merchantSize').html("'"+sessionStorage.getItem('current-product-size')+"'");
       });
       $('#checkAvailability').click(function(){
+        if($('#pincode').html() == '') {
+          $('#pincode').focus();
+          document.getElementById('pincode').focus();
+          $('#pincode').css('border','2px solid #000');
+        }
         alert('Sorry, we are working on enabling shipping in your area. We will notify you soon.');
       });
     }
