@@ -20,8 +20,9 @@ class Merchant extends Component {
           $('#pincode').focus();
           document.getElementById('pincode').focus();
           $('#pincode').css('border','2px solid #000');
+        } else {
+          alert('Sorry, we are working on enabling shipping in your area. We will notify you soon.');
         }
-        alert('Sorry, we are working on enabling shipping in your area. We will notify you soon.');
       });
     }
     render(){
