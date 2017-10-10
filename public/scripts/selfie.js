@@ -483,6 +483,7 @@ function showProducts(category) {
           }
           var prodId = $(this).attr('id');
           sessionStorage.setItem('current-product-index', prodId);
+          ga('send', 'event', 'Stage', 'load', 'fit-trial');
               for(var i=0;i<4;i++) {
                 var productBg = document.createElement('div');
                 productBg.className = 'product-bg-size';
@@ -594,12 +595,15 @@ function showProducts(category) {
       });
       $('#tab1').click(function() {
           showProducts('tops');
+          ga('send', 'event', 'Stage', 'load', 'shop-tops');
       });
       $('#tab2').click(function() {
           showProducts('dresses');
+          ga('send', 'event', 'Stage', 'load', 'shop-dresses');
       });
       $('#tab3').click(function() {
           showProducts('kurtis');
+          ga('send', 'event', 'Stage', 'load', 'shop-kurtis');
       });
       console.log("showProducts() - Paint done...");
   });

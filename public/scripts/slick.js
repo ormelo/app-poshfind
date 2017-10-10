@@ -702,6 +702,7 @@
                 if (_.slideCount > _.options.slidesToShow) {
                     _.slideHandler(_.currentSlide - slideOffset, false, dontAnimate);
                 }
+                ga('send', 'event', 'Stage', 'load', 'fit-trial-prev');
                 showSizeVal(_.currentSlide);
                 break;
 
@@ -710,6 +711,7 @@
                 if (_.slideCount > _.options.slidesToShow) {
                     _.slideHandler(_.currentSlide + slideOffset, false, dontAnimate);
                 }
+                ga('send', 'event', 'Stage', 'load', 'fit-trial-next');
                 showSizeVal(_.currentSlide);
                 break;
 
