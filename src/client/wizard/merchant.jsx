@@ -16,7 +16,7 @@ class Merchant extends Component {
           $('#merchantSize').html("'"+sessionStorage.getItem('current-product-size')+"'");
       });
       $('#checkAvailability').click(function(){
-        if($('#pincode').html() == '') {
+        if($('#pincode').val() == '') {
           $('#pincode').focus();
           document.getElementById('pincode').focus();
           $('#pincode').css('border','2px solid #000');
@@ -46,7 +46,7 @@ class Merchant extends Component {
             </div>
             <br/>
             <div><img id="currProduct" style={{width:'100px'}} src=""/></div>
-            <input type="text" placeholder="Enter Pincode for shipping" style={{width:'280px',height:'40px',padding:'10px',fontSize:'16px',marginTop:'12px',border:'1px solid #d2d2d2'}}/>
+            <input type="text" id="pincode" placeholder="Enter Pincode for shipping" style={{width:'280px',height:'40px',padding:'10px',fontSize:'16px',marginTop:'12px',border:'1px solid #d2d2d2'}}/>
             <div className="btn-check" id="checkAvailability"><span>Check Availability</span></div>
           </div>
           );
