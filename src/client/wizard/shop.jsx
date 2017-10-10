@@ -12,6 +12,9 @@ class Shop extends Component {
     }
     componentDidMount(){
       $('.content').fadeOut(0).fadeIn(300);
+      $('.logo').css('visibility','visible');
+      $('.logo').css('top','6px');
+      $('.merchant-frame').hide();
       //temp: commented
       /* setTimeout("$('.splashImg').hide();$('#d1').fadeOut(0).fadeIn(500);",0);
       setTimeout("$('.splashImg').hide();$('#d2').fadeOut(0).fadeIn(500);",1000);
@@ -75,6 +78,8 @@ class Shop extends Component {
         </div>
     </div>
 </div>
+
+<div className="loading-container"><div className="loading"></div></div>
 
 
         </div>

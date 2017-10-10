@@ -408,6 +408,7 @@ function beeLeft(elemId) {
 }
 
 function showProducts(category) {
+  $('.loading-container').show();
   selectedCat = category;
   console.log("showProducts() func call");
   $.get("./"+category+".json", function(data, status){
@@ -468,11 +469,12 @@ function showProducts(category) {
         productBg.appendChild(productImg);
 
         document.getElementById('product').appendChild(productBg);
-
+        $('.loading-container').hide();
       }
 
       var open = false;
       $('.product-bg').click(function() {
+
           $('#tabs').hide();
           setTimeout("$('#buy-now').show();",300);
           for(var i=0;i<4;i++) {
@@ -480,6 +482,7 @@ function showProducts(category) {
             $('#size'+(i+1)).html('');
           }
           var prodId = $(this).attr('id');
+          sessionStorage.setItem('current-product-index', prodId);
               for(var i=0;i<4;i++) {
                 var productBg = document.createElement('div');
                 productBg.className = 'product-bg-size';

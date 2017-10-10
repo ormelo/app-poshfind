@@ -56,6 +56,7 @@ render(<Router>
           </div>)} />
         <Route path="/shop" render={()=>(
             <div>
+            <div className="merchant-frame"><div class="logo"><span className="merchant-size-container">Please select size <span id="merchantSize">XL</span> below</span></div></div>
             <div className="logo"/>
             <Route exact path="/shop" component={ShopWithRouter}/>
             <Route path="/shop/buy" component={Merchant}/>
