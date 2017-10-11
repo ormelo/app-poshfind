@@ -15,7 +15,7 @@ class CreateFitProfile extends Component {
       history: PropTypes.object.isRequired
     }
     componentDidMount(){
-      ga('send', 'event', 'Stage', 'load', 'fit-profile');
+      gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-profile'}); 
       console.log('this.props.history:',this.props.history);
       var h = this.props.history;
       window.onScanComplete = function() {

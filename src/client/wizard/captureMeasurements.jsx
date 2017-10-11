@@ -6,7 +6,7 @@ class CaptureMeasurements extends Component {
     componentDidMount(){
       $('.content').fadeOut(0).fadeIn(300);
       $('.outline').hide();
-      ga('send', 'event', 'Stage', 'load', 'fit-profile-update');
+      gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-profile-update'}); 
       setTimeout("streamTrack.stop();",3000);
     }
     render(){
