@@ -702,7 +702,7 @@
                 if (_.slideCount > _.options.slidesToShow) {
                     _.slideHandler(_.currentSlide - slideOffset, false, dontAnimate);
                 }
-                ga('send', 'event', 'Stage', 'load', 'fit-trial-prev');
+                gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-trial-prev'});
                 showSizeVal(_.currentSlide);
                 break;
 
@@ -711,7 +711,7 @@
                 if (_.slideCount > _.options.slidesToShow) {
                     _.slideHandler(_.currentSlide + slideOffset, false, dontAnimate);
                 }
-                ga('send', 'event', 'Stage', 'load', 'fit-trial-next');
+                gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-trial-next'});
                 showSizeVal(_.currentSlide);
                 break;
 

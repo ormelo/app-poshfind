@@ -9,7 +9,7 @@ class Merchant extends Component {
       $('.merchant-frame').show();
       $('#currProduct').attr('src', '../'+sessionStorage.getItem('current-product').replace(/shop/g,''));
       $('#buyPrice').html('');
-      ga('send', 'event', 'Stage', 'load', 'buy');
+      gtag('event', 'Buy', {'event_category':'load', 'event_label':'buy-page-load'});
       $.get("../"+getCategory()+".json", function(data, status){
           console.log(sessionStorage.getItem('current-product-index'));
           console.log(data[sessionStorage.getItem('current-product-index')].price);
@@ -21,9 +21,9 @@ class Merchant extends Component {
           $('#pincode').focus();
           document.getElementById('pincode').focus();
           $('#pincode').css('border','2px solid #000');
-          ga('send', 'event', 'Buy', 'load', 'pincode-need-to-enter');
+          gtag('event', 'Buy', {'event_category':'load', 'event_label':'pincode-need-to-enter'});
         } else {
-          ga('send', 'event', 'Buy', 'load', 'pincode-entered');
+          gtag('event', 'Buy', {'event_category':'load', 'event_label':'pincode-entered'});
           alert('Sorry, we are working on enabling shipping in your area. We will notify you soon.');
         }
       });

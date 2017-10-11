@@ -15,7 +15,7 @@ class Shop extends Component {
       $('.logo').css('visibility','visible');
       $('.logo').css('top','6px');
       $('.merchant-frame').hide();
-      ga('send', 'event', 'Stage', 'load', 'shop');
+      gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop'}); 
       //temp: commented
       /* setTimeout("$('.splashImg').hide();$('#d1').fadeOut(0).fadeIn(500);",0);
       setTimeout("$('.splashImg').hide();$('#d2').fadeOut(0).fadeIn(500);",1000);

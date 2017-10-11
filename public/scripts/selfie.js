@@ -483,7 +483,7 @@ function showProducts(category) {
           }
           var prodId = $(this).attr('id');
           sessionStorage.setItem('current-product-index', prodId);
-          ga('send', 'event', 'Stage', 'load', 'fit-trial');
+          gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-trial'});
               for(var i=0;i<4;i++) {
                 var productBg = document.createElement('div');
                 productBg.className = 'product-bg-size';
@@ -595,15 +595,15 @@ function showProducts(category) {
       });
       $('#tab1').click(function() {
           showProducts('tops');
-          ga('send', 'event', 'Stage', 'load', 'shop-tops');
+          gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop-tops'});
       });
       $('#tab2').click(function() {
           showProducts('dresses');
-          ga('send', 'event', 'Stage', 'load', 'shop-dresses');
+          gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop-dresses'});
       });
       $('#tab3').click(function() {
           showProducts('kurtis');
-          ga('send', 'event', 'Stage', 'load', 'shop-kurtis');
+          gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop-kurtis'});
       });
       console.log("showProducts() - Paint done...");
   });
