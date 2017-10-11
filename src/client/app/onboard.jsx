@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Onboard extends Component {
     componentDidMount(){
-      alert(0);
-      gtag('event', 'Route', {'type':'click', 'label':'Tell-me-how'}); 
+      gtag('event', 'Route', {'event_category':'click', 'event_label':'Tell-me-how'}); 
       $('.content').fadeOut(0).fadeIn(300);
       setTimeout("appendScripts();", 200);
     }
