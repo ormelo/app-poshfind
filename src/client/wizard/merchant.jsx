@@ -9,7 +9,7 @@ class Merchant extends Component {
       $('.merchant-frame').show();
       $('#currProduct').attr('src', '../'+sessionStorage.getItem('current-product').replace(/shop/g,''));
       $('#buyPrice').html('');
-      gtag('event', 'Buy', {'event_category':'load', 'event_label':'buy-page-load'});
+      gtag('event', 'Buy', {'event_category':'load', 'event_label':'buy-page-load', 'category': getCategory(), 'product': sessionStorage.getItem('current-product'), 'suggested-size': current-product-size, 'selected-size': document.getElementById('sizes').options[document.getElementById('sizes').selectedIndex].innerHTML});
       $.get("../"+getCategory()+".json", function(data, status){
           console.log(sessionStorage.getItem('current-product-index'));
           console.log(data[sessionStorage.getItem('current-product-index')].price);
