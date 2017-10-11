@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 class OnboardStep2 extends Component {
     componentDidMount(){
-      ga('send', 'event', 'Route', 'click', 'onboard-step2-click'); 
+      gtag('event', 'Route', {'type':'click', 'label':'onboard-step2-click'});
       $('.content').fadeOut(0).fadeIn(300);
     }
     render(){
