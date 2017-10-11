@@ -9,7 +9,7 @@ class Merchant extends Component {
       $('.merchant-frame').show();
       $('#currProduct').attr('src', '../'+sessionStorage.getItem('current-product').replace(/shop/g,''));
       $('#buyPrice').html('');
-      gtag('event', 'Buy', {'event_category':'load', 'event_label':'buy-page-load', 'category': getCategory(), 'product': sessionStorage.getItem('current-product'), 'suggested-size': current-product-size, 'selected-size': document.getElementById('sizes').options[document.getElementById('sizes').selectedIndex].innerHTML});
+      gtag('event', 'Buy', {'event_category':'load', 'event_label':'buy-page-load', 'category': getCategory(), 'product': sessionStorage.getItem('current-product'), 'suggested-size': sessionStorage.getItem('current-product-size')});
       $.get("../"+getCategory()+".json", function(data, status){
           console.log(sessionStorage.getItem('current-product-index'));
           console.log(data[sessionStorage.getItem('current-product-index')].price);
@@ -21,9 +21,9 @@ class Merchant extends Component {
           $('#pincode').focus();
           document.getElementById('pincode').focus();
           $('#pincode').css('border','2px solid #000');
-          gtag('event', 'Buy', {'event_category':'load', 'event_label':'pincode-need-to-enter'});
+          gtag('event', 'Buy', {'event_category':'load', 'event_label':'pincode-need-to-enter','suggested-size': sessionStorage.getItem('current-product-size'),'selected-size': document.getElementById('sizes').options[document.getElementById('sizes').selectedIndex].innerHTML});
         } else {
-          gtag('event', 'Buy', {'event_category':'load', 'event_label':'pincode-entered'});
+          gtag('event', 'Buy', {'event_category':'load', 'event_label':'pincode-entered', 'suggested-size': sessionStorage.getItem('current-product-size'),'selected-size': document.getElementById('sizes').options[document.getElementById('sizes').selectedIndex].innerHTML});
           alert('Sorry, we are working on enabling shipping in your area. We will notify you soon.');
         }
       });
