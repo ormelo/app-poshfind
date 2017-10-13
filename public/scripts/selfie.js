@@ -460,7 +460,8 @@ function showProducts(category) {
 
         var productImg = document.createElement('img');
         productImg.className = 'actual-prod';
-        productImg.src = 'img/products/'+getGender()+'/'+getCategory()+'/'+i+'/'+getSize()+'.png';
+        var folder = getCategory() == 'dresses' ? 'dressesjpg' : getCategory();
+        productImg.src =  getCategory() == 'dresses' ? 'img/products/'+getGender()+'/'+folder+'/'+i+'/'+getSize()+'.jpg' : 'img/products/'+getGender()+'/'+folder+'/'+i+'/'+getSize()+'.png';
         /*$('#size1').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
         $('#size2').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
         $('#size3').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
