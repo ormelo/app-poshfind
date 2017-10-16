@@ -467,6 +467,10 @@ function showProducts(category) {
         $('#size3').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
         $('#size4').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');*/
         console.log('productImg.src: ', productImg.src);
+        var neckImg = document.createElement('img');
+        neckImg.src = 'img/neck.png';
+        neckImg.className = 'pngneck-'+getSize();
+        productBg.appendChild(neckImg);
         productBg.appendChild(productImg);
 
         document.getElementById('product').appendChild(productBg);
