@@ -460,8 +460,8 @@ function showProducts(category) {
 
         var productImg = document.createElement('img');
         productImg.className = 'actual-prod clip';
-        var folder = getCategory() == 'dresses' ? 'dressesjpg' : getCategory();
-        productImg.src =  getCategory() == 'dresses' ? 'img/products/'+getGender()+'/'+folder+'/'+i+'/'+getSize()+'.jpg' : 'img/products/'+getGender()+'/'+folder+'/'+i+'/'+getSize()+'.png';
+        var folder = getCategory();
+        productImg.src =  folder == 'tops' && (i == 0 || i == 1 || i == 2 )   ? 'img/products/'+getGender()+'/'+folder+'/'+i+'/'+getSize()+'.png' : 'img/products/'+getGender()+'/'+folder+'jpg/'+i+'/'+getSize()+'.jpg';
         /*$('#size1').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
         $('#size2').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
         $('#size3').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
