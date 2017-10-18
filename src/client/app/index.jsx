@@ -11,7 +11,7 @@ class Home extends Component {
     render(){
         return (<div>
                   <div className="logo"></div>
-                  <div className="headline">Trial & Shop</div><br/>
+                  <div className="headline">Find dresses your size</div><br/>
                   <div className="description">Poshfind helps you find dresses online that look & fit you as if tailormade!</div>
                   
                   <div className="button-container">

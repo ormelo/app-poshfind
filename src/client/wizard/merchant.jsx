@@ -22,8 +22,13 @@ class Merchant extends Component {
           document.getElementById('pincode').focus();
           $('#pincode').css('border','2px solid #000');
           gtag('event', 'Buy', {'event_category':'load', 'event_label':'pincode-need-to-enter','suggested-size': sessionStorage.getItem('current-product-size'),'selected-size': document.getElementById('sizes').options[document.getElementById('sizes').selectedIndex].innerHTML});
+          gtag('event', 'Buy', {'event_category':'load', 'event_label': 'suggested-size '+sessionStorage.getItem('current-product-size')});
+          gtag('event', 'Buy', {'event_category':'load', 'event_label': 'selected-size '+document.getElementById('sizes').options[document.getElementById('sizes').selectedIndex].innerHTML});
         } else {
           gtag('event', 'Buy', {'event_category':'load', 'event_label':'pincode-entered', 'suggested-size': sessionStorage.getItem('current-product-size'),'selected-size': document.getElementById('sizes').options[document.getElementById('sizes').selectedIndex].innerHTML});
+          gtag('event', 'Buy', {'event_category':'load', 'event_label': 'suggested-size '+sessionStorage.getItem('current-product-size')});
+          gtag('event', 'Buy', {'event_category':'load', 'event_label': 'selected-size '+document.getElementById('sizes').options[document.getElementById('sizes').selectedIndex].innerHTML});
+          gtag('event', 'Buy', {'event_category':'load', 'event_label': 'pincode-typed '+document.getElementById('pincode').value});
           alert('Sorry, we are working on enabling shipping in your area. We will notify you soon.');
         }
       });
