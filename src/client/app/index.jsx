@@ -12,7 +12,7 @@ class Home extends Component {
         return (<div>
                   <div className="logo"></div>
                   <div className="headline">Trial & Shop</div><br/>
-                  <div className="description">Poshfind helps you find fashion online that look & fit you as if tailormade!</div>
+                  <div className="description">Poshfind helps you find dresses online that look & fit you as if tailormade!</div>
                   
                   <div className="button-container">
                     {showOnboarding == 'f' ? <a id="cta" href="/fit-profile" className="btn"><span>Tell me how</span></a> : <Link id="cta" to="/onboard" className="btn"><span>Tell me how</span></Link>}
