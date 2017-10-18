@@ -15,7 +15,7 @@ class Home extends Component {
                   <div className="description">Poshfind helps you find dresses online that look & fit you as if tailormade!</div>
                   
                   <div className="button-container">
-                    {showOnboarding == 'f' ? <a id="cta" href="/fit-profile" className="btn"><span>Tell me how</span></a> : <Link id="cta" to="/onboard" className="btn"><span>Tell me how</span></Link>}
+                    {<a id="cta" href="/fit-profile" className="btn"><span>Tell me how</span></a>}
                   </div>
                 </div>
           );
