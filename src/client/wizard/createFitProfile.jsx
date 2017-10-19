@@ -17,12 +17,13 @@ class CreateFitProfile extends Component {
     componentDidMount(){
       gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-profile'}); 
       console.log('this.props.history:',this.props.history);
+      $('#captureButton').show();
       var h = this.props.history;
       window.onScanComplete = function() {
         var fitStr = 'faceH:'+localStorage.getItem('faceH')+'faceW:'+localStorage.getItem('faceW')+'faceX:'+localStorage.getItem('faceX')+'faceY:'+localStorage.getItem('faceY')+'shoulderH:'+localStorage.getItem('shoulderH')+'shoulderW:'+localStorage.getItem('shoulderW')+'shoulderX:'+localStorage.getItem('shoulderX')+'shoulderY:'+localStorage.getItem('shoulderY');
         // alert(fitStr);
         h.push('/fit-profile/update');
-        $('.outline').hide();
+        // $('.outline').hide();
         $('#capture-photo').hide();
         $('#snap').hide();
         $('#camera-stream').hide();
@@ -34,8 +35,13 @@ class CreateFitProfile extends Component {
                 <div className="content">
                   <div class="select">
                   </div>
-                  <div id="selfieMsg">Position yourself inside the dotted outline and tap 'Scan' button</div>
+                  <div id="selfieMsg">Take a selfie standing straight keeping the phone at your eye-level</div>
                 </div> 
+                 <input type="file" accept="image/*" name="file-1[]" id="file-1" className="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" dcvalue=""></input>
+                 <center><img className="selfie" src="img/step1.png" style={{width:'120px',marginTop:'40px'}}></img>
+                 <div id="selfieImage"></div></center>
+                 <div className="button-container" id="captureButton" style={{marginTop:'40px'}}><label className="btn" htmlFor="file-1"><span>Capture</span></label></div>
+                 
               </div>
           );
     }
