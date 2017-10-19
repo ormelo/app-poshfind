@@ -1274,11 +1274,9 @@ function handleImageSelection() {
          var picReader = new FileReader();
          picReader.addEventListener("load",function(event){
              var picFile = event.target;
-             $('#selfieMsg').html('Scanning...');
+             
              var div = document.getElementById("selfieImage");
-             if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}
-             $('#captureButton').hide();
-             $('.selfie').hide();
+             
              var img = new Image();
              img.id='selfieimg';
              img.src = picFile.result;
@@ -1299,6 +1297,10 @@ function handleImageSelection() {
                        $(img).css('transform', 'rotate(-90deg)');
                        break;
                    }
+                   $('#selfieMsg').html('Scanning...');
+                   if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}
+                   $('#captureButton').hide();
+                   $('.selfie').hide();
                });
                $($('.selfie')[$('.selfie').length-1]).parent().css('max-width','90%');
                $($('.selfie')[$('.selfie').length-1]).parent().css('margin-bottom','24px');
