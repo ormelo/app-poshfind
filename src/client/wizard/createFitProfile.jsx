@@ -18,6 +18,7 @@ class CreateFitProfile extends Component {
       gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-profile'}); 
       console.log('this.props.history:',this.props.history);
       $('#captureButton').show();
+      $('#selfieMsg').show();
       var h = this.props.history;
       window.onScanComplete = function() {
         var fitStr = 'faceH:'+localStorage.getItem('faceH')+'faceW:'+localStorage.getItem('faceW')+'faceX:'+localStorage.getItem('faceX')+'faceY:'+localStorage.getItem('faceY')+'shoulderH:'+localStorage.getItem('shoulderH')+'shoulderW:'+localStorage.getItem('shoulderW')+'shoulderX:'+localStorage.getItem('shoulderX')+'shoulderY:'+localStorage.getItem('shoulderY');

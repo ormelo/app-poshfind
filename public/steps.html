@@ -1195,7 +1195,7 @@ p img.right { float: right; margin-left: 1em; }
                   </div>
                 </div>
                
-                <div class="mask" style="position: absolute;top: 195px;"></div>
+                <div class="mask" style="position: absolute;top: 0px;"></div>
 <!--Bundled file-->
 <script src="wiz.bundle.min.js"></script>
 <script src="scripts/selfie.js"></script>
@@ -1297,7 +1297,7 @@ function handleImageSelection() {
                        $(img).css('transform', 'rotate(-90deg)');
                        break;
                    }
-                   $('#selfieMsg').html('Scanning...');
+                   $('#selfieMsg').hide();
                    if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}
                    $('#captureButton').hide();
                    $('.selfie').hide();
