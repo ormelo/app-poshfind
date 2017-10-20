@@ -104,6 +104,7 @@ if(!navigator.getMedia){
   $('.camerror').css('visibility','visible');
   $('.outline').hide();
   $('#capture-photo').hide();
+  $('.top-menu').hide();
   displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
 }
 else{
@@ -133,6 +134,7 @@ else{
       $('.camerror').css('visibility','visible');
       $('.outline').hide();
       $('#capture-photo').hide();
+      $('.top-menu').hide();
       displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
     }
   );
