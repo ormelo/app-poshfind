@@ -342,6 +342,10 @@ function showVideo(){
   // controls.classList.add("visible");
 }
 
+function takeImageSnapshot() {
+  
+}
+
 function takeSnapshot(){
   // Here we're using a trick that involves a hidden canvas element.  
 

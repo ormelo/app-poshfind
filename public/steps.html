@@ -107,6 +107,19 @@ html{
   clip-path: polygon(28% 0, 30% 1%, 31% 1%, 38% 3%, 63% 3%, 75% 0, 98% 0, 100% 100%, 79% 100%, 12% 100%, 0 100%, 2% 0);
   -webkit-clip-path: polygon(28% 0, 30% 1%, 31% 1%, 38% 3%, 63% 3%, 75% 0, 98% 0, 100% 100%, 79% 100%, 12% 100%, 0 100%, 2% 0);
 }
+.minus90 {
+  -webkit-transform: translateX(-100%) rotate(-90deg); /* Safari */
+    -moz-transform: translateX(-100%) rotate(-90deg); /* Firefox 3.6 Firefox 4 */
+    -ms-transform: translateX(-100%) rotate(-90deg); /* IE9 */
+    -o-transform: translateX(-100%) rotate(-90deg); /* Opera */
+    transform: translateX(-100%) rotate(-90deg); /* W3C */  
+    -webkit-transform-origin: top right;
+    -moz-transform-origin: top right;
+    -ms-transform-origin: top right;
+    -o-transform-origin: top right;
+    transform-origin: top right;
+    max-width: 107vh;
+}
 .inputfile {
   display: none;
 }
@@ -1213,7 +1226,7 @@ var gui,options,ctx,canvasWidth,canvasHeight;
 var img_u8,work_canvas,work_ctx,ii_sum,ii_sqsum,ii_tilted,edg,ii_canny;
 var faceClassifier = jsfeat.haar['frontalface'];
 var upperBodyClassifier = jsfeat.haar['upperbody'];
-var faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr, streamTrack, minHeightVal;
+var image, faceX, faceY, faceW, faceH, shoulderX, shoulderY, shoulderW, shoulderH, retryCount=0, scr, streamTrack, minHeightVal;
 minHeightVal = screen.height-80;
 
 var voteS=0, voteM=0, voteXL=0, voteXXL=0;
@@ -1280,8 +1293,8 @@ function handleImageSelection() {
              var img = new Image();
              img.id='selfieimg';
              img.src = picFile.result;
-             img.setAttribute('style','width:269px;max-width:90vw;padding: 6px;border: 1px solid #c6d4f1;background: transparent;');
-             img.setAttribute('class','bubbledRight');
+             localStorage.setItem('selfie', img.src);
+             img.setAttribute('style','background: transparent;');
              img.onload = function() {
                 EXIF.getData(img, function() {
                    var orientation = EXIF.getTag(this, "Orientation");
@@ -1289,12 +1302,16 @@ function handleImageSelection() {
                    switch(orientation) {
                      case 3:
                        $(img).css('transform', 'rotate(180deg)');
+                       sessionStorage.setItem('img-transform','rotate(180deg)');
                        break;
                      case 6:
                        $(img).css('transform', 'rotate(90deg)');
+                       sessionStorage.setItem('img-transform','rotate(90deg)');
                        break;
                      case 8:
-                       $(img).css('transform', 'rotate(-90deg)');
+                       //$(img).css('transform', 'rotate(-90deg)');
+                       sessionStorage.setItem('img-transform','rotate(-90deg)');
+                       $(img).addClass('minus90');
                        break;
                    }
                    $('#selfieMsg').hide();
@@ -1308,13 +1325,156 @@ function handleImageSelection() {
              };
              div.innerHTML = '';
              selfieGlobalImg = img;
-             div.appendChild(img);
+             div.appendChild(img);  
+             image = img;
+
+             computeNearestSize(img.src);
+
              
          });
           //Read the image
          picReader.readAsDataURL(file);
      }
      },400);
+}
+
+function computeNearestSize(imgsrc) {
+// Show image. 
+  image.setAttribute('src', imgsrc);
+  image.classList.add("visible");
+
+ // Set the href attribute of the download button to the snap url.
+  // download_photo_btn.href = imgsrc;
+  $('#selfieMsg').html('Scanning...');
+  if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}
+  setTimeout("demo_app();",100);
+  setTimeout("tick(faceClassifier, 'face');",100);
+  setTimeout("tick(upperBodyClassifier, 'upperbody');",100);
+
+    setTimeout(function () {
+      if(screen.width < 1000) {
+        $('.mask').removeClass('scanning');
+      } else {
+        $('body').css('opacity','1');
+      }
+      var fswRatio = faceW/(shoulderW*2);
+      // alert('F/S:'+fswRatio);
+      //$('.app').css('opacity','0');
+      $('#take-photo').html('');
+      $('.capture').css('visibility','hidden');
+      $('#confirmation').show();
+      $(".trigger").toggleClass("drawn");
+
+      
+        localStorage.setItem('pic',canvas.toDataURL());
+        localStorage.setItem('faceX',faceX);
+        localStorage.setItem('faceY',faceY);
+        localStorage.setItem('faceW',faceW);
+        localStorage.setItem('faceH',faceH);
+        // alert("faceX: "+faceX+", faceY: "+faceY+", faceW: "+faceW+", faceH: "+faceH+", shoulderX: "+localStorage.getItem('shoulderX')+", shoulderY: "+localStorage.getItem('shoulderY')+", shoulderW: "+localStorage.getItem('shoulderW')+", shoulderH: "+localStorage.getItem('shoulderH'));
+        
+
+        //find closest in shoulderW
+          var closestValS = closest(sarrShoulderW, shoulderW);
+          var closestValM = closest(marrShoulderW, shoulderW);
+          var closestValXL = closest(xlarrShoulderW, shoulderW);
+          var closestValXXL = closest(xxlarrShoulderW, shoulderW);
+          var newArr = new Array();
+          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+          var closestValueAmongSizes = closest(newArr, shoulderW);
+          
+          if(closestValueAmongSizes == closestValS)
+            voteS++;
+          if(closestValueAmongSizes == closestValM)
+            voteM++;
+          if(closestValueAmongSizes == closestValXL)
+            voteXL++;
+          if(closestValueAmongSizes == closestValXXL)
+            voteXXL++;
+
+          //find closest in shoulderX
+          var closestValS = closest(sarrShoulderX, shoulderX);
+          var closestValM = closest(marrShoulderX, shoulderX);
+          var closestValXL = closest(xlarrShoulderX, shoulderX);
+          var closestValXXL = closest(xxlarrShoulderX, shoulderX);
+          newArr = new Array();
+          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+          closestValueAmongSizes = closest(newArr, shoulderX);
+          
+          if(closestValueAmongSizes == closestValS)
+            voteS++;
+          if(closestValueAmongSizes == closestValM)
+            voteM++;
+          if(closestValueAmongSizes == closestValXL)
+            voteXL++;
+          if(closestValueAmongSizes == closestValXXL)
+            voteXXL++;
+
+          //find closest in faceW
+          var closestValS = closest(sarrFaceW, faceW);
+          var closestValM = closest(marrFaceW, faceW);
+          var closestValXL = closest(xlarrFaceW, faceW);
+          var closestValXXL = closest(xxlarrFaceW, faceW);
+          newArr = new Array();
+          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+          closestValueAmongSizes = closest(newArr, faceW);
+          
+          if(closestValueAmongSizes == closestValS)
+            voteS++;
+          if(closestValueAmongSizes == closestValM)
+            voteM++;
+          if(closestValueAmongSizes == closestValXL)
+            voteXL++;
+          if(closestValueAmongSizes == closestValXXL)
+            voteXXL++;
+
+          //find closest in faceX
+          var closestValS = closest(sarrFaceX, faceX);
+          var closestValM = closest(marrFaceX, faceX);
+          var closestValXL = closest(xlarrFaceX, faceX);
+          var closestValXXL = closest(xxlarrFaceX, faceX);
+          newArr = new Array();
+          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+          closestValueAmongSizes = closest(newArr, faceX);
+          
+          if(closestValueAmongSizes == closestValS)
+            voteS++;
+          if(closestValueAmongSizes == closestValM)
+            voteM++;
+          if(closestValueAmongSizes == closestValXL)
+            voteXL++;
+          if(closestValueAmongSizes == closestValXXL)
+            voteXXL++;
+
+          var largestVotes = Math.max(voteS,voteM,voteXL,voteXXL);
+          if(largestVotes == voteXXL) {
+            size = 'xxl';
+          } else if(largestVotes == voteXL) {
+            size = 'xl';
+          } else if(largestVotes == voteM) {
+            size = 'l';
+          } else if(largestVotes == voteS) {
+            size = 'm';
+          } else {
+            size = 'xl';
+          }
+
+          //alert('largest votes for '+size+' total: '+largestVotes);
+          
+          if((voteM == 1 || voteM ==2) && voteS <=1 && voteXL <= 1)
+            size = 'l';
+          else if(voteS >= 2 && (voteM == 0 || voteM == 1 || voteM == 2))
+            size = 'm';
+          else if(voteS <= 1 && voteM <= 1 && voteXXL >= 3)
+            size = 'xxl';
+          else 
+            size = 'xl';
+          // alert('votes for m:'+voteS+', l:'+voteM+', xl:'+voteXL+', xxl:'+voteXXL+' Computed: '+size);
+          localStorage.setItem('userSize', size);
+
+        stepEMeasure();
+    //temp: 100, actual: 4000
+    }, 2200);
 }
 
 function showSizeVal(slideNum) {
@@ -1520,10 +1680,10 @@ function demo_app() {
 }
 
 function tick(classifier, type) {
-  var snap = document.getElementById('snap');
-    ctx.drawImage(video, 0, 0, canvasWidth, canvasHeight);
+  var snap = document.getElementById('selfieimg');
+    ctx.drawImage(snap, 0, 0, canvasWidth, canvasHeight);
 
-    work_ctx.drawImage(video, 0, 0, work_canvas.width, work_canvas.height);
+    work_ctx.drawImage(snap, 0, 0, work_canvas.width, work_canvas.height);
     var imageData = work_ctx.getImageData(0, 0, work_canvas.width, work_canvas.height);
 
     jsfeat.imgproc.grayscale(imageData.data, img_u8.data);
