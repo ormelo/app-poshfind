@@ -99,7 +99,7 @@ navigator.getMedia = ( navigator.getUserMedia ||
                       navigator.msGetUserMedia);
 
 
-/*if(!navigator.getMedia){
+if(!navigator.getMedia){
   displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
 }
 else{
@@ -129,7 +129,7 @@ else{
     }
   );
 
-}*/
+}
 
 
   // Start video playback manually.
@@ -155,7 +155,7 @@ var forceRedraw = function(element){
 
 scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
 
-/*take_photo_btn.addEventListener("click", function(e){
+take_photo_btn.addEventListener("click", function(e){
   e.preventDefault();
   clearInterval(scr);
   var snap = takeSnapshot();
@@ -304,7 +304,7 @@ scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera'
     //temp: 100, actual: 4000
     }, 2200);
 
-});*/
+});
 
 function stepEMeasure() {
   $("#step_selfie").removeClass('completed');
@@ -340,10 +340,6 @@ function showVideo(){
   hideUI();
   video.classList.add("visible");
   // controls.classList.add("visible");
-}
-
-function takeImageSnapshot() {
-  
 }
 
 function takeSnapshot(){
