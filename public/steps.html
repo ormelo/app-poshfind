@@ -107,6 +107,16 @@ html{
   clip-path: polygon(28% 0, 30% 1%, 31% 1%, 38% 3%, 63% 3%, 75% 0, 98% 0, 100% 100%, 79% 100%, 12% 100%, 0 100%, 2% 0);
   -webkit-clip-path: polygon(28% 0, 30% 1%, 31% 1%, 38% 3%, 63% 3%, 75% 0, 98% 0, 100% 100%, 79% 100%, 12% 100%, 0 100%, 2% 0);
 }
+.camerror {
+  width: 80%;
+  position: absolute;
+  top: -75px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+}
 .pngneck-s, .pngneck-m {
   width: 86px;
   margin: 0 auto;
@@ -1178,6 +1188,7 @@ p img.right { float: right; margin-left: 1em; }
 
 </div>
 <div class="app" >
+<img src="img/camerror.jpg" class="camerror">
                     <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
                     <video id="camera-stream" style="visibility: hidden"></video>
                     <img id="snap" />

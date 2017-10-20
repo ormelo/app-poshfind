@@ -101,6 +101,9 @@ navigator.getMedia = ( navigator.getUserMedia ||
 
 if(!navigator.getMedia){
   $('#selfieMsg').html('Please open this page in chrome.');
+  $('.camerror').css('visibility','visible');
+  $('.outline').hide();
+  $('#capture-photo').hide();
   displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
 }
 else{
@@ -127,6 +130,9 @@ else{
     // Error Callback
     function(err){
       $('#selfieMsg').html('Please open this page in chrome.');
+      $('.camerror').css('visibility','visible');
+      $('.outline').hide();
+      $('#capture-photo').hide();
       displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
     }
   );
