@@ -107,19 +107,6 @@ html{
   clip-path: polygon(28% 0, 30% 1%, 31% 1%, 38% 3%, 63% 3%, 75% 0, 98% 0, 100% 100%, 79% 100%, 12% 100%, 0 100%, 2% 0);
   -webkit-clip-path: polygon(28% 0, 30% 1%, 31% 1%, 38% 3%, 63% 3%, 75% 0, 98% 0, 100% 100%, 79% 100%, 12% 100%, 0 100%, 2% 0);
 }
-.minus90 {
-  -webkit-transform: translateX(-100%) rotate(-90deg); /* Safari */
-    -moz-transform: translateX(-100%) rotate(-90deg); /* Firefox 3.6 Firefox 4 */
-    -ms-transform: translateX(-100%) rotate(-90deg); /* IE9 */
-    -o-transform: translateX(-100%) rotate(-90deg); /* Opera */
-    transform: translateX(-100%) rotate(-90deg); /* W3C */  
-    -webkit-transform-origin: top right;
-    -moz-transform-origin: top right;
-    -ms-transform-origin: top right;
-    -o-transform-origin: top right;
-    transform-origin: top right;
-    max-width: 107vh;
-}
 .inputfile {
   display: none;
 }
@@ -1294,7 +1281,8 @@ function handleImageSelection() {
              img.id='selfieimg';
              img.src = picFile.result;
              localStorage.setItem('selfie', img.src);
-             img.setAttribute('style','background: transparent;');
+             img.setAttribute('style','width:269px;max-width:90vw;padding: 6px;border: 1px solid #c6d4f1;background: transparent;');
+             img.setAttribute('class','bubbledRight');
              img.onload = function() {
                 EXIF.getData(img, function() {
                    var orientation = EXIF.getTag(this, "Orientation");
@@ -1309,9 +1297,8 @@ function handleImageSelection() {
                        sessionStorage.setItem('img-transform','rotate(90deg)');
                        break;
                      case 8:
-                       //$(img).css('transform', 'rotate(-90deg)');
+                       $(img).css('transform', 'rotate(-90deg)');
                        sessionStorage.setItem('img-transform','rotate(-90deg)');
-                       $(img).addClass('minus90');
                        break;
                    }
                    $('#selfieMsg').hide();
