@@ -100,6 +100,7 @@ navigator.getMedia = ( navigator.getUserMedia ||
 
 
 if(!navigator.getMedia){
+  $('#selfieMsg').html('Please open this page in chrome.');
   displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
 }
 else{
