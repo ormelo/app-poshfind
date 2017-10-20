@@ -126,6 +126,7 @@ else{
     },
     // Error Callback
     function(err){
+      $('#selfieMsg').html('Please open this page in chrome.');
       displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
     }
   );
