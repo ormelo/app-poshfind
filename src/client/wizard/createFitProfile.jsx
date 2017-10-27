@@ -33,6 +33,7 @@ class CreateFitProfile extends Component {
         return (<div>
                 <div className="content">
                   <div class="select">
+                    <select id="videoSource"></select>
                   </div>
                   <div id="selfieMsg">Position yourself inside the dotted outline and tap 'Scan' button</div>
                 </div> 

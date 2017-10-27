@@ -1,7 +1,7 @@
 var videoElement = document.querySelector('#camera-stream');
 var videoSelect = document.querySelector('select#videoSource');
 
-/*navigator.mediaDevices.enumerateDevices()
+navigator.mediaDevices.enumerateDevices()
   .then(gotDevices).then(getStream).catch(handleError);
 
 videoSelect.onchange = getStream;
@@ -19,7 +19,7 @@ function gotDevices(deviceInfos) {
       console.log('Found ome other kind of source/device: ', deviceInfo);
     }
   }
-}*/
+}
 
 function getStream() {
   if (window.stream) {
@@ -99,7 +99,7 @@ navigator.getMedia = ( navigator.getUserMedia ||
                       navigator.msGetUserMedia);
 
 
-if(!navigator.getMedia){
+/*if(!navigator.getMedia){
   $('#selfieMsg').html('Please open this page in chrome.');
   $('.camerror').css('visibility','visible');
   $('.outline').hide();
@@ -139,7 +139,7 @@ else{
     }
   );
 
-}
+}*/
 
 
   // Start video playback manually.
