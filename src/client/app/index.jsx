@@ -11,7 +11,7 @@ class Home extends Component {
     render(){
         return (<div>
                   <div className="logo"></div>
-                  <div className="headline">Try dresses on you</div><br/>
+                  <div className="headline">Try dresses on you!</div><br/>
                   <div className="description">Take a selfie & try dresses on you to see how they look & fit you before you buy.</div>
                   
                   <div className="button-container">
