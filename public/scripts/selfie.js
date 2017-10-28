@@ -1,24 +1,26 @@
 var videoElement = document.querySelector('#camera-stream');
 var videoSelect = document.querySelector('select#videoSource');
 
-navigator.mediaDevices.enumerateDevices()
-  .then(gotDevices).then(getStream).catch(handleError);
+if(variation == 0) {
+  /*navigator.mediaDevices.enumerateDevices()
+    .then(gotDevices).then(getStream).catch(handleError);
 
-videoSelect.onchange = getStream;
+  videoSelect.onchange = getStream;
 
-function gotDevices(deviceInfos) {
-  for (var i = 0; i !== deviceInfos.length; ++i) {
-    var deviceInfo = deviceInfos[i];
-    var option = document.createElement('option');
-    option.value = deviceInfo.deviceId;
-    if (deviceInfo.kind === 'videoinput') {
-      option.text = deviceInfo.label || 'camera ' +
-        (videoSelect.length + 1);
-      videoSelect.appendChild(option);
-    } else {
-      console.log('Found ome other kind of source/device: ', deviceInfo);
+  function gotDevices(deviceInfos) {
+    for (var i = 0; i !== deviceInfos.length; ++i) {
+      var deviceInfo = deviceInfos[i];
+      var option = document.createElement('option');
+      option.value = deviceInfo.deviceId;
+      if (deviceInfo.kind === 'videoinput') {
+        option.text = deviceInfo.label || 'camera ' +
+          (videoSelect.length + 1);
+        videoSelect.appendChild(option);
+      } else {
+        console.log('Found ome other kind of source/device: ', deviceInfo);
+      }
     }
-  }
+  }*/
 }
 
 function getStream() {
@@ -99,48 +101,39 @@ navigator.getMedia = ( navigator.getUserMedia ||
                       navigator.msGetUserMedia);
 
 
-/*if(!navigator.getMedia){
-  $('#selfieMsg').html('Please open this page in chrome.');
-  $('.camerror').css('visibility','visible');
-  $('.outline').hide();
-  $('#capture-photo').hide();
-  $('.top-menu').hide();
-  displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
+if(variation == 0) {
+  if(!navigator.getMedia){
+    displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
+  }
+  else{
+
+    // Request the camera.
+    navigator.getMedia(
+      {
+        video: { frameRate: { ideal: 10, max: 20 } }
+      },
+      // Success Callback
+      function(stream){
+
+        // Create an object URL for the video stream and
+        // set it as src of our HTLM video element.
+        video.src = window.URL.createObjectURL(stream);
+        streamTrack = stream.getTracks()[0];
+        // Play the video element to start the stream.
+        video.play();
+        video.onplay = function() {
+          showVideo();
+        };
+
+      },
+      // Error Callback
+      function(err){
+        displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
+      }
+    );
+
+  }
 }
-else{
-
-  // Request the camera.
-  navigator.getMedia(
-    {
-      video: { frameRate: { ideal: 10, max: 20 } }
-    },
-    // Success Callback
-    function(stream){
-
-      // Create an object URL for the video stream and
-      // set it as src of our HTLM video element.
-      video.src = window.URL.createObjectURL(stream);
-      streamTrack = stream.getTracks()[0];
-      // Play the video element to start the stream.
-      video.play();
-      video.onplay = function() {
-        showVideo();
-      };
-
-    },
-    // Error Callback
-    function(err){
-      $('#selfieMsg').html('Please open this page in chrome.');
-      $('.camerror').css('visibility','visible');
-      $('.outline').hide();
-      $('#capture-photo').hide();
-      $('.top-menu').hide();
-      displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
-    }
-  );
-
-}*/
-
 
   // Start video playback manually.
   video.play();
@@ -165,156 +158,158 @@ var forceRedraw = function(element){
 
 scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
 
-take_photo_btn.addEventListener("click", function(e){
-  e.preventDefault();
-  clearInterval(scr);
-  var snap = takeSnapshot();
+if(variation == 0) {
+  take_photo_btn.addEventListener("click", function(e){
+    e.preventDefault();
+    clearInterval(scr);
+    var snap = takeSnapshot();
 
-  // Show image. 
-  image.setAttribute('src', snap);
-  image.classList.add("visible");
+    // Show image. 
+    image.setAttribute('src', snap);
+    image.classList.add("visible");
 
-  // Enable delete and save buttons
-  delete_photo_btn.classList.remove("disabled");
-  download_photo_btn.classList.remove("disabled");
+    // Enable delete and save buttons
+    delete_photo_btn.classList.remove("disabled");
+    download_photo_btn.classList.remove("disabled");
 
-  // Set the href attribute of the download button to the snap url.
-  download_photo_btn.href = snap;
-  $('#selfieMsg').html('Scanning...');
-  if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}
-  setTimeout("demo_app();",100);
-  setTimeout("tick(faceClassifier, 'face');",100);
-  setTimeout("tick(upperBodyClassifier, 'upperbody');",100);
+    // Set the href attribute of the download button to the snap url.
+    download_photo_btn.href = snap;
+    $('#selfieMsg').html('Scanning...');
+    if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}
+    setTimeout("demo_app();",100);
+    setTimeout("tick(faceClassifier, 'face');",100);
+    setTimeout("tick(upperBodyClassifier, 'upperbody');",100);
 
-  // Pause video playback of stream.
-  video.pause();
-  
-    setTimeout(function () {
-      if(screen.width < 1000) {
-        $('.mask').removeClass('scanning');
-      } else {
-        $('body').css('opacity','1');
-      }
-      var fswRatio = faceW/(shoulderW*2);
-      // alert('F/S:'+fswRatio);
-      //$('.app').css('opacity','0');
-      $('#take-photo').html('');
-      $('.capture').css('visibility','hidden');
-      $('#confirmation').show();
-      $(".trigger").toggleClass("drawn");
+    // Pause video playback of stream.
+    video.pause();
+    
+      setTimeout(function () {
+        if(screen.width < 1000) {
+          $('.mask').removeClass('scanning');
+        } else {
+          $('body').css('opacity','1');
+        }
+        var fswRatio = faceW/(shoulderW*2);
+        // alert('F/S:'+fswRatio);
+        //$('.app').css('opacity','0');
+        $('#take-photo').html('');
+        $('.capture').css('visibility','hidden');
+        $('#confirmation').show();
+        $(".trigger").toggleClass("drawn");
 
-      
-        localStorage.setItem('pic',canvas.toDataURL());
-        localStorage.setItem('faceX',faceX);
-        localStorage.setItem('faceY',faceY);
-        localStorage.setItem('faceW',faceW);
-        localStorage.setItem('faceH',faceH);
-        // alert("faceX: "+faceX+", faceY: "+faceY+", faceW: "+faceW+", faceH: "+faceH+", shoulderX: "+localStorage.getItem('shoulderX')+", shoulderY: "+localStorage.getItem('shoulderY')+", shoulderW: "+localStorage.getItem('shoulderW')+", shoulderH: "+localStorage.getItem('shoulderH'));
         
-
-        //find closest in shoulderW
-          var closestValS = closest(sarrShoulderW, shoulderW);
-          var closestValM = closest(marrShoulderW, shoulderW);
-          var closestValXL = closest(xlarrShoulderW, shoulderW);
-          var closestValXXL = closest(xxlarrShoulderW, shoulderW);
-          var newArr = new Array();
-          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
-          var closestValueAmongSizes = closest(newArr, shoulderW);
+          localStorage.setItem('pic',canvas.toDataURL());
+          localStorage.setItem('faceX',faceX);
+          localStorage.setItem('faceY',faceY);
+          localStorage.setItem('faceW',faceW);
+          localStorage.setItem('faceH',faceH);
+          // alert("faceX: "+faceX+", faceY: "+faceY+", faceW: "+faceW+", faceH: "+faceH+", shoulderX: "+localStorage.getItem('shoulderX')+", shoulderY: "+localStorage.getItem('shoulderY')+", shoulderW: "+localStorage.getItem('shoulderW')+", shoulderH: "+localStorage.getItem('shoulderH'));
           
-          if(closestValueAmongSizes == closestValS)
-            voteS++;
-          if(closestValueAmongSizes == closestValM)
-            voteM++;
-          if(closestValueAmongSizes == closestValXL)
-            voteXL++;
-          if(closestValueAmongSizes == closestValXXL)
-            voteXXL++;
 
-          //find closest in shoulderX
-          var closestValS = closest(sarrShoulderX, shoulderX);
-          var closestValM = closest(marrShoulderX, shoulderX);
-          var closestValXL = closest(xlarrShoulderX, shoulderX);
-          var closestValXXL = closest(xxlarrShoulderX, shoulderX);
-          newArr = new Array();
-          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
-          closestValueAmongSizes = closest(newArr, shoulderX);
-          
-          if(closestValueAmongSizes == closestValS)
-            voteS++;
-          if(closestValueAmongSizes == closestValM)
-            voteM++;
-          if(closestValueAmongSizes == closestValXL)
-            voteXL++;
-          if(closestValueAmongSizes == closestValXXL)
-            voteXXL++;
+          //find closest in shoulderW
+            var closestValS = closest(sarrShoulderW, shoulderW);
+            var closestValM = closest(marrShoulderW, shoulderW);
+            var closestValXL = closest(xlarrShoulderW, shoulderW);
+            var closestValXXL = closest(xxlarrShoulderW, shoulderW);
+            var newArr = new Array();
+            newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+            var closestValueAmongSizes = closest(newArr, shoulderW);
+            
+            if(closestValueAmongSizes == closestValS)
+              voteS++;
+            if(closestValueAmongSizes == closestValM)
+              voteM++;
+            if(closestValueAmongSizes == closestValXL)
+              voteXL++;
+            if(closestValueAmongSizes == closestValXXL)
+              voteXXL++;
 
-          //find closest in faceW
-          var closestValS = closest(sarrFaceW, faceW);
-          var closestValM = closest(marrFaceW, faceW);
-          var closestValXL = closest(xlarrFaceW, faceW);
-          var closestValXXL = closest(xxlarrFaceW, faceW);
-          newArr = new Array();
-          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
-          closestValueAmongSizes = closest(newArr, faceW);
-          
-          if(closestValueAmongSizes == closestValS)
-            voteS++;
-          if(closestValueAmongSizes == closestValM)
-            voteM++;
-          if(closestValueAmongSizes == closestValXL)
-            voteXL++;
-          if(closestValueAmongSizes == closestValXXL)
-            voteXXL++;
+            //find closest in shoulderX
+            var closestValS = closest(sarrShoulderX, shoulderX);
+            var closestValM = closest(marrShoulderX, shoulderX);
+            var closestValXL = closest(xlarrShoulderX, shoulderX);
+            var closestValXXL = closest(xxlarrShoulderX, shoulderX);
+            newArr = new Array();
+            newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+            closestValueAmongSizes = closest(newArr, shoulderX);
+            
+            if(closestValueAmongSizes == closestValS)
+              voteS++;
+            if(closestValueAmongSizes == closestValM)
+              voteM++;
+            if(closestValueAmongSizes == closestValXL)
+              voteXL++;
+            if(closestValueAmongSizes == closestValXXL)
+              voteXXL++;
 
-          //find closest in faceX
-          var closestValS = closest(sarrFaceX, faceX);
-          var closestValM = closest(marrFaceX, faceX);
-          var closestValXL = closest(xlarrFaceX, faceX);
-          var closestValXXL = closest(xxlarrFaceX, faceX);
-          newArr = new Array();
-          newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
-          closestValueAmongSizes = closest(newArr, faceX);
-          
-          if(closestValueAmongSizes == closestValS)
-            voteS++;
-          if(closestValueAmongSizes == closestValM)
-            voteM++;
-          if(closestValueAmongSizes == closestValXL)
-            voteXL++;
-          if(closestValueAmongSizes == closestValXXL)
-            voteXXL++;
+            //find closest in faceW
+            var closestValS = closest(sarrFaceW, faceW);
+            var closestValM = closest(marrFaceW, faceW);
+            var closestValXL = closest(xlarrFaceW, faceW);
+            var closestValXXL = closest(xxlarrFaceW, faceW);
+            newArr = new Array();
+            newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+            closestValueAmongSizes = closest(newArr, faceW);
+            
+            if(closestValueAmongSizes == closestValS)
+              voteS++;
+            if(closestValueAmongSizes == closestValM)
+              voteM++;
+            if(closestValueAmongSizes == closestValXL)
+              voteXL++;
+            if(closestValueAmongSizes == closestValXXL)
+              voteXXL++;
 
-          var largestVotes = Math.max(voteS,voteM,voteXL,voteXXL);
-          if(largestVotes == voteXXL) {
-            size = 'xxl';
-          } else if(largestVotes == voteXL) {
-            size = 'xl';
-          } else if(largestVotes == voteM) {
-            size = 'l';
-          } else if(largestVotes == voteS) {
-            size = 'm';
-          } else {
-            size = 'xl';
-          }
+            //find closest in faceX
+            var closestValS = closest(sarrFaceX, faceX);
+            var closestValM = closest(marrFaceX, faceX);
+            var closestValXL = closest(xlarrFaceX, faceX);
+            var closestValXXL = closest(xxlarrFaceX, faceX);
+            newArr = new Array();
+            newArr.push(closestValS);newArr.push(closestValM);newArr.push(closestValXL);newArr.push(closestValXXL);
+            closestValueAmongSizes = closest(newArr, faceX);
+            
+            if(closestValueAmongSizes == closestValS)
+              voteS++;
+            if(closestValueAmongSizes == closestValM)
+              voteM++;
+            if(closestValueAmongSizes == closestValXL)
+              voteXL++;
+            if(closestValueAmongSizes == closestValXXL)
+              voteXXL++;
 
-          //alert('largest votes for '+size+' total: '+largestVotes);
-          
-          if((voteM == 1 || voteM ==2) && voteS <=1 && voteXL <= 1)
-            size = 'l';
-          else if(voteS >= 2 && (voteM == 0 || voteM == 1 || voteM == 2))
-            size = 'm';
-          else if(voteS <= 1 && voteM <= 1 && voteXXL >= 3)
-            size = 'xxl';
-          else 
-            size = 'xl';
-          // alert('votes for m:'+voteS+', l:'+voteM+', xl:'+voteXL+', xxl:'+voteXXL+' Computed: '+size);
-          localStorage.setItem('userSize', size);
+            var largestVotes = Math.max(voteS,voteM,voteXL,voteXXL);
+            if(largestVotes == voteXXL) {
+              size = 'xxl';
+            } else if(largestVotes == voteXL) {
+              size = 'xl';
+            } else if(largestVotes == voteM) {
+              size = 'l';
+            } else if(largestVotes == voteS) {
+              size = 'm';
+            } else {
+              size = 'xl';
+            }
 
-        stepEMeasure();
-    //temp: 100, actual: 4000
-    }, 2200);
+            //alert('largest votes for '+size+' total: '+largestVotes);
+            
+            if((voteM == 1 || voteM ==2) && voteS <=1 && voteXL <= 1)
+              size = 'l';
+            else if(voteS >= 2 && (voteM == 0 || voteM == 1 || voteM == 2))
+              size = 'm';
+            else if(voteS <= 1 && voteM <= 1 && voteXXL >= 3)
+              size = 'xxl';
+            else 
+              size = 'xl';
+            // alert('votes for m:'+voteS+', l:'+voteM+', xl:'+voteXL+', xxl:'+voteXXL+' Computed: '+size);
+            localStorage.setItem('userSize', size);
 
-});
+          stepEMeasure();
+      //temp: 100, actual: 4000
+      }, 2200);
+
+  });
+}
 
 function stepEMeasure() {
   $("#step_selfie").removeClass('completed');
@@ -350,6 +345,10 @@ function showVideo(){
   hideUI();
   video.classList.add("visible");
   // controls.classList.add("visible");
+}
+
+function takeImageSnapshot() {
+  
 }
 
 function takeSnapshot(){
