@@ -1219,6 +1219,7 @@ p img.right { float: right; margin-left: 1em; }
 var variation=1;
 function loadVariation() {
   variation = Math.round(Math.random());
+  gtag('event', 'Stage', {'event_category':'variation', 'event_label':'variation'+variation});
   if(variation == 0){
     $('.mask').css('top','195px');
     $('.outline').show();
