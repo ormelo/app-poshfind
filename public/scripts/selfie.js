@@ -103,6 +103,7 @@ navigator.getMedia = ( navigator.getUserMedia ||
 
 if(variation == 0) {
   if(!navigator.getMedia){
+    Loggr.Log.trackUser(uid, "", "Browser doesnt support navigator.getUserMedia.");
     displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
   }
   else{
@@ -114,13 +115,14 @@ if(variation == 0) {
       },
       // Success Callback
       function(stream){
-
+        Loggr.Log.trackUser(uid, "", "getUserMedia callback called.");
         // Create an object URL for the video stream and
         // set it as src of our HTLM video element.
         video.src = window.URL.createObjectURL(stream);
         streamTrack = stream.getTracks()[0];
         // Play the video element to start the stream.
         video.play();
+        Loggr.Log.trackUser(uid, "", "video.play() called.");
         video.onplay = function() {
           showVideo();
         };
@@ -160,6 +162,7 @@ scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera'
 
 if(variation == 0) {
   take_photo_btn.addEventListener("click", function(e){
+    Loggr.Log.trackUser(uid, "", "capture button clicked.");
     e.preventDefault();
     clearInterval(scr);
     var snap = takeSnapshot();
@@ -179,6 +182,7 @@ if(variation == 0) {
     setTimeout("demo_app();",100);
     setTimeout("tick(faceClassifier, 'face');",100);
     setTimeout("tick(upperBodyClassifier, 'upperbody');",100);
+    Loggr.Log.trackUser(uid, "", "both tick() functions called.");
 
     // Pause video playback of stream.
     video.pause();
@@ -344,6 +348,7 @@ function showVideo(){
 
   hideUI();
   video.classList.add("visible");
+  Loggr.Log.trackUser(uid, "", "showing video..");
   // controls.classList.add("visible");
 }
 

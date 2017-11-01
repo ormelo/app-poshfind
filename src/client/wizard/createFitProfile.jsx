@@ -16,6 +16,7 @@ class CreateFitProfile extends Component {
     }
     componentDidMount(){
       gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-profile'}); 
+      Loggr.Log.trackUser(uid, "", "Fit profile page visited.");
       console.log('this.props.history:',this.props.history);
       if(variation == 1){
         $('#captureButton').show();

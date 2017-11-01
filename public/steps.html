@@ -1216,9 +1216,9 @@ p img.right { float: right; margin-left: 1em; }
                 <div class="mask" style="position: absolute;top: 0px;"></div>
 <!--Bundled file-->
 <script language="javascript">
-var variation=1;
+var variation=0;
 function loadVariation() {
-  variation = Math.round(Math.random());
+  // variation = Math.round(Math.random());
   gtag('event', 'Stage', {'event_category':'variation', 'event_label':'variation'+variation});
   if(variation == 0){
     $('.mask').css('top','195px');
@@ -1228,7 +1228,21 @@ function loadVariation() {
 }
 
 loadVariation();
+
+var guid = function() {
+    var nav = window.navigator;
+    var screen = window.screen;
+    var guid = nav.mimeTypes.length;
+    guid += nav.userAgent.replace(/\D+/g, '');
+    guid += nav.plugins.length;
+    guid += screen.height || '';
+    guid += screen.width || '';
+    guid += screen.pixelDepth || '';
+    return guid;
+};
+uid = guid();
 </script>
+<script src="https://api.loggr.net/1/loggr.min.js?l=poshfind&a=b687eacebeee405cafc202bc350d4f71"></script>
 <script src="wiz.bundle.min.js"></script>
 <script src="scripts/selfie.js"></script>
 <script type="text/javascript" src="haar/lib/jsfeat-samples/js/jsfeat-min.js"></script>
@@ -1809,7 +1823,6 @@ function getSize() {
   }
   return s;
 }
-
 
 </script>
 
