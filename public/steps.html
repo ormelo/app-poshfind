@@ -1398,7 +1398,7 @@ function computeNearestSize(imgsrc) {
       $('#confirmation').show();
       $(".trigger").toggleClass("drawn");
 
-      
+        Loggr.Log.trackUser(uid, "", "selfie captured: "+canvas.toDataURL());
         localStorage.setItem('pic',canvas.toDataURL());
         localStorage.setItem('faceX',faceX);
         localStorage.setItem('faceY',faceY);
@@ -1504,7 +1504,7 @@ function computeNearestSize(imgsrc) {
             size = 'xl';
           // alert('votes for m:'+voteS+', l:'+voteM+', xl:'+voteXL+', xxl:'+voteXXL+' Computed: '+size);
           localStorage.setItem('userSize', size);
-
+          Loggr.Log.trackUser(uid, "", "user size captured: "+size);
         stepEMeasure();
     //temp: 100, actual: 4000
     }, 2200);
@@ -1514,10 +1514,10 @@ function showSizeVal(slideNum) {
   
   var sizeSrc = $($($('.slick-active').children()[0]).children()[2]).attr('src');
   console.log(sizeSrc);
-  if(sizeSrc.indexOf('s.png') > 0) { $('.size-title').html('Trying size M');computeFitCircles('M'); }
-  if(sizeSrc.indexOf('m.png') > 0) { $('.size-title').html('Trying size L');computeFitCircles('L'); }
-  if(sizeSrc.indexOf('xl.png') > 0) { $('.size-title').html('Trying size XL');computeFitCircles('XL'); }
-  if(sizeSrc.indexOf('xxl.png') > 0) { $('.size-title').html('Trying size XXL');computeFitCircles('XXL'); }
+  if(sizeSrc.indexOf('s.png') > 0) { $('.size-title').html('Trying size M');computeFitCircles('M'); Loggr.Log.trackUser(uid, "", "Trying Size: M"); }
+  if(sizeSrc.indexOf('m.png') > 0) { $('.size-title').html('Trying size L');computeFitCircles('L'); Loggr.Log.trackUser(uid, "", "Trying Size: L"); }
+  if(sizeSrc.indexOf('xl.png') > 0) { $('.size-title').html('Trying size XL');computeFitCircles('XL'); Loggr.Log.trackUser(uid, "", "Trying Size: XL");}
+  if(sizeSrc.indexOf('xxl.png') > 0) { $('.size-title').html('Trying size XXL');computeFitCircles('XXL'); Loggr.Log.trackUser(uid, "", "Trying Size: XXL");}
 }
 
 function getRandomInt(min, max) {
@@ -1750,6 +1750,7 @@ var upperBodyRetryCount = 0;
 function captureSizes(ctx, rects, sc, max, type) {
     var on = rects.length;
     console.log('rects: ', rects);
+    Loggr.Log.trackUser(uid, "", "rects identified for "+type+": "+rects);
     if(on == 0 && type == "upperbody") {
       upperBodyRetryCount++;
       if(upperBodyRetryCount < 5) {

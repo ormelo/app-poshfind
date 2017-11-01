@@ -7,6 +7,7 @@ class CaptureMeasurements extends Component {
       $('.content').fadeOut(0).fadeIn(300);
       $('.outline').hide();
       gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-profile-update'}); 
+      Loggr.Log.trackUser(uid, "", "Navigated to fit-profile/update.");
       setTimeout("streamTrack.stop();",3000);
     }
     render(){

@@ -16,6 +16,7 @@ class Shop extends Component {
       $('.logo').css('top','6px');
       $('.merchant-frame').hide();
       gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop'}); 
+      Loggr.Log.trackUser(uid, "", "Navigated to /shop.");
       //temp: commented
       /* setTimeout("$('.splashImg').hide();$('#d1').fadeOut(0).fadeIn(500);",0);
       setTimeout("$('.splashImg').hide();$('#d2').fadeOut(0).fadeIn(500);",1000);

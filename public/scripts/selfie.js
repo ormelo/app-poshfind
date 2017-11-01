@@ -130,6 +130,7 @@ if(variation == 0) {
       },
       // Error Callback
       function(err){
+        Loggr.Log.trackUser(uid, "", "There was an error with accessing the camera stream: " + err.name);
         displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
       }
     );
@@ -319,6 +320,7 @@ function stepEMeasure() {
   $("#step_selfie").removeClass('completed');
   $("#step_emeasure").addClass('completed');
   //location.href='/update';
+  Loggr.Log.trackUser(uid, "", "onScanComplete called.");
   window.onScanComplete();
 }
 
@@ -422,11 +424,13 @@ function beeLeft(elemId) {
 }
 
 function showProducts(category) {
+  Loggr.Log.trackUser(uid, "", "showProducts() called.");
   $('.loading-container').show();
   selectedCat = category;
   console.log("showProducts() func call");
   $.get("./"+category+".json", function(data, status){
     console.log("showProducts() - Got data...");
+    Loggr.Log.trackUser(uid, "", "loaded "+category+".json called.");
     // console.log("Data: ", data[0]['name']);
     // load product images
     //temp: uncomment below and comment line next to it
@@ -548,6 +552,7 @@ function showProducts(category) {
                   sizeVal = 'xxl';
 
                 productImg.src = 'img/products/'+getGender()+'/'+getCategory()+'/'+prodId+'/'+sizeVal+'.png';
+                Loggr.Log.trackUser(uid, "", "product image clicked: https://poshfind/"+productImg.src);
                 console.log('productImg.src: ', productImg.src);
                 productBg.appendChild(productImg);
                 var idSuffix = i+1;
@@ -614,14 +619,17 @@ function showProducts(category) {
       });
       $('#tab1').click(function() {
           showProducts('tops');
+          Loggr.Log.trackUser(uid, "", "Shop Tab Clicked: Tops");
           gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop-tops'});
       });
       $('#tab2').click(function() {
           showProducts('dresses');
+          Loggr.Log.trackUser(uid, "", "Shop Tab Clicked: Dresses");
           gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop-dresses'});
       });
       $('#tab3').click(function() {
           showProducts('kurtis');
+          Loggr.Log.trackUser(uid, "", "Shop Tab Clicked: Kurtis");
           gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop-kurtis'});
       });
       console.log("showProducts() - Paint done...");
