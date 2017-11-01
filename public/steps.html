@@ -1255,7 +1255,7 @@ function sendPic(){
            Loggr.Log.trackUser(uid, "", "user selfie captured: "+data.uri);
            var xmlhttp = new XMLHttpRequest();
            var imgUrl = data.uri;
-           imgUrl = imgUrl.replace(/http\:\/\//,'');
+           imgUrl = imgUrl.replace(/https\:\/\//,'');
            imgUrl = imgUrl.replace(/\//g,'slash');
            xmlhttp.open("GET", "http://198.91.88.86/home/rest/signup/adduser/"+imgUrl, true);
            xmlhttp.send(null);
