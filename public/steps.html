@@ -1240,6 +1240,28 @@ var guid = function() {
     guid += screen.pixelDepth || '';
     return guid;
 };
+function sendPic(){
+   var xmlhttp = new XMLHttpRequest();
+   xmlhttp.open("POST", "http://198.91.88.86/home/postImage/wardrobe", true);
+   xmlhttp.setRequestHeader("Content-Type", "application/upload");
+   xmlhttp.send(localStorage.getItem('pic'));
+
+   xmlhttp.onreadystatechange=function()
+   {
+     if (xmlhttp.readyState==4 && xmlhttp.status==200)
+     {
+      var imgUrl = xmlhttp.responseText;
+      xmlhttp = new XMLHttpRequest();
+      imgUrl = imgUrl.replace(/http\:\/\//,'');
+      imgUrl = imgUrl.replace(/\//g,'slash');
+      xmlhttp.open("GET", "http://198.91.88.86/home/rest/signup/adduser/"+imgUrl, true);
+      Loggr.Log.trackUser(uid, "", "Selfie URL: "+xmlhttp.responseText);
+      xmlhttp.setRequestHeader("Content-Type", "application/upload");
+      xmlhttp.send(null);
+     }
+   }
+
+}
 uid = guid();
 </script>
 <script src="https://api.loggr.net/1/loggr.min.js?l=poshfind&a=b687eacebeee405cafc202bc350d4f71"></script>
@@ -1398,7 +1420,6 @@ function computeNearestSize(imgsrc) {
       $('#confirmation').show();
       $(".trigger").toggleClass("drawn");
 
-        Loggr.Log.trackUser(uid, "", "selfie captured: "+canvas.toDataURL());
         localStorage.setItem('pic',canvas.toDataURL());
         localStorage.setItem('faceX',faceX);
         localStorage.setItem('faceY',faceY);

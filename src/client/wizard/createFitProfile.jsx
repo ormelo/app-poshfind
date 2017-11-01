@@ -31,6 +31,8 @@ class CreateFitProfile extends Component {
         var fitStr = 'faceH:'+localStorage.getItem('faceH')+'faceW:'+localStorage.getItem('faceW')+'faceX:'+localStorage.getItem('faceX')+'faceY:'+localStorage.getItem('faceY')+'shoulderH:'+localStorage.getItem('shoulderH')+'shoulderW:'+localStorage.getItem('shoulderW')+'shoulderX:'+localStorage.getItem('shoulderX')+'shoulderY:'+localStorage.getItem('shoulderY');
         // alert(fitStr);
         h.push('/fit-profile/update');
+        Loggr.Log.trackUser(uid, "", "selfie captured.");
+        sendPic();
         if(variation == 0) {
           $('.outline').hide();
         }
