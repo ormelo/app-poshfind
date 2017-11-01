@@ -109,7 +109,7 @@ if(variation == 0) {
   else{
 
     // Request the camera.
-    navigator.getMedia(
+    /*navigator.getMedia(
       {
         video: { frameRate: { ideal: 10, max: 20 } }
       },
@@ -133,9 +133,19 @@ if(variation == 0) {
         Loggr.Log.trackUser(uid, "", "There was an error with accessing the camera stream: " + err.name);
         displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
       }
-    );
+    );*/
+
+    var gum = new GumWrapper({video: 'camera-stream'}, showSuccess, showError);
+    gum.play();
 
   }
+}
+
+function showSuccess(video) {
+    Loggr.Log.trackUser(uid, "", "showSuccess() called.");
+}
+function showError(error) {
+    Loggr.Log.trackUser(uid, "", "showError() called with: "+error.message);
 }
 
   // Start video playback manually.
