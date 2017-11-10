@@ -47,13 +47,13 @@ class CreateFitProfile extends Component {
                 <div className="content">
                   <div class="select">
                   </div>
-                  <div id="selfieMsg">Take a selfie standing upright keeping the phone at eye-level</div>
+                  <div id="selfieMsg">Take a selfie to try on dresses over you.</div>
                 </div> 
                 <div className="loading-container" style={{display:'none'}}><div className="loading"></div></div>
                  <input type="file" style={{display:'none'}} accept="image/*" name="file-1[]" id="file-1" className="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" dcvalue=""></input>
                  <center><img className="selfie" src="img/step1.png" style={{display:'none',width:'120px',marginTop:'40px'}}></img>
                  <div id="selfieImage"></div></center>
-                 <div className="button-container" id="captureButton" style={{display:'none',marginTop:'40px'}}><label className="btn" htmlFor="file-1"><span>Capture</span></label></div>
+                 <div className="button-container" id="captureButton" style={{display:'none',marginTop:'40px'}}><label className="btn" htmlFor="file-1"><span>Click Selfie</span></label></div>
                  
               </div>
           );
