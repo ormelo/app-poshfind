@@ -169,7 +169,9 @@ var forceRedraw = function(element){
     },20);
 }
 
-scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
+if(variation == 1){
+  scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
+}
 
 if(variation == 0) {
   take_photo_btn.addEventListener("click", function(e){
