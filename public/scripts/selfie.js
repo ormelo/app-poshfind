@@ -170,6 +170,7 @@ if(variation == 0){
       },20);
   }
   scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
+  setTimeout("if($('#camera-stream').css('visibility')=='hidden'){location.reload();}", 3000);
 }
 
 if(variation == 0) {
