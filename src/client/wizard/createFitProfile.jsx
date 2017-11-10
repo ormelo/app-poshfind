@@ -23,7 +23,7 @@ class CreateFitProfile extends Component {
         $('.selfie').show();
         $('#captureButton').show();
       } else if(variation == 0) {
-        $('#selfieMsg').html("Position yourself inside the dotted outline and tap 'Capture' button");
+        $('#selfieMsg').html("Take a selfie when you're ready!");
         $('.loading-container').show();
       }
       var h = this.props.history;
@@ -33,9 +33,9 @@ class CreateFitProfile extends Component {
         h.push('/fit-profile/update');
         Loggr.Log.trackUser(uid, "", "selfie captured.");
         sendPic();
-        if(variation == 0) {
+        //if(variation == 0) {
           $('.outline').hide();
-        }
+        //}
         $('#capture-photo').hide();
         $('#snap').hide();
         $('#camera-stream').hide();
@@ -49,7 +49,7 @@ class CreateFitProfile extends Component {
                   </div>
                   <div id="selfieMsg">Take a selfie to try on dresses over you.</div>
                 </div> 
-                <div className="loading-container" style={{display:'none'}}><div className="loading"></div></div>
+                <div className="loading-container" style={{display:'none'}}><div className="loading"></div><span className="loading-msg">Loading camera. Please wait...</span></div>
                  <input type="file" style={{display:'none'}} accept="image/*" name="file-1[]" id="file-1" className="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" dcvalue=""></input>
                  <center><img className="selfie" src="img/step1.png" style={{display:'none',width:'120px',marginTop:'40px'}}></img>
                  <div id="selfieImage"></div></center>

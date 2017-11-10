@@ -152,7 +152,7 @@ function showError(error) {
   video.play();
   showVideo();
 
-if(variation == 1){
+if(variation == 0){
   var forceRedraw = function(element){
 
       if (!element) { return; }
