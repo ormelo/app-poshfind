@@ -152,24 +152,23 @@ function showError(error) {
   video.play();
   showVideo();
 
-var forceRedraw = function(element){
-
-    if (!element) { return; }
-
-    var n = document.createTextNode(' ');
-    var disp = element.style.display;
-    element.appendChild(n);
-    element.style.display = 'none';
-
-    setTimeout(function(){
-        if(document.body.scrollTop == 0)
-          document.body.scrollTop = 1;
-        else
-          document.body.scrollTop = 0;
-    },20);
-}
-
 if(variation == 1){
+  var forceRedraw = function(element){
+
+      if (!element) { return; }
+
+      var n = document.createTextNode(' ');
+      var disp = element.style.display;
+      element.appendChild(n);
+      element.style.display = 'none';
+
+      setTimeout(function(){
+          if(document.body.scrollTop == 0)
+            document.body.scrollTop = 1;
+          else
+            document.body.scrollTop = 0;
+      },20);
+  }
   scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
 }
 
