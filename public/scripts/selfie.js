@@ -327,14 +327,6 @@ if(variation == 0) {
   });
 }
 
-function stepEMeasure() {
-  $("#step_selfie").removeClass('completed');
-  $("#step_emeasure").addClass('completed');
-  //location.href='/update';
-  Loggr.Log.trackUser(uid, "", "onScanComplete called.");
-  window.onScanComplete();
-}
-
 function getDataUri(url, callback) {
     var image = new Image();
 

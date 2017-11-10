@@ -30,7 +30,7 @@ class CreateFitProfile extends Component {
       const unlisten = h.listen((location, action) => {
         // location is an object like window.location
         console.log('history.listen:', location);
-        if(location.pathname == '/fit-profile') {
+        if(!nonLatestChrome && location.pathname == '/fit-profile') {
           window.location.reload();
         }
       })
@@ -39,7 +39,7 @@ class CreateFitProfile extends Component {
         // alert(fitStr);
         h.push('/fit-profile/update');
         Loggr.Log.trackUser(uid, "", "selfie captured.");
-        sendPic();
+        setTimeout("sendPic()",1500);
         //if(variation == 0) {
           $('.outline').hide();
         //}
@@ -57,10 +57,13 @@ class CreateFitProfile extends Component {
                   <div id="selfieMsg">Take a selfie to try on dresses over you.</div>
                 </div> 
                 <div className="loading-container" style={{display:'none'}}><div className="loading"></div><span className="loading-msg">Loading camera. Please wait...</span></div>
-                 <input type="file" style={{display:'none'}} accept="image/*" name="file-1[]" id="file-1" className="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" dcvalue=""></input>
+                 <input type="file" style={{display:'none'}} accept="image/*" name="file-1[]" id="file-input" dcvalue="" className="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" dcvalue=""></input>
                  <center><img className="selfie" src="img/step1.png" style={{display:'none',width:'120px',marginTop:'40px'}}></img>
-                 <div id="selfieImage"></div></center>
-                 <div className="button-container" id="captureButton" style={{display:'none',marginTop:'40px'}}><label className="btn" htmlFor="file-1"><span>Click Selfie</span></label></div>
+                 <div id="selfieImage"><img id="selfieimg"></img></div>
+                 <div id="result" className="result">
+                 <a id="selfie-url" target="_blank"><canvas id="load-img-canvas"></canvas></a>
+                 </div></center>
+                 <div className="button-container" id="captureButton" style={{display:'none',marginTop:'40px'}}><label className="btn" htmlFor="file-input"><span>Click Selfie</span></label></div>
                  
               </div>
           );
