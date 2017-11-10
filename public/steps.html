@@ -1225,6 +1225,11 @@ if(jscd.browser == 'Chrome' && navigator.userAgent.indexOf('Samsung') == -1
 }
 
 var variation = nonLatestChrome ? 1 : 0;
+if(variation == 1) {
+Loggr.Log.trackUser(uid, "", "non-latest-chrome. Loading variation 1");
+} else {
+Loggr.Log.trackUser(uid, "", "latest-chrome. Loading variation 0");  
+}
 function loadVariation() {
   // variation = Math.round(Math.random());
   gtag('event', 'Stage', {'event_category':'variation', 'event_label':'variation'+variation});
