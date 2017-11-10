@@ -27,6 +27,13 @@ class CreateFitProfile extends Component {
         $('.loading-container').show();
       }
       var h = this.props.history;
+      const unlisten = h.listen((location, action) => {
+        // location is an object like window.location
+        console.log('history.listen:', location);
+        if(location.pathname == '/fit-profile') {
+          window.location.reload();
+        }
+      })
       window.onScanComplete = function() {
         var fitStr = 'faceH:'+localStorage.getItem('faceH')+'faceW:'+localStorage.getItem('faceW')+'faceX:'+localStorage.getItem('faceX')+'faceY:'+localStorage.getItem('faceY')+'shoulderH:'+localStorage.getItem('shoulderH')+'shoulderW:'+localStorage.getItem('shoulderW')+'shoulderX:'+localStorage.getItem('shoulderX')+'shoulderY:'+localStorage.getItem('shoulderY');
         // alert(fitStr);
