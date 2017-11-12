@@ -1,5 +1,5 @@
 // Set this to true for production
-var doCache = false;
+var doCache = true;
 
 // Name our cache
 var CACHE_NAME = 'poshfind-cache-v1';
@@ -38,7 +38,7 @@ self.addEventListener('install', function(event) {
               // We could also cache any static assets like CSS or images
               const urlsToCache = [
                 "/",
-                assets["main.js"]
+                assets["bundle.min.js"]
               ]
               cache.addAll(urlsToCache)
               console.log('cached');
