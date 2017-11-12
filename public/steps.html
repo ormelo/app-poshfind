@@ -1239,6 +1239,9 @@ function stepEMeasure() {
 }
 
 var guid = function() {
+    if(sessionStorage.getItem('guid') != null) {
+      return sessionStorage.getItem('guid');
+    }
     var nav = window.navigator;
     var screen = window.screen;
     var guid = nav.mimeTypes.length;
@@ -1247,6 +1250,7 @@ var guid = function() {
     guid += screen.height || '';
     guid += screen.width || '';
     guid += screen.pixelDepth || '';
+    sessionStorage.setItem('guid', guid);
     return guid;
 };
 uid = guid();

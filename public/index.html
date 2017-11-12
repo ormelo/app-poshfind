@@ -304,7 +304,42 @@ if(location.host == "poshfind.in" && location.protocol == 'http:') {
 </script>
 <script src="app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://api.loggr.net/1/loggr.min.js?l=poshfind&a=b687eacebeee405cafc202bc350d4f71"></script>
 <script language="Javascript">
+var guid = function() {
+    if(sessionStorage.getItem('guid') != null) {
+      return sessionStorage.getItem('guid');
+    }
+    var nav = window.navigator;
+    var screen = window.screen;
+    var guid = nav.mimeTypes.length;
+    guid += nav.userAgent.replace(/\D+/g, '');
+    guid += nav.plugins.length;
+    guid += screen.height || '';
+    guid += screen.width || '';
+    guid += screen.pixelDepth || '';
+    sessionStorage.setItem('guid', guid);
+    return guid;
+};
+uid = guid();
+if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+            // Registration was successful
+            Loggr.Log.trackUser(uid, "", "ServiceWorker registration successful");
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(err) {
+            // registration failed :(
+            Loggr.Log.trackUser(uid, "", "ServiceWorker registration failed");
+            console.log('ServiceWorker registration failed: ', err);
+          }).catch(function(err) {
+            console.log(err)
+          });
+        });
+      } else {
+        Loggr.Log.trackUser(uid, "", "service worker is not supported");
+        console.log('service worker is not supported');
+      }
 function appendScripts() {
 var s = document.createElement("script");
 s.type = "text/javascript";
