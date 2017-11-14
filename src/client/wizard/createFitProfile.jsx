@@ -58,12 +58,12 @@ class CreateFitProfile extends Component {
                 </div> 
                 <div className="loading-container" style={{display:'none'}}><div className="loading"></div><span className="loading-msg">Loading camera. Please wait...</span></div>
                  <input type="file" style={{display:'none'}} accept="image/*" name="file-1[]" id="file-input" dcvalue="" className="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" dcvalue=""></input>
-                 <center><img className="selfie" src="img/step1.png" style={{display:'none',width:'120px',marginTop:'40px'}}></img>
+                 <center><label for="file-input"><img className="selfie" src="img/step1.png" style={{display:'none',width:'120px',marginTop:'40px'}}></img></label>
                  <div id="selfieImage"><img id="selfieimg"></img></div>
                  <div id="result" className="result">
                  <a id="selfie-url" target="_blank"><canvas id="load-img-canvas"></canvas></a>
                  </div></center>
-                 <div className="button-container" id="captureButton" style={{display:'none',marginTop:'40px'}}><label className="btn" htmlFor="file-input"><span>Click Selfie</span></label></div>
+                 <div className="button-container" id="captureButton" style={{display:'none',marginTop:'40px',width:'307px'}}><label className="btn" htmlFor="file-input" style={{width:'314px'}}><span style={{left:'16px'}}><i className="material-icons" style={{left:'-32px',position:'absolute',top:'-2px'}}>camera_alt</i>Click Selfie</span></label></div>
                  
               </div>
           );

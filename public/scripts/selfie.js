@@ -145,7 +145,15 @@ function showSuccess(video) {
     Loggr.Log.trackUser(uid, "", "showSuccess() called.");
 }
 function showError(error) {
+    console.log("showError() called with: "+error.message);
+    $('#captureButton').show();
+    $('.selfie').show();
+    $('.loading-container').hide();
+    $('#capture-photo').hide();
+    $('#captureButton').show();
+    $('#selfieMsg').html("Problem accessing camera feed directly. Try 'Click selfie' option below.");
     Loggr.Log.trackUser(uid, "", "showError() called with: "+error.message);
+    Loggr.Log.trackUser(uid, "", "Trying click selfie option");
 }
 
   // Start video playback manually.
