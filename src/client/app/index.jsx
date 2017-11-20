@@ -48,7 +48,14 @@ class Home extends Component {
                       <div className="step-2"><img src="img/bstep2.png" width="120px"></img><div>Try on dresses & shop</div></div>
                   </div>
 
-                  <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>WHAT USERS SAY</div>
+                  <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>WHAT SIZE TO BUY</div>
+                  <div className="line" style={{marginTop: '9px'}}></div>
+                  <div className="what-size" style={{marginTop: '40px'}}>
+                    <img src="img/bsize.jpg" className="testi-img" width="190px" style={{margin:'0 auto'}}/>
+                    <div className="description" style={{top: '430px',position: 'relative', width: '300px'}}>We show you what size fits you best, so you never order the wrong size</div>
+                  </div>
+
+                  <div className="headline" style={{marginTop: '450px',fontSize:'24px'}}>WHAT USERS SAY</div>
                   <div className="line" style={{marginTop: '9px'}}></div>
                   <div className="what-users-say" style={{marginTop: '40px'}}>
                     <img src="img/testi.png" className="testi-img" width="90%" style={{margin:'0 auto'}}/>
