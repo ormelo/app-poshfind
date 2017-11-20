@@ -42,16 +42,51 @@ html{
   src: url('fonts/fr.otf');
 }
 
+.banner {
+  width:200px;
+  opacity: 0.6;
+  display: none;
+}
+.float-right {
+  float: right;
+  right: -66px;
+  width: 250px !important;
+}
+.slider{
+    width:100%;
+    height:300px;
+    overflow:hidden;
+    position:relative;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+.slider > div{
+    position:absolute;
+    animation:move_slide2 6s infinite;
+    opacity:0;
+}
+.slider > div:nth-child(1){ animation-delay: 0; }
+.slider > div:nth-child(2){ animation-delay: 2s; }
+.slider > div:nth-child(3){ animation-delay: 4s; }
+.slider > div:nth-child(4){ animation-delay: 6s; }
+
+@keyframes move_slide{
+    10%{ opacity:1; }
+    80%{ opacity:0.4; }
+    90%{ opacity:0 }
+}
+@keyframes move_slide2{
+    25%{opacity:0.4;}
+    40%{opacity:0;}
+}
+
 .line {
   margin-top: 39px;border-top: 1px solid #cfcecf;
 }
 .dbg {
   position: absolute;
-  z-index: -1;
   width: 100vh;
-  filter: blur(3px);
   margin-top: 17px;
-  opacity: 0.8;
 }
 .button-container {
     padding-top: 36px;
@@ -146,7 +181,7 @@ html{
       margin: 0 auto;
       width: 80%;
       margin-top: 0px;
-      font-size: 20px;
+      font-size: 18px;
       text-align: center;
       line-height: 26px;
       padding-bottom: 32px;
@@ -297,7 +332,28 @@ html{
 <div>
   <div class="logo"></div>
   <div class="line"></div>
-  <img clas="dbg" src="img/dbg.jpg" />
+  <div class="slider dbg">
+    div>
+      <img width="250px" className="banner" src="img/b1.jpg" alt="" />
+    </div>
+    <div>
+        <img width="250px" className="banner" src="img/b2.jpg" alt="" />
+    </div>
+    <div>
+        <img width="250px" className="banner" src="img/b3.jpg" alt="" />
+    </div>
+</div>
+<div className="slider dbg float-right">
+      <div>
+          <img width="250px" className="banner" src="img/b4.jpg" alt="" />
+      </div>
+      <div>
+          <img width="250px" className="banner" src="img/b3.jpg" alt="" />
+      </div>
+      <div>
+          <img width="250px" className="banner" src="img/b1.jpg" alt="" />
+      </div>
+  </div>
   <div class="headline">TRY DRESSES ON YOU</div><br/>
   <div class="description">Poseok lets you see how clothes look & fit you to make your shopping decision simple.</div>
 

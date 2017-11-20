@@ -8,11 +8,35 @@ import OnboardTitle from './onboardTitle.jsx';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
+    componentDidMount() {
+      setTimeout("$('.banner').show()",500);
+    }
     render(){
         return (<div>
                   <div className="logo"></div>
                   <div className="line"/>
-                  <img className="dbg" src="img/dbg.jpg" />
+                  <div className="slider dbg">
+                    <div>
+                        <img width="250px" className="banner" src="img/b1.jpg" alt="" />
+                    </div>
+                    <div>
+                        <img width="250px" className="banner" src="img/b2.jpg" alt="" />
+                    </div>
+                    <div>
+                        <img width="250px" className="banner" src="img/b3.jpg" alt="" />
+                    </div>
+                </div>
+                <div className="slider dbg float-right">
+                      <div>
+                          <img width="250px" className="banner" src="img/b4.jpg" alt="" />
+                      </div>
+                      <div>
+                          <img width="250px" className="banner" src="img/b3.jpg" alt="" />
+                      </div>
+                      <div>
+                          <img width="250px" className="banner" src="img/b1.jpg" alt="" />
+                      </div>
+                  </div>
                   <div className="headline">TRY DRESSES ON YOU</div><br/>
                   <div className="description">Poseok lets you see how clothes look & fit you to make your shopping decision simple.</div>
                   
