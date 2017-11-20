@@ -43,6 +43,8 @@ class Home extends Component {
                   <div className="button-container">
                     {<a id="cta" href="/fit-profile" className="btn"><span>GET STARTED</span></a>}
                   </div>
+                  <div className="headline" style={{marginTop: '50px'}}>HOW IT WORKS</div>
+                  <div className="line" style={{marginTop: '9px'}}></div>
                 </div>
           );
     }
