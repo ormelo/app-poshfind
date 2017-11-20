@@ -126,6 +126,47 @@ html{
     25%{left:-100px;}
     40%{left:-200px;}
 }
+.bubbledLeft,.bubbledRight,.bubbledLeftWhite {
+  word-wrap: break-word;
+  margin: 0 auto;
+  padding: 15px 19px;
+  max-width: 90%;
+  clear: both;
+  position: relative;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 24px;
+  }
+
+  .bubbledLeft{
+    top:100px;
+  margin:0 auto;
+  margin-right: auto;
+  -webkit-border-radius: 0px 8px 8px 8px;
+  -moz-border-radius: 0px 8px 8px 8px;
+  -o-border-radius: 0px 8px 8px 8px;
+  -ms-border-radius: 0px 8px 8px 8px;
+  border-radius: 0px 8px 8px 8px;
+  background-color: #f4f4f4;
+  color: #000000;
+  }
+
+  .bubbledLeft:before {
+  border-top: 10px solid #f4f4f4;
+  border-left: 9px solid rgba(0, 0, 0, 0);
+  position: absolute;
+  left: -8px;
+  content: "";
+  }
+
+  .testi-name {
+    position: absolute;
+    margin: 0 auto;
+    left: 0px;
+    right: 0;
+    width: 164px;
+    margin-top: 60px;
+  }
 .line {
   margin-top: 39px;border-top: 1px solid #cfcecf;
 }
@@ -207,6 +248,9 @@ html{
       background-size: cover;
       background-position-y: -15px;
     }
+    .show-new-range > img:nth-child(1){ margin: 0px auto; }
+    .show-new-range > img:nth-child(2){ margin: 56% auto; }
+    .show-new-range > img:nth-child(3){ margin: 112% auto; margin-bottom: 60px; }
     .logo {
       background-image: url(img/logosm1.png);
       width: 129px;
@@ -282,6 +326,9 @@ html{
       background-size: cover;
       background-position-y: -31px;
     }
+    .show-new-range > img:nth-child(1){ margin: 0px auto; }
+    .show-new-range > img:nth-child(2){ margin: 36% auto; }
+    .show-new-range > img:nth-child(3){ margin: 62% auto; margin-bottom: 60px; }
     .logo {
       background-image: url(img/logosm1.png);
       width: 128px;
@@ -299,6 +346,7 @@ html{
       letter-spacing: 0px;
       font-size: 36px;
       font-family: 'fr';
+      text-align: center;
     }
     .description {
       margin-left: 65px;
@@ -307,6 +355,8 @@ html{
       padding-bottom: 50px;
       margin-top: 12px;
       line-height: 26px;
+      margin: 0 auto;
+      text-align: center;
     }
     .gylph img {
       width: 184px;
@@ -365,6 +415,8 @@ html{
       padding-bottom: 50px;
       margin-top: 12px;
       line-height: 26px;
+      margin: 0 auto;
+      text-align: center;
     }
     .gylph img {
       width: 184px;
@@ -425,22 +477,24 @@ html{
   <div class="headline" style="margin-top: 250px;font-size:24px;">WHAT SIZE TO BUY</div>
   <div class="line" style="margin-top: 9px;"></div>
   <div class="what-size" style="margin-top: 40px;">
-    <div clas="description" style="top: 0px;position: relative;width: 300px;">PoseOk tells you exactly how each size fits you so you'll never order a wrong size again!</div>
-    <img src="img/bsize.jpg" class="testi-img" width="190px"/>
+    <div clas="description" style="top: 0px;position: relative;width: 320px;">PoseOk tells you exactly how each size fits you so you'll never order a wrong size again!</div>
+    <img src="img/bsize.jpg" class="testi-img" width="60px"/>
+    <div class="bubbledLeft" style="margin-top: 100px">When I ordered my dress based on size recommended by the app, I wasn't sure. But I got my dress shipped last Saturday and when I tried on, bingo.. Just the fit I wanted! Kudos & Good luck PoseOk!</div>
   </div>
 
   <div class="headline" style="margin-top: 450px;font-size:24px;">WHAT USERS SAY</div>
   <div class="line" style="margin-top: 9px;"></div>
   <div class="what-users-say" style="margin-top: 40px;">
+    <span class="testi-name">Priya Oswal, Bangalore</span>
     <img src="img/testi.png" class="testi-img" width="90%"/>
   </div>
 
   <div class="headline" style="margin-top: 300px;font-size:24px;">WHAT USERS SAY</div>
   <div class="line" style="margin-top: 9px;"></div>
   <div class="show-new-range" style="margin-top: 40px;">
-    <img src="img/r1.jpg" class="testi-img" width="90%" style="margin: 0 auto" />
-    <img src="img/r2.jpg" class="testi-img" width="90%" style="margin: 222px auto"/>
-    <img src="img/r3.jpg" class="testi-img" width="90%" style="margin: 446px auto; margin-bottom: 100px;"/>
+    <img src="img/r1.jpg" class="testi-img" width="90%" />
+    <img src="img/r2.jpg" class="testi-img" width="90%" />
+    <img src="img/r3.jpg" class="testi-img" width="90%" />
   </div>
 
   <div id="G"></div>

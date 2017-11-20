@@ -48,22 +48,24 @@ class Home extends Component {
                   <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>WHAT SIZE TO BUY</div>
                   <div className="line" style={{marginTop: '9px'}}></div>
                   <div className="what-size" style={{marginTop: '40px'}}>
-                    <div className="description" style={{top: '0px',position: 'relative', width: '300px', marginTop: '-10px'}}>PoseOk tells you exactly how each size fits you so you'll never order a wrong size again!</div>
-                    <img src="img/bsize.jpg" className="testi-img" width="190px" style={{margin:'0 auto'}}/>
+                    <div className="description" style={{top: '0px',position: 'relative', width: '320px', marginTop: '-10px'}}>PoseOk tells you exactly how each size fits you so you'll never order a wrong size again!</div>
+                    <img src="img/bsize.jpg" className="testi-img" width="190px" style={{margin:'-20px auto'}}/>
                   </div>
 
                   <div className="headline" style={{marginTop: '450px',fontSize:'24px'}}>WHAT USERS SAY</div>
                   <div className="line" style={{marginTop: '9px'}}></div>
-                  <div className="what-users-say" style={{marginTop: '40px'}}>
-                    <img src="img/testi.png" className="testi-img" width="90%" style={{margin:'0 auto'}}/>
+                  <div className="what-users-say" style={{marginTop: '30px'}}>
+                    <img src="img/testi.png" className="testi-img" width="60px" style={{margin:'0 auto'}}/>
+                    <span className="testi-name">Priya Oswal, Bangalore</span>
+                    <div className="bubbledLeft">When I ordered my dress based on size recommended by the app, I wasn't sure. But I got my dress shipped last Saturday and when I tried on, bingo.. Just the fit I wanted! Kudos & Good luck PoseOk!</div>
                   </div>
 
-                  <div className="headline" style={{marginTop: '300px',fontSize:'24px'}}>SHOP OUR NEWEST RANGE</div>
+                  <div className="headline" style={{marginTop: '160px',fontSize:'24px'}}>SHOP OUR NEWEST RANGE</div>
                   <div className="line" style={{marginTop: '9px'}}></div>
                   <div className="show-new-range" style={{marginTop: '40px'}}>
-                    <img src="img/r1.jpg" className="testi-img" width="90%" style={{margin:'0 auto'}}/>
-                    <img src="img/r2.jpg" className="testi-img" width="90%" style={{margin:'222px auto'}}/>
-                    <img src="img/r3.jpg" className="testi-img" width="90%" style={{margin:'446px auto',marginBottom: '100px'}}/>
+                    <img src="img/r1.jpg" className="testi-img" width="90%" />
+                    <img src="img/r2.jpg" className="testi-img" width="90%" />
+                    <img src="img/r3.jpg" className="testi-img" width="90%" />
                   </div>
                   <div id="G"></div>
                 </div>
