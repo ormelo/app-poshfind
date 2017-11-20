@@ -8,9 +8,6 @@ import OnboardTitle from './onboardTitle.jsx';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
-    componentDidMount() {
-      $('.banner').attr('src',$('.banner').attr('data-src'));
-    }
     render(){
         return (<div>
                   <div className="logo"></div>
@@ -45,6 +42,12 @@ class Home extends Component {
                   </div>
                   <div className="headline" style={{marginTop: '50px',fontSize:'24px'}}>HOW IT WORKS</div>
                   <div className="line" style={{marginTop: '9px'}}></div>
+                  <div className="how-it-works" style={{marginTop: '40px'}}>
+                      <div className="step-1"><img src="img/bstep1.png" width="120px"></img><div>Take a selfie</div></div>
+                      <div className="step-arrow"><img src="img/a.jpg" width="18px"></img></div>
+                      <div className="step-2"><img src="img/bstep2.png" width="120px"></img><div>Try on dresses & shop</div></div>
+                  </div>
+                  <div id="G"></div>
                 </div>
           );
     }
