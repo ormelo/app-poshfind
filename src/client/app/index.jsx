@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
     componentDidMount() {
-      setTimeout("$('.banner').show()",500);
+      $('.banner').attr('src',$('.banner').attr('data-src'));
     }
     render(){
         return (<div>
@@ -43,7 +43,7 @@ class Home extends Component {
                   <div className="button-container">
                     {<a id="cta" href="/fit-profile" className="btn"><span>GET STARTED</span></a>}
                   </div>
-                  <div className="headline" style={{marginTop: '50px'}}>HOW IT WORKS</div>
+                  <div className="headline" style={{marginTop: '50px',fontSize:'24px'}}>HOW IT WORKS</div>
                   <div className="line" style={{marginTop: '9px'}}></div>
                 </div>
           );
