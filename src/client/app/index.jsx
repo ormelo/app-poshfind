@@ -34,8 +34,8 @@ class Home extends Component {
                           <img width="250px" className="banner" src="img/b1.jpg" alt="" />
                       </div>
                   </div>
-                  <div className="headline">TRY DRESSES ON YOU</div><br/>
-                  <div className="description">Poseok lets you see how clothes look & fit you to make your shopping decision simple.</div>
+                  <div className="headline main">TRY DRESSES ON YOU</div><br/>
+                  <div className="description">See how clothes look & fit you before deciding to buy.</div>
                   
                   <div className="button-container">
                     {<a id="cta" href="/fit-profile" className="btn"><span>GET STARTED</span></a>}
@@ -52,7 +52,7 @@ class Home extends Component {
                   <div className="line" style={{marginTop: '9px'}}></div>
                   <div className="what-size" style={{marginTop: '40px'}}>
                     <img src="img/bsize.jpg" className="testi-img" width="190px" style={{margin:'0 auto'}}/>
-                    <div className="description" style={{top: '430px',position: 'relative', width: '300px'}}>We show you what size fits you best, so you never order the wrong size</div>
+                    <div className="description" style={{top: '430px',position: 'relative', width: '300px', marginTop: '-10px'}}>We show you what size fits you best, so you never order the wrong size</div>
                   </div>
 
                   <div className="headline" style={{marginTop: '450px',fontSize:'24px'}}>WHAT USERS SAY</div>
