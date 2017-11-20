@@ -1,6 +1,6 @@
 {
-"short_name": "Poshfind",
-"name": "Poshfind PWA",
+"short_name": "PoseOK",
+"name": "Try on new dresses everyday!",
 "icons": [
 {
 "src": "icon192.png",
@@ -15,6 +15,6 @@
 ],
 "start_url": "/?s=homescreen",
 "background_color": "#7243a9",
-"theme_color": "#7243a9",
+"theme_color": "#343339",
 "display": "fullscreen"
 }
