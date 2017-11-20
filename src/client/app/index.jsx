@@ -11,11 +11,13 @@ class Home extends Component {
     render(){
         return (<div>
                   <div className="logo"></div>
-                  <div className="headline">Try dresses on you!</div><br/>
-                  <div className="description">Take a selfie & try dresses on you to see how they look & fit you before you buy.</div>
+                  <div className="line"/>
+                  <img className="dbg" src="img/dbg.jpg" />
+                  <div className="headline">TRY DRESSES ON YOU</div><br/>
+                  <div className="description">Poseok lets you see how clothes look & fit you to make your shopping decision simple.</div>
                   
                   <div className="button-container">
-                    {<a id="cta" href="/fit-profile" className="btn"><span>Get Started</span></a>}
+                    {<a id="cta" href="/fit-profile" className="btn"><span>GET STARTED</span></a>}
                   </div>
                 </div>
           );
