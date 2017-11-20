@@ -22,25 +22,22 @@ class Home extends Component {
                     <div>
                         <img width="250px" className="banner" src="img/b3.jpg" alt="" />
                     </div>
-                </div>
-                <div className="slider dbg float-right">
-                      <div>
-                          <img width="250px" className="banner" src="img/b4.jpg" alt="" />
-                      </div>
-                      <div>
-                          <img width="250px" className="banner" src="img/b3.jpg" alt="" />
-                      </div>
-                      <div>
-                          <img width="250px" className="banner" src="img/b1.jpg" alt="" />
-                      </div>
+                    <div>
+                      <img width="250px" className="banner" src="img/b4.jpg" alt="" />
                   </div>
-                  <div className="headline main">TRY DRESSES ON YOU</div><br/>
-                  <div className="description">See how clothes look & fit you before deciding to buy.</div>
-                  
+                  <div>
+                      <img width="250px" className="banner" src="img/b3.jpg" alt="" />
+                  </div>
+                  <div>
+                      <img width="250px" className="banner" src="img/b1.jpg" alt="" />
+                  </div>
+                </div>
+                
+                  <div className="headline main">TRY DRESSES ON YOU</div><br/>                  
                   <div className="button-container">
                     {<a id="cta" href="/fit-profile" className="btn"><span>GET STARTED</span></a>}
                   </div>
-                  <div className="headline" style={{marginTop: '50px',fontSize:'24px'}}>HOW IT WORKS</div>
+                  <div className="headline" style={{marginTop: '116px',fontSize:'24px'}}>HOW IT WORKS</div>
                   <div className="line" style={{marginTop: '9px'}}></div>
                   <div className="how-it-works" style={{marginTop: '40px'}}>
                       <div className="step-1"><img src="img/bstep1.png" width="120px"></img><div>Take a selfie</div></div>
@@ -51,8 +48,8 @@ class Home extends Component {
                   <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>WHAT SIZE TO BUY</div>
                   <div className="line" style={{marginTop: '9px'}}></div>
                   <div className="what-size" style={{marginTop: '40px'}}>
+                    <div className="description" style={{top: '0px',position: 'relative', width: '300px', marginTop: '-10px'}}>PoseOk tells you exactly how each size fits you so you'll never order a wrong size again!</div>
                     <img src="img/bsize.jpg" className="testi-img" width="190px" style={{margin:'0 auto'}}/>
-                    <div className="description" style={{top: '430px',position: 'relative', width: '300px', marginTop: '-10px'}}>We show you what size fits you best, so you never order the wrong size</div>
                   </div>
 
                   <div className="headline" style={{marginTop: '450px',fontSize:'24px'}}>WHAT USERS SAY</div>

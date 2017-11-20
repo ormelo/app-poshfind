@@ -44,7 +44,7 @@ html{
 
 .banner {
   width:200px;
-  opacity: 0.8;
+  opacity: 1;
 }
 .float-right {
   float: right;
@@ -103,24 +103,28 @@ html{
     white-space: nowrap;
     z-index: -1;
 }
-.slider > div{
-    position:absolute;
-    animation:move_slide2 6s infinite;
-    opacity:0;
+.slider > div {
+  display: inline-block;
 }
-.slider > div:nth-child(1){ animation-delay: 0; }
-.slider > div:nth-child(2){ animation-delay: 2s; }
-.slider > div:nth-child(3){ animation-delay: 4s; }
-.slider > div:nth-child(4){ animation-delay: 6s; }
+.slider{
+    position: absolute;
+    animation: move-blue 8s infinite cubic-bezier(0.01, 0, 1, 1);
+    opacity: 1;
+}
+
+@keyframes move-blue {
+    from { margin-left: 0%;   }
+    to   { margin-left: -460px; }
+}
 
 @keyframes move_slide{
-    10%{ opacity:1; }
-    80%{ opacity:0.4; }
-    90%{ opacity:0 }
+    10%{ left:0px; }
+    80%{ lefy:-100px; }
+    90%{ left:-200px }
 }
 @keyframes move_slide2{
-    25%{opacity:0.4;}
-    40%{opacity:0;}
+    25%{left:-100px;}
+    40%{left:-200px;}
 }
 .line {
   margin-top: 39px;border-top: 1px solid #cfcecf;
@@ -190,8 +194,12 @@ html{
 }
 @media (max-width: 599px){
     .container{
-      width: 100%;
-      height: 89px;
+    width: 100%;
+    height: 48px;
+    background: -moz-linear-gradient(top,rgba(128, 128, 128, 0.44) 0,rgba(255, 255, 255, 0.64) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(128, 128, 128, 0.44)),color-stop(100%,rgba(255, 255, 255, 0.64)));
+    background: -o-linear-gradient(top,rgba(128, 128, 128, 0.44) 0,rgba(255, 255, 255, 0.64) 100%);
+    background: -ms-linear-gradient(top,rgba(128, 128, 128, 0.44) 0,rgba(255, 255, 255, 0.64) 100%);
     }
     .glitter {
       background-image: url(img/mbg2.jpg);
@@ -383,34 +391,30 @@ html{
   <div class="logo"></div>
   <div class="line"></div>
   <div class="slider dbg">
-      <img width="250px" class="banner" data-src="img/b1.jpg" alt="" />
+      <img width="250px" class="banner" src="img/b1.jpg" alt="" />
     </div>
     <div>
-        <img width="250px" class="banner" data-src="img/b2.jpg" alt="" />
+        <img width="250px" class="banner" src="img/b2.jpg" alt="" />
     </div>
     <div>
-        <img width="250px" class="banner" data-src="img/b3.jpg" alt="" />
+        <img width="250px" class="banner" src="img/b3.jpg" alt="" />
     </div>
+    <div>
+          <img width="250px" class="banner" src="img/b4.jpg" alt="" />
+      </div>
+      <div>
+          <img width="250px" class="banner" src="img/b3.jpg" alt="" />
+      </div>
+      <div>
+          <img width="250px" class="banner" src="img/b1.jpg" alt="" />
+      </div>
 </div>
-<div class="slider dbg float-right">
-      <div>
-          <img width="250px" class="banner" data-src="img/b4.jpg" alt="" />
-      </div>
-      <div>
-          <img width="250px" class="banner" data-src="img/b3.jpg" alt="" />
-      </div>
-      <div>
-          <img width="250px" class="banner" data-src="img/b1.jpg" alt="" />
-      </div>
-  </div>
   <div class="headline">TRY DRESSES ON YOU</div><br/>
-  <div class="description">See how clothes look & fit you before deciding to buy.</div>
-
   <div class="button-container">
     <a id="cta" href="/fit-profile" class="btn"><span>GET STARTED</span></a>
   </div>
 
-  <div class="headline" style="margin-top: 70px;font-size:24px;">HOW IT WORKS</div>
+  <div class="headline" style="margin-top: 116px;font-size:24px;">HOW IT WORKS</div>
   <div class="line" style="margin-top: 9px;"></div>
   <div class="how-it-works" style="margin-top: 40px;margin-left: 40px;">
     <div class="step-1"><img src="img/bstep1.png" width="120px"><div>Take a selfie</div></div>
@@ -421,8 +425,8 @@ html{
   <div class="headline" style="margin-top: 250px;font-size:24px;">WHAT SIZE TO BUY</div>
   <div class="line" style="margin-top: 9px;"></div>
   <div class="what-size" style="margin-top: 40px;">
+    <div clas="description" style="top: 0px;position: relative;width: 300px;">PoseOk tells you exactly how each size fits you so you'll never order a wrong size again!</div>
     <img src="img/bsize.jpg" class="testi-img" width="190px"/>
-    <div clas="description" style="top: 430px;position: relative;width: 300px;">We show you what size fits you best, so you never order the wrong size</div>
   </div>
 
   <div class="headline" style="margin-top: 450px;font-size:24px;">WHAT USERS SAY</div>
