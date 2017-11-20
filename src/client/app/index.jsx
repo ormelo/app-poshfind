@@ -60,6 +60,14 @@ class Home extends Component {
                   <div className="what-users-say" style={{marginTop: '40px'}}>
                     <img src="img/testi.png" className="testi-img" width="90%" style={{margin:'0 auto'}}/>
                   </div>
+
+                  <div className="headline" style={{marginTop: '300px',fontSize:'24px'}}>SHOP OUR NEWEST RANGE</div>
+                  <div className="line" style={{marginTop: '9px'}}></div>
+                  <div className="show-new-range" style={{marginTop: '40px'}}>
+                    <img src="img/r1.jpg" className="testi-img" width="90%" style={{margin:'0 auto'}}/>
+                    <img src="img/r2.jpg" className="testi-img" width="90%" style={{margin:'222px auto'}}/>
+                    <img src="img/r3.jpg" className="testi-img" width="90%" style={{margin:'446px auto',marginBottom: '100px'}}/>
+                  </div>
                   <div id="G"></div>
                 </div>
           );
