@@ -47,6 +47,12 @@ class Home extends Component {
                       <div className="step-arrow"><img src="img/a.jpg" width="18px"></img></div>
                       <div className="step-2"><img src="img/bstep2.png" width="120px"></img><div>Try on dresses & shop</div></div>
                   </div>
+
+                  <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>WHAT USERS SAY</div>
+                  <div className="line" style={{marginTop: '9px'}}></div>
+                  <div className="what-users-say" style={{marginTop: '40px'}}>
+                    <img src="img/testi.png" className="testi-img" width="90%" style={{margin:'0 auto'}}/>
+                  </div>
                   <div id="G"></div>
                 </div>
           );
