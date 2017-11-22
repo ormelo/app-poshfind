@@ -21,6 +21,7 @@
 
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Quick+sand:300');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -38,12 +39,12 @@ html{
     margin-top: 100px;
 }
 @font-face{
-  font-family:'fr';
-  src: url('fonts/fr.otf');
+  font-family:'mo';
+  src: url('fonts/mo.ttf');
 }
 
 .banner {
-  width:200px;
+  width:230px;
   opacity: 1;
 }
 .float-right {
@@ -73,6 +74,17 @@ html{
   width: 108px;
   text-align: center;
 }
+.step-2 > img {
+  width: 96px;
+  margin-top: 11px;
+  opacity: 0.5;
+}
+.step-1 > img {
+  opacity: 0.5;
+}
+.arrow-2 {
+  margin-left: 0px;position: absolute;
+}
 #G {
     background: -moz-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
     background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,1)),color-stop(100%,rgba(255,255,255,0)));
@@ -101,15 +113,12 @@ html{
     position:relative;
     box-sizing: border-box;
     white-space: nowrap;
-    z-index: -1;
+    position: absolute;
+    animation: move-blue 8s infinite cubic-bezier(0.01, 0, 1, 1);
+    opacity: 0.1;
 }
 .slider > div {
   display: inline-block;
-}
-.slider{
-    position: absolute;
-    animation: move-blue 8s infinite cubic-bezier(0.01, 0, 1, 1);
-    opacity: 1;
 }
 
 @keyframes move-blue {
@@ -133,7 +142,7 @@ html{
   max-width: 90%;
   clear: both;
   position: relative;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 900;
   line-height: 24px;
   }
@@ -147,15 +156,16 @@ html{
   -o-border-radius: 0px 8px 8px 8px;
   -ms-border-radius: 0px 8px 8px 8px;
   border-radius: 0px 8px 8px 8px;
-  background-color: #f4f4f4;
-  color: #000000;
+  background-color: #848890;
+  color: #ffffff;
   }
 
   .bubbledLeft:before {
-  border-top: 10px solid #f4f4f4;
+  border-top: 10px solid #84888f;
   border-left: 9px solid rgba(0, 0, 0, 0);
   position: absolute;
   left: -8px;
+  top: 0px;
   content: "";
   }
 
@@ -194,30 +204,33 @@ html{
     color: white;
     font-size: 13px;
     text-align: center;
-    -webkit-border-radius: 34px;
+    -webkit-border-radius: 36px;
     margin: 0 auto;
+    box-shadow: 0px 0px 21px 2px #dad2d2;
 }
 .btn span {
     position: relative;
-    top: 14px;
-    font-size: 16px;
-    letter-spacing: 2px;
+    top: 12px;
+    font-size: 18px;
+    letter-spacing: 1px;
     font-weight: bold;
 }
 .btn:after {
     position: absolute;
     content: '';
     display: inline-block;
-    background: #343339;
     height: 50px;
     width: 402px;
     z-index: -1;
+    background: -webkit-linear-gradient(0deg, #fa880f 0%, #fa880f 25%, #fdb446 81%, #fdb446 100%);
+    background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 100%);
     -webkit-transform: translateX(-280px);
     transform: translateX(-280px);
     -webkit-transition: -webkit-transform 400ms ease-in;
     transition: -webkit-transform 400ms ease-in;
     transition: transform 400ms ease-in;
     transition: transform 400ms ease-in, -webkit-transform 400ms ease-in;
+    box-shadow: inset 0 1px 0 0px #ffe1b3;
 }
 .btn:hover:after {
     -webkit-transform: translateX(-200px);
@@ -236,11 +249,10 @@ html{
 @media (max-width: 599px){
     .container{
     width: 100%;
-    height: 48px;
-    background: -moz-linear-gradient(top,rgba(128, 128, 128, 0.44) 0,rgba(255, 255, 255, 0.64) 100%);
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(128, 128, 128, 0.44)),color-stop(100%,rgba(255, 255, 255, 0.64)));
-    background: -o-linear-gradient(top,rgba(128, 128, 128, 0.44) 0,rgba(255, 255, 255, 0.64) 100%);
-    background: -ms-linear-gradient(top,rgba(128, 128, 128, 0.44) 0,rgba(255, 255, 255, 0.64) 100%);
+    height: 100%;
+    background-image: url(img/pdbg.jpg);
+    background-size: contain;
+    background-position-y: 0px;
     }
     .glitter {
       background-image: url(img/mbg2.jpg);
@@ -252,9 +264,9 @@ html{
     .show-new-range > img:nth-child(2){ margin: 56% auto; }
     .show-new-range > img:nth-child(3){ margin: 112% auto; margin-bottom: 60px; }
     .logo {
-      background-image: url(img/logosm1.png);
-      width: 129px;
-      height: 50px;
+      background-image: url(img/pdlogo.png);
+      width: 176px;
+      height: 49px;
       margin: 0 auto;
       background-size: contain;
       top: 24px;
@@ -265,7 +277,7 @@ html{
       margin-top: 92px;
       width: 340px;
       font-size: 34px;
-      font-family: 'fr';
+      font-family: 'Open Sans';
       letter-spacing: 0px;
       text-align: center;
     }
@@ -273,8 +285,8 @@ html{
       border-radius:10px;
       padding:12px;
       z-index:1;
-      font-size:26px;
-      background:#efefef;
+      font-size:32px;
+      font-family: 'Quicksand'
     }
     .description {
       margin: 0 auto;
@@ -309,7 +321,10 @@ html{
 @media (min-width: 600px){
     .container{
       width: 100%;
-      height: 89px;
+      height: 100%;
+      background-image: url(img/pdbg.jpg);
+      background-size: contain;
+      background-position-y: 0px;
     }
     .btn {
       width: 275px;
@@ -330,8 +345,8 @@ html{
     .show-new-range > img:nth-child(2){ margin: 36% auto; }
     .show-new-range > img:nth-child(3){ margin: 62% auto; margin-bottom: 60px; }
     .logo {
-      background-image: url(img/logosm1.png);
-      width: 128px;
+      background-image: url(img/pdlogo.png);
+      width: 176px;
       height: 49px;
       margin-top: 0px;
       margin-left: 60px;
@@ -345,7 +360,7 @@ html{
       font-size: 30px;
       letter-spacing: 0px;
       font-size: 36px;
-      font-family: 'fr';
+      font-family: 'mo';
       text-align: center;
     }
     .description {
@@ -374,8 +389,14 @@ html{
     }
 }
 @media (min-width: 1025px){
+    body {
+        background-image: url(img/pdbg.jpg);
+        background-size: contain;
+        background-position-y: 0px;
+    }
     .container{
         width: 1025px;
+        height: 100%;
         margin: 0 auto;
     }
     .btn {
@@ -391,10 +412,10 @@ html{
       background-position-y: -31px;
     }
     .logo {
-      background-image: url(img/logosm1.png);
+      background-image: url(img/pdlogo.png);
       background-size: contain;
       position: relative;
-      width: 128px;
+      width: 176px;
       height: 49px;
       left: 80px;
       margin-top: 0px;
@@ -406,7 +427,7 @@ html{
       padding-top: 150px;
       font-size: 66px;
       letter-spacing: 0px;
-      font-family: 'fr';
+      font-family: 'mo';
     }
     .description {
       margin-left: 85px;
@@ -461,36 +482,34 @@ html{
           <img width="250px" class="banner" src="img/b1.jpg" alt="" />
       </div>
 </div>
-  <div class="headline">TRY DRESSES ON YOU</div><br/>
+  <div class="headline main">Try dresses on you</div>
+  <div class="description" style="margin-top: -8px;font-family: Quicksand;width: 90%;">See how dresses look &amp; fit you before deciding to buy!</div>
+<br/>
   <div class="button-container">
-    <a id="cta" href="/fit-profile" class="btn"><span>GET STARTED</span></a>
+    <a id="cta" href="/fit-profile" class="btn"><span>Get Started</span></a>
   </div>
 
-  <div class="headline" style="margin-top: 116px;font-size:24px;">HOW IT WORKS</div>
-  <div class="line" style="margin-top: 9px;"></div>
+  <div class="headline" style="margin-top: 116px;font-size:24px;">Hpw it works</div>
   <div class="how-it-works" style="margin-top: 40px;margin-left: 40px;">
-    <div class="step-1"><img src="img/bstep1.png" width="120px"><div>Take a selfie</div></div>
-    <div class="step-arrow"><img src="img/a.jpg" width="18px"></div>
-    <div class="step-2"><img src="img/bstep2.png" width="120px"><div>Try on dresses & shop</div></div>
+    <div class="step-1"><img src="img/bstep1.png" width="120px"><div style="font-family: Quicksand">Take a selfie</div></div>
+    <div class="step-arrow"><img src="img/a.png" width="18px"></div>
+    <div class="step-2"><img src="img/bstep2.png" width="120px"><div style="font-family: Quicksand">Trial & shop</div></div>
   </div>
 
-  <div class="headline" style="margin-top: 250px;font-size:24px;">WHAT SIZE TO BUY</div>
-  <div class="line" style="margin-top: 9px;"></div>
+  <div class="headline" style="margin-top: 250px;font-size:24px;">What size to buy</div>
   <div class="what-size" style="margin-top: 40px;">
-    <div clas="description" style="top: 0px;position: relative;width: 320px;">PoseOk tells you exactly how each size fits you so you'll never order a wrong size again!</div>
-    <img src="img/bsize.jpg" class="testi-img" width="60px"/>
+    <div clas="description" style="top: 0px;position: relative;width: 320px;">PoseDing tells you exactly how each size fits you so you'll never order a wrong size again!</div>
+    <img src="img/bsize.png" class="testi-img" width="60px"/>
     <div class="bubbledLeft" style="margin-top: 100px">When I ordered my dress based on size recommended by the app, I wasn't sure. But I got my dress shipped last Saturday and when I tried on, bingo.. Just the fit I wanted! Kudos & Good luck PoseOk!</div>
   </div>
 
-  <div class="headline" style="margin-top: 450px;font-size:24px;">WHAT USERS SAY</div>
-  <div class="line" style="margin-top: 9px;"></div>
+  <div class="headline" style="margin-top: 450px;font-size:24px;">What users say</div>
   <div class="what-users-say" style="margin-top: 40px;">
     <span class="testi-name">Priya Oswal, Bangalore</span>
     <img src="img/testi.png" class="testi-img" width="90%"/>
   </div>
 
-  <div class="headline" style="margin-top: 300px;font-size:24px;">WHAT USERS SAY</div>
-  <div class="line" style="margin-top: 9px;"></div>
+  <div class="headline" style="margin-top: 300px;font-size:24px;">Shop our newest range/div>
   <div class="show-new-range" style="margin-top: 40px;">
     <img src="img/r1.jpg" class="testi-img" width="90%" />
     <img src="img/r2.jpg" class="testi-img" width="90%" />

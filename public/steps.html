@@ -445,7 +445,7 @@ html{
   right: 0;
 }
 #tabs {
-background: #343339;
+background: #fdb446;
 }
 .tabs-menu {
     height: 30px;
@@ -557,12 +557,15 @@ background: #343339;
     height: 50px;
     width: 402px;
     z-index: -1;
+    background: -webkit-linear-gradient(0deg, #fa880f 0%, #fa880f 25%, #fdb446 81%, #fdb446 100%);
+    background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 100%);
     -webkit-transform: translateX(-280px);
     transform: translateX(-280px);
     -webkit-transition: -webkit-transform 400ms ease-in;
     transition: -webkit-transform 400ms ease-in;
     transition: transform 400ms ease-in;
     transition: transform 400ms ease-in, -webkit-transform 400ms ease-in;
+    box-shadow: inset 0 1px 0 0px #ffe1b3;
 }
 .btn-check {
     display: inline-block;
@@ -697,16 +700,16 @@ background: #343339;
   display: none;
 }
 .step.completed {
-  background: #343339;
+  background: #fdb446;
   color: #fff;
   cursor: pointer;
 }
 .step.completed:before {
-  border-color: #343339;
+  border-color: #fdb446;
   border-left-color: transparent;
 }
 .step.completed:after {
-  border-left-color: #343339;
+  border-left-color: #fdb446;
 }
 .step.completed:hover {
   background: #41A4F0;
