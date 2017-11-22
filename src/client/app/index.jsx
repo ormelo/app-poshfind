@@ -46,21 +46,21 @@ class Home extends Component {
                       <div className="step-2"><img src="img/bstep2.png" width="120px"></img><div style={{fontFamily:'Quicksand'}}>Trial & shop</div></div>
                   </div>
 
-                  <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>What size to buy</div>
+                  <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>Never order a wrong size</div>
                   <div className="what-size" style={{marginTop: '40px'}}>
-                    <div className="description" style={{top: '0px',position: 'relative', width: '320px', marginTop: '-10px'}}>PoseDing tells you exactly how each size fits you so you'll never order a wrong size again!</div>
+                    <div className="description" style={{top: '0px',position: 'relative', width: '320px', marginTop: '-20px'}}>PoseDing tells you exactly how each size fits you. So you'll never order a wrong size again!</div>
                     <img src="img/bsize.png" className="testi-img" width="190px" style={{margin:'-20px auto'}}/>
                   </div>
 
-                  <div className="headline" style={{marginTop: '450px',fontSize:'24px'}}>What users say</div>
+                  <div className="headline" style={{marginTop: '376px',fontSize:'24px'}}>Great user reviews</div>
                   <div className="what-users-say" style={{marginTop: '30px'}}>
                     <img src="img/testi.png" className="testi-img" width="60px" style={{margin:'0 auto'}}/>
                     <span className="testi-name">Priya Oswal, Bangalore</span>
-                    <div className="bubbledLeft">When I ordered my dress based on size recommended by the app, I wasn't sure. But I got my dress shipped last Saturday and when I tried on, bingo.. Just the fit I wanted! Kudos & Good luck PoseOk!</div>
+                    <div className="bubbledLeft">When I ordered my dress based on size recommended by the app, I wasn't sure. But I got my dress shipped last Saturday and when I tried on, bingo.. Just the fit I wanted! Great job Poseding!</div>
                   </div>
 
                   <div className="headline" style={{marginTop: '160px',fontSize:'24px'}}>Shop our newest range</div>
-                  <div className="show-new-range" style={{marginTop: '40px'}}>
+                  <div className="show-new-range" style={{marginTop: '32px'}}>
                     <img src="img/r1.jpg" className="testi-img" width="90%" />
                     <img src="img/r2.jpg" className="testi-img" width="90%" />
                     <img src="img/r3.jpg" className="testi-img" width="90%" />

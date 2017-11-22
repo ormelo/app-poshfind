@@ -1,5 +1,5 @@
 {
-"short_name": "PoseOK",
+"short_name": "PoseDing",
 "name": "Try on new dresses everyday!",
 "icons": [
 {
@@ -14,7 +14,7 @@
 }
 ],
 "start_url": "/?s=homescreen",
-"background_color": "#7243a9",
-"theme_color": "#343339",
+"background_color": "#ff9c34",
+"theme_color": "#ff9c34",
 "display": "fullscreen"
 }

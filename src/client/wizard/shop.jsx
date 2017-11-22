@@ -13,7 +13,7 @@ class Shop extends Component {
     componentDidMount(){
       $('.content').fadeOut(0).fadeIn(300);
       $('.logo').css('visibility','visible');
-      $('.logo').css('top','6px');
+      $('.logo').css('top','18px');
       $('.merchant-frame').hide();
       gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop'}); 
       Loggr.Log.trackUser(uid, "", "Navigated to /shop.");
