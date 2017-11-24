@@ -8,6 +8,23 @@ import OnboardTitle from './onboardTitle.jsx';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
+    componentDidMount() {
+      [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+        var imgload = img;
+        setTimeout(function(){ imgload.setAttribute('src', imgload.getAttribute('data-src'));},1000);
+        img.onload = function() {
+          img.removeAttribute('data-src');
+        };
+      });
+      if(nonLatestChrome) {
+        $('#b4').attr('src','img/b4.png');
+        $('#bstep2').attr('src','img/bstep2.png');
+        $('#bsize').attr('src','img/bsize.png');
+        $('#r1').attr('src','img/r1.png');
+        $('#r2').attr('src','img/r2.png');
+        $('#r3').attr('src','img/r3.png');
+      }
+    }
     render(){
         return (<div>
                   <div className="logo"></div>
@@ -23,7 +40,7 @@ class Home extends Component {
                         <img width="250px" className="banner" src="img/b3.jpg" alt="" />
                     </div>
                     <div>
-                      <img width="250px" className="banner" src="img/b4.jpg" alt="" />
+                      <img id="b4" width="250px" className="banner" data-src="img/b4.webp" alt="" />
                   </div>
                   <div>
                       <img width="250px" className="banner" src="img/b3.jpg" alt="" />
@@ -43,27 +60,27 @@ class Home extends Component {
                   <div className="how-it-works" style={{marginTop: '40px'}}>
                       <div className="step-1"><img src="img/bstep1.png" width="120px"></img><div style={{fontFamily:'Quicksand'}}>Take a selfie</div></div>
                       <div className="step-arrow"><img src="img/a.png" width="18px"></img><img src="img/a.png" width="18px" className="arrow-2"></img></div>
-                      <div className="step-2"><img src="img/bstep2.png" width="120px"></img><div style={{fontFamily:'Quicksand'}}>Trial & shop</div></div>
+                      <div className="step-2"><img id="bstep2" src="img/bstep2.webp" width="120px"></img><div style={{fontFamily:'Quicksand'}}>Trial & shop</div></div>
                   </div>
 
                   <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>Never order a wrong size</div>
                   <div className="what-size" style={{marginTop: '40px'}}>
                     <div className="description" style={{top: '0px',position: 'relative', width: '320px', marginTop: '-20px'}}>PoseDing tells you exactly how each size fits you. So you'll never order a wrong size again!</div>
-                    <img src="img/bsize.png" className="testi-img" width="190px" style={{margin:'-20px auto'}}/>
+                    <img id="bsize" data-src="img/bsize.webp" className="testi-img" width="190px" style={{margin:'-20px auto'}}/>
                   </div>
 
                   <div className="headline" style={{marginTop: '376px',fontSize:'24px'}}>Great user reviews</div>
                   <div className="what-users-say" style={{marginTop: '30px'}}>
-                    <img src="img/testi.png" className="testi-img" width="60px" style={{margin:'0 auto'}}/>
+                    <img data-src="img/testi.png" className="testi-img" width="60px" style={{margin:'0 auto'}}/>
                     <span className="testi-name">Priya Oswal, Bangalore</span>
                     <div className="bubbledLeft">When I ordered my dress based on size recommended by the app, I wasn't sure. But I got my dress shipped last Saturday and when I tried on, bingo.. Just the fit I wanted! Great job Poseding!</div>
                   </div>
 
                   <div className="headline" style={{marginTop: '160px',fontSize:'24px'}}>Shop our newest range</div>
                   <div className="show-new-range" style={{marginTop: '32px'}}>
-                    <img src="img/r1.jpg" className="testi-img" width="90%" />
-                    <img src="img/r2.jpg" className="testi-img" width="90%" />
-                    <img src="img/r3.jpg" className="testi-img" width="90%" />
+                    <img id="r1" data-src="img/r1.webp" className="testi-img" width="90%" />
+                    <img id="r2" data-src="img/r2.webp" className="testi-img" width="90%" />
+                    <img id="r3" data-src="img/r3.webp" className="testi-img" width="90%" />
                   </div>
                   <div id="G"></div>
                 </div>

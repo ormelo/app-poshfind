@@ -135,6 +135,9 @@ html{
     25%{left:-100px;}
     40%{left:-200px;}
 }
+img[data-src] {
+  opacity: 0;
+}
 .bubbledLeft,.bubbledRight,.bubbledLeftWhite {
   word-wrap: break-word;
   margin: 0 auto;
@@ -473,7 +476,7 @@ html{
         <img width="250px" class="banner" src="img/b3.jpg" alt="" />
     </div>
     <div>
-          <img width="250px" class="banner" src="img/b4.jpg" alt="" />
+          <img id="b4" width="250px" class="banner" data-src="img/b4.webp" alt="" />
       </div>
       <div>
           <img width="250px" class="banner" src="img/b3.jpg" alt="" />
@@ -493,27 +496,27 @@ html{
   <div class="how-it-works" style="margin-top: 40px;margin-left: 40px;">
     <div class="step-1"><img src="img/bstep1.png" width="120px"><div style="font-family: Quicksand">Take a selfie</div></div>
     <div class="step-arrow"><img src="img/a.png" width="18px"></div>
-    <div class="step-2"><img src="img/bstep2.png" width="120px"><div style="font-family: Quicksand">Trial & shop</div></div>
+    <div class="step-2"><img id="bstep2" src="img/bstep2.webp" width="120px"><div style="font-family: Quicksand">Trial & shop</div></div>
   </div>
 
   <div class="headline" style="margin-top: 250px;font-size:24px;">Never order a wrong size</div>
   <div class="what-size" style="margin-top: 40px;">
     <div clas="description" style="top: -20px;position: relative;width: 320px;">PoseDing tells you exactly how each size fits you. So you'll never order a wrong size again!</div>
-    <img src="img/bsize.png" class="testi-img" width="60px"/>
-    <div class="bubbledLeft" style="margin-top: 100px">When I ordered my dress based on size recommended by the app, I wasn't sure. But I got my dress shipped last Saturday and when I tried on, bingo.. Just the fit I wanted! Kudos & Good luck PoseOk!</div>
+    <img id="bsize" data-src="img/bsize.webp" class="testi-img" width="60px"/>
+    <div class="bubbledLeft" style="margin-top: 100px">When I ordered my dress based on size recommended by the app, I wasn't sure. But I got my dress shipped last Saturday and when I tried on, bingo.. Just the fit I wanted! Kudos & Good luck Poseding!</div>
   </div>
 
   <div class="headline" style="margin-top: 376px;font-size:24px;">Great user reviews</div>
   <div class="what-users-say" style="margin-top: 40px;">
     <span class="testi-name">Priya Oswal, Bangalore</span>
-    <img src="img/testi.png" class="testi-img" width="90%"/>
+    <img data-src="img/testi.png" class="testi-img" width="90%"/>
   </div>
 
   <div class="headline" style="margin-top: 300px;font-size:24px;">Shop our newest range/div>
   <div class="show-new-range" style="margin-top: 32px;">
-    <img src="img/r1.jpg" class="testi-img" width="90%" />
-    <img src="img/r2.jpg" class="testi-img" width="90%" />
-    <img src="img/r3.jpg" class="testi-img" width="90%" />
+    <img id="r1" data-src="img/r1.webp" class="testi-img" width="90%" />
+    <img id="r2" data-src="img/r2.webp" class="testi-img" width="90%" />
+    <img id="r3" data-src="img/r3.webp" class="testi-img" width="90%" />
   </div>
 
   <div id="G"></div>
@@ -521,8 +524,16 @@ html{
 </div>
 <!--Bundled file-->
 <script type="text/javascript">
-if(location.host == "poshfind.in" && location.protocol == 'http:') {
+!function(s){var i="-",n="";screen.width&&(width=screen.width?screen.width:"",height=screen.height?screen.height:"",n+=""+width+" x "+height);var e,r,o,d=navigator.appVersion,a=navigator.userAgent,t=navigator.appName,w=""+parseFloat(navigator.appVersion),c=parseInt(navigator.appVersion,10);-1!=(r=a.indexOf("Opera"))&&(t="Opera",w=a.substring(r+6),-1!=(r=a.indexOf("Version"))&&(w=a.substring(r+8))),-1!=(r=a.indexOf("OPR"))?(t="Opera",w=a.substring(r+4)):-1!=(r=a.indexOf("Edge"))?(t="Microsoft Edge",w=a.substring(r+5)):-1!=(r=a.indexOf("MSIE"))?(t="Microsoft Internet Explorer",w=a.substring(r+5)):-1!=(r=a.indexOf("Chrome"))?(t="Chrome",w=a.substring(r+7)):-1!=(r=a.indexOf("Safari"))?(t="Safari",w=a.substring(r+7),-1!=(r=a.indexOf("Version"))&&(w=a.substring(r+8))):-1!=(r=a.indexOf("Firefox"))?(t="Firefox",w=a.substring(r+8)):-1!=a.indexOf("Trident/")?(t="Microsoft Internet Explorer",w=a.substring(a.indexOf("rv:")+3)):(e=a.lastIndexOf(" ")+1)<(r=a.lastIndexOf("/"))&&(t=a.substring(e,r),w=a.substring(r+1),t.toLowerCase()==t.toUpperCase()&&(t=navigator.appName)),-1!=(o=w.indexOf(";"))&&(w=w.substring(0,o)),-1!=(o=w.indexOf(" "))&&(w=w.substring(0,o)),-1!=(o=w.indexOf(")"))&&(w=w.substring(0,o)),c=parseInt(""+w,10),isNaN(c)&&(w=""+parseFloat(navigator.appVersion),c=parseInt(navigator.appVersion,10));var W=/Mobile|mini|Fennec|Android|iP(ad|od|hone)/.test(d),O=navigator.cookieEnabled?!0:!1;"undefined"!=typeof navigator.cookieEnabled||O||(document.cookie="testcookie",O=-1!=document.cookie.indexOf("testcookie")?!0:!1);var f=i,g=[{s:"Windows 10",r:/(Windows 10.0|Windows NT 10.0)/},{s:"Windows 8.1",r:/(Windows 8.1|Windows NT 6.3)/},{s:"Windows 8",r:/(Windows 8|Windows NT 6.2)/},{s:"Windows 7",r:/(Windows 7|Windows NT 6.1)/},{s:"Windows Vista",r:/Windows NT 6.0/},{s:"Windows Server 2003",r:/Windows NT 5.2/},{s:"Windows XP",r:/(Windows NT 5.1|Windows XP)/},{s:"Windows 2000",r:/(Windows NT 5.0|Windows 2000)/},{s:"Windows ME",r:/(Win 9x 4.90|Windows ME)/},{s:"Windows 98",r:/(Windows 98|Win98)/},{s:"Windows 95",r:/(Windows 95|Win95|Windows_95)/},{s:"Windows NT 4.0",r:/(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/},{s:"Windows CE",r:/Windows CE/},{s:"Windows 3.11",r:/Win16/},{s:"Android",r:/Android/},{s:"Open BSD",r:/OpenBSD/},{s:"Sun OS",r:/SunOS/},{s:"Linux",r:/(Linux|X11)/},{s:"iOS",r:/(iPhone|iPad|iPod)/},{s:"Mac OS X",r:/Mac OS X/},{s:"Mac OS",r:/(MacPPC|MacIntel|Mac_PowerPC|Macintosh)/},{s:"QNX",r:/QNX/},{s:"UNIX",r:/UNIX/},{s:"BeOS",r:/BeOS/},{s:"OS/2",r:/OS\/2/},{s:"Search Bot",r:/(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/}];for(var p in g){var b=g[p];if(b.r.test(a)){f=b.s;break}}var x=i;switch(/Windows/.test(f)&&(x=/Windows (.*)/.exec(f)[1],f="Windows"),f){case"Mac OS X":x=/Mac OS X (10[\.\_\d]+)/.exec(a)[1];break;case"Android":x=/Android ([\.\_\d]+)/.exec(a)[1];break;case"iOS":x=/OS (\d+)_(\d+)_?(\d+)?/.exec(d),x=x[1]+"."+x[2]+"."+(0|x[3])}var u="no check";if("undefined"!=typeof swfobject){var h=swfobject.getFlashPlayerVersion();u=h.major>0?h.major+"."+h.minor+" r"+h.release:i}s.jscd={screen:n,browser:t,browserVersion:w,browserMajorVersion:c,mobile:W,os:f,osVersion:x,cookies:O,flashVersion:u}}(this);
+
+if(location.host == "poseding.com" && location.protocol == 'http:') {
   location.href = location.href.replace(location.protocol,'https:');
+}
+
+var nonLatestChrome = true;
+if(jscd.browser == 'Chrome' && navigator.userAgent.indexOf('Samsung') == -1
+  && jscd.browserMajorVersion >= 54) {
+  nonLatestChrome = false;
 }
 
   var showOnboarding;
@@ -621,6 +632,13 @@ if(arr.length > 0) {
   $('.headline').html(headline);
   $('.btn span').html(buttonLabel);
 }
+
+[].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+  img.setAttribute('src', img.getAttribute('data-src'));
+  img.onload = function() {
+    img.removeAttribute('data-src');
+  };
+});
 
 </script>
 
