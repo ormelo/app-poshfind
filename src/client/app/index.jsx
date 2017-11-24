@@ -12,19 +12,22 @@ class Home extends Component {
       window.addEventListener("scroll", function(){
         [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
           var imgload = img;
-          imgload.setAttribute('src', imgload.getAttribute('data-src'));
+          imgload.src=imgload.getAttribute('data-src');
           img.onload = function() {
             img.removeAttribute('data-src');
           };
         });
       });
       if(nonLatestChrome) {
-        $('#b4').attr('src','img/b4.png');
-        $('#bstep2').attr('src','img/bstep2.png');
-        $('#bsize').attr('src','img/bsize.png');
-        $('#r1').attr('src','img/r1.png');
-        $('#r2').attr('src','img/r2.png');
-        $('#r3').attr('src','img/r3.png');
+        setTimeout(function(){
+          alert(0);
+          document.getElementById('b4').src='img/b4.jpg';
+          document.getElementById('bstep2').src='img/bstep2.png';
+          document.getElementById('bsize').src='img/bsize.png';
+          document.getElementById('r1').src='img/r1.jpg';
+          document.getElementById('r2').src='img/r2.jpg';
+          document.getElementById('r3').src='img/r3.jpg';
+        }, 1000);
       }
     }
     render(){
