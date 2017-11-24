@@ -61,7 +61,7 @@ class Home extends Component {
                   <div className="button-container">
                     {<a id="cta" href="/fit-profile" className="btn"><span>Get Started</span></a>}
                   </div>
-                  <div className="headline" style={{marginTop: '116px',fontSize:'24px'}}>How it works</div>
+                  <div className="headline" style={{marginTop: '92px',fontSize:'24px'}}>How it works</div>
                   <div className="how-it-works" style={{marginTop: '40px'}}>
                       <div className="step-1"><img src="img/bstep1.png" width="120px"></img><div style={{fontFamily:'Quicksand'}}>Take a selfie</div></div>
                       <div className="step-arrow"><img src="img/a.png" width="18px"></img><img src="img/a.png" width="18px" className="arrow-2"></img></div>
