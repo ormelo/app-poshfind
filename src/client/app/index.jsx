@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Onboard from './onboard.jsx';
-import OnboardStep1 from './onboardStep1.jsx';
-import OnboardStep2 from './onboardStep2.jsx';
-import OnboardTitle from './onboardTitle.jsx';
-// Import routing components
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
     componentDidMount() {
+      document.querySelector('.slider').style.display = 'inline';
       window.addEventListener("scroll", function(){
-        [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
-          var imgload = img;
-          imgload.src=imgload.getAttribute('data-src');
-          img.onload = function() {
-            img.removeAttribute('data-src');
-          };
-        });
+        if(!window.lazyLoaded) {
+          [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+            var imgload = img;
+            imgload.src=imgload.getAttribute('data-src');
+            img.onload = function() {
+              img.removeAttribute('data-src');
+            };
+            window.lazyLoaded=true;
+          });
+        }
       });
       if(nonLatestChrome) {
-        setTimeout(function(){
-          alert(0);
+        window.lazyLoadTimer = setInterval(function(){
+          console.log(document.getElementById('b4').src);
+          if(document.getElementById('b4').src == 'img/b4.jpg')
+              clearInterval(window.lazyLoadTimer);
           document.getElementById('b4').src='img/b4.jpg';
           document.getElementById('bstep2').src='img/bstep2.png';
           document.getElementById('bsize').src='img/bsize.png';
           document.getElementById('r1').src='img/r1.jpg';
           document.getElementById('r2').src='img/r2.jpg';
           document.getElementById('r3').src='img/r3.jpg';
-        }, 1000);
+        }, 1500);
       }
     }
     render(){
@@ -93,15 +93,4 @@ class Home extends Component {
     }
 }
 
-render(<Router>
-        <div>
-        <Route exact path="/" component={Home}/>
-        <Route path="/onboard" render={()=>(
-            <div>
-            <OnboardTitle />
-            <Route exact path="/onboard" component={Onboard}/>
-            <Route exact path="/onboard/step1" component={OnboardStep1}/>
-            <Route exact path="/onboard/step2" component={OnboardStep2}/>
-          </div>)} />
-        </div>
-    </Router>, document.getElementById('container'));
+render(<Home/>, document.getElementById('container'));
