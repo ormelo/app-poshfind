@@ -9,12 +9,14 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
     componentDidMount() {
-      [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
-        var imgload = img;
-        setTimeout(function(){ imgload.setAttribute('src', imgload.getAttribute('data-src'));},1000);
-        img.onload = function() {
-          img.removeAttribute('data-src');
-        };
+      window.addEventListener("scroll", function(){
+        [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+          var imgload = img;
+          imgload.setAttribute('src', imgload.getAttribute('data-src'));
+          img.onload = function() {
+            img.removeAttribute('data-src');
+          };
+        });
       });
       if(nonLatestChrome) {
         $('#b4').attr('src','img/b4.png');
