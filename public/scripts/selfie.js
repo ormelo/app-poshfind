@@ -110,9 +110,7 @@ if(variation == 0) {
 
     // Request the camera.
     /*navigator.getMedia(
-      {
-        video: { frameRate: { ideal: 10, max: 20 } }
-      },
+      {video: { frameRate: { ideal: 10, max: 20 } }},
       // Success Callback
       function(stream){
         Loggr.Log.trackUser(uid, "", "getUserMedia callback called.");
