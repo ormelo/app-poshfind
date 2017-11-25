@@ -27,9 +27,6 @@ class CreateFitProfile extends Component {
         $('.loading-container').show();
       }
       var h = this.props.history;
-      /*if(localStorage.getItem('pic')!=null) {
-        setTimeout(function(){h.push('/shop');},800);
-      }*/
       const unlisten = h.listen((location, action) => {
         // location is an object like window.location
         console.log('history.listen:', location);
@@ -78,13 +75,6 @@ var ShopWithRouter = withRouter(Shop)
 
 render(<Router>
         <div>
-        <Route path="/home" render={()=>(
-            <div>
-            <div className="logo"/>
-            <WizTitle />
-            <Route exact path="/home" component={CreateFitProfileWithRouter}/>
-            <Route exact path="/home/update" component={CaptureMeasurements}/>
-          </div>)} />
         <Route path="/fit-profile" render={()=>(
             <div>
             <div className="logo"/>
