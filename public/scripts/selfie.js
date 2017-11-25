@@ -432,6 +432,26 @@ function beeLeft(elemId) {
     $("#"+elemId).animate({left: "-=100"}, 1500, "swing", beeRight);
 }
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+
 function showProducts(category) {
   Loggr.Log.trackUser(uid, "", "showProducts() called.");
   $('.loading-container').show();
@@ -446,7 +466,8 @@ function showProducts(category) {
     //setTimeout("$('.products').show();$('.contentShop').css('margin-top','20px');", 4000);
     $('#product').html(''); $('.face').remove(); $('.contentShop').scrollTop(0);
     $('.products').show();$('.contentShop').css('margin-top','20px');
-      for(var i=0;i<data.length;i++) {
+    var dataArr = shuffle(data);
+      for(var i=0;i<dataArr.length;i++) {
         var productBg = document.createElement('div');
         productBg.className = 'product-bg';
         productBg.id = i;
