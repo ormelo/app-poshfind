@@ -1283,7 +1283,7 @@ function sendPic(){
 </script>
 
 <script src="scripts/gumwrapper.min.js"></script>
-<script src="wiz.bundle.min.js"></script>
+
 <script src="scripts/selfie.js"></script>
 <script type="text/javascript" src="haar/lib/jsfeat-samples/js/jsfeat-min.js"></script>
 <script type="text/javascript" src="haar/lib/jsfeat/cascades/upperbody.js"></script>
@@ -1297,6 +1297,8 @@ function sendPic(){
 <script src="scripts/load-image-exif.js"></script>
 <script src="scripts/load-image-exif-map.js"></script>
 <script src="scripts/load-image-orientation.js"></script>
+
+<script src="wiz.bundle.min.js"></script>
 
 <!-- jQuery and Jcrop are not required by JavaScript Load Image, but included for the demo -->
 <!--<script src="scripts/jquery.js"></script>
@@ -1359,13 +1361,6 @@ function closest(arr, closestTo){
     }
     return closest; // return the value
 }
-
-function clearLocalStorage() {
-  localStorage.removeItem('faceX');localStorage.removeItem('faceY');localStorage.removeItem('faceW');localStorage.removeItem('faceH');
-  localStorage.removeItem('shoulderX');localStorage.removeItem('shoulderY');localStorage.removeItem('shoulderW');localStorage.removeItem('shoulderH');localStorage.removeItem('pic');localStorage.removeItem('userSize');
-}
-
-clearLocalStorage();
 
 var onresize = function() {
   minHeightVal = screen.height-80;
