@@ -626,10 +626,6 @@ background: #fdb446;
 .btn.badfit {
   width: 314px;
 }
-.btn:hover:after {
-    -webkit-transform: translateX(-200px);
-    transform: translateX(-200px);
-}
 .fader {
     -moz-transition: opacity 0.7s linear;
     -o-transition: opacity 0.7s linear;
@@ -716,19 +712,6 @@ background: #fdb446;
 }
 .step.completed:after {
   border-left-color: #fdb446;
-}
-.step.completed:hover {
-  background: #41A4F0;
-  border-color: #41A4F0;
-  color: #fff;
-  text-decoration: none;
-}
-.step.completed:hover:before {
-  border-color: #41A4F0;
-  border-left-color: transparent;
-}
-.step.completed:hover:after {
-  border-left-color: #41A4F0;
 }
 .outline {
     width: 90%;
@@ -830,10 +813,6 @@ background: #fdb446;
     visibility: hidden;
 }
 
-.app .controls a:hover{
-    opacity: 1;
-}
-
 .app .controls a.disabled{
     background-color: transparent;
     opacity: 1;
@@ -844,10 +823,6 @@ background: #fdb446;
     background-position: bottom;
     background-size: 2px 1px;
     background-repeat: repeat;
-}
-
-.app .controls a.disabled:hover{
-    opacity: 1;
 }
 
 .app .controls a i{
@@ -1271,6 +1246,44 @@ function loadVariation() {
 
 loadVariation();
 
+function addToHead(scr) {
+  var scriptAdded = document.head.append ? document.head.append(scr) : document.head.appendChild(scr);
+}
+
+function appendNonChromeScripts(){
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-scale.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-meta.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-fetch.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-exif.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-exif-map.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-orientation.js";
+addToHead(s);
+}
+if(nonLatestChrome) {
+  setTimeout(function(){appendNonChromeScripts();},800);
+}
+
 function sendPic(){
     var obj = {
         "key": localStorage.getItem('pic')
@@ -1307,13 +1320,6 @@ function sendPic(){
 <script type="text/javascript" src="haar/lib/jsfeat-samples/js/compatibility.js"></script>
 <script type="text/javascript" src="haar/lib/jsfeat-samples/js/frontalface.js"></script>
 
-<script src="scripts/load-image.js"></script>
-<script src="scripts/load-image-scale.js"></script>
-<script src="scripts/load-image-meta.js"></script>
-<script src="scripts/load-image-fetch.js"></script>
-<script src="scripts/load-image-exif.js"></script>
-<script src="scripts/load-image-exif-map.js"></script>
-<script src="scripts/load-image-orientation.js"></script>
 <!-- jQuery and Jcrop are not required by JavaScript Load Image, but included for the demo -->
 <!--<script src="scripts/jquery.js"></script>
 <script src="scripts/jquery.Jcrop.js"></script>-->

@@ -21,6 +21,9 @@ class Home extends Component {
           console.log(document.getElementById('b4').src);
           if(document.getElementById('b4').src == 'img/b4.jpg')
               clearInterval(window.lazyLoadTimer);
+          document.getElementById('b1').src='img/b1.jpg';
+          document.getElementById('b2').src='img/b2.jpg';
+          document.getElementById('b3').src='img/b3.jpg';
           document.getElementById('b4').src='img/b4.jpg';
           document.getElementById('bstep2').src='img/bstep2.png';
           document.getElementById('bsize').src='img/bsize.png';
@@ -36,22 +39,22 @@ class Home extends Component {
                   <div className="line"/>
                   <div className="slider dbg">
                     <div>
-                        <img width="250px" className="banner" src="img/b1.jpg" alt="" />
+                        <img width="250px" className="banner" src="img/b1.webp" alt="" />
                     </div>
                     <div>
-                        <img width="250px" className="banner" src="img/b2.jpg" alt="" />
+                        <img width="250px" className="banner" src="img/b2.webp" alt="" />
                     </div>
                     <div>
-                        <img width="250px" className="banner" src="img/b3.jpg" alt="" />
+                        <img width="250px" className="banner" src="img/b3.webp" alt="" />
                     </div>
                     <div>
                       <img id="b4" width="250px" className="banner" data-src="img/b4.webp" alt="" />
                   </div>
                   <div>
-                      <img width="250px" className="banner" src="img/b3.jpg" alt="" />
+                      <img width="250px" className="banner" src="img/b3.webp" alt="" />
                   </div>
                   <div>
-                      <img width="250px" className="banner" src="img/b1.jpg" alt="" />
+                      <img width="250px" className="banner" src="img/b1.webp" alt="" />
                   </div>
                 </div>
                 
@@ -61,7 +64,7 @@ class Home extends Component {
                   <div className="button-container">
                     {<a id="cta" href="/fit-profile" className="btn"><span>Get Started</span></a>}
                   </div>
-                  <div className="headline" style={{marginTop: '92px',fontSize:'24px'}}>How it works</div>
+                  <div className="headline" style={{marginTop: '98px',fontSize:'24px'}}>How it works</div>
                   <div className="how-it-works" style={{marginTop: '40px'}}>
                       <div className="step-1"><img src="img/bstep1.png" width="120px"></img><div style={{fontFamily:'Quicksand'}}>Take a selfie</div></div>
                       <div className="step-arrow"><img src="img/a.png" width="18px"></img><img src="img/a.png" width="18px" className="arrow-2"></img></div>
@@ -70,7 +73,7 @@ class Home extends Component {
 
                   <div className="headline" style={{marginTop: '250px',fontSize:'24px'}}>Never order a wrong size</div>
                   <div className="what-size" style={{marginTop: '40px'}}>
-                    <div className="description" style={{top: '0px',position: 'relative', width: '320px', marginTop: '-20px'}}>PoseDing tells you exactly how each size fits you. So you'll never order a wrong size again!</div>
+                    <div className="description" style={{top: '0px',position: 'relative', width: '320px', marginTop: '-20px'}}>PoseDing tells you exactly how each size fits you. So you'll never order a wrong size!</div>
                     <img id="bsize" data-src="img/bsize.webp" className="testi-img" width="190px" style={{margin:'-20px auto'}}/>
                   </div>
 
