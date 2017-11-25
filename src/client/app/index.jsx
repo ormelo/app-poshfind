@@ -77,7 +77,7 @@ class Home extends Component {
                     <img id="bsize" data-src="img/bsize.webp" className="testi-img" width="190px" style={{margin:'-20px auto'}}/>
                   </div>
 
-                  <div className="headline" style={{marginTop: '376px',fontSize:'24px'}}>Great user reviews</div>
+                  <div className="headline" style={{marginTop: '376px',fontSize:'24px'}}>Happy Users</div>
                   <div className="what-users-say" style={{marginTop: '30px'}}>
                     <img data-src="img/testi.png" className="testi-img" width="60px" style={{margin:'0 auto'}}/>
                     <span className="testi-name">Priya Oswal, Bangalore</span>

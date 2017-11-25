@@ -451,7 +451,8 @@ html{
   right: 0;
 }
 #tabs {
-background: #fdb446;
+background: -webkit-linear-gradient(0deg, #fa880f 0%, #fa880f 25%, #fdb446 81%, #fdb446 100%);
+background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 100%);
 }
 .tabs-menu {
     height: 30px;
@@ -713,6 +714,13 @@ background: #fdb446;
 .step.completed:after {
   border-left-color: #fdb446;
 }
+#size-trial {
+  position: relative;
+  top: -140px;
+  margin: 0px auto;
+  z-index: 1;
+  opacity: 0.9;
+}
 .outline {
     width: 90%;
     top: 154px;
@@ -856,7 +864,7 @@ background: #fdb446;
     height: 100em;
     transform: rotate(90deg);
     position: absolute;
-    top: -64px;
+    top: -77px;
     left: 0;
     z-index: 9999;
     background: linear-gradient(270deg, rgba(0,0,0,.7) 50%, rgba(0,255,0,.5) 55%, rgba(0,255,0,.7) 56%, rgba(0,0,0,.7) 56% );
@@ -911,8 +919,8 @@ p img.right { float: right; margin-left: 1em; }
       background-position-y: -15px;
     }
     .logo {
-      background-image: url(img/pdsmlogo.png);
-      width: 27px;
+      background-image: url(icon192.png);
+      width: 36px;
       left: 12px;
       top: 19px;
       height: 37px;
