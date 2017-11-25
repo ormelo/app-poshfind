@@ -500,7 +500,7 @@ function showProducts(category) {
         productBg.appendChild(neckImg);
 
         var btnTag = document.createElement('a');
-        btnTag.className = 'btn';
+        btnTag.className = 'btn-nobg';
         btnTag.id='size-trial';
         btnTag.innerHTML = '<span style="top: 12px; font-size: 18px;font-family:\'Open Sans\'">Try it on</span>';
         productBg.appendChild(btnTag);
