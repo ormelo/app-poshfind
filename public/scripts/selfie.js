@@ -543,6 +543,7 @@ function showProducts(category) {
           var prodId = $(this).attr('id');
           sessionStorage.setItem('current-product-index', prodId);
           gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-trial'});
+          gtag('config', 'UA-107877274-1',{'page_title': 'try_on','page_location': 'http://www.poseding.com/fit-try-on','page_path': '/try-on'});
               for(var i=0;i<4;i++) {
                 var productBg = document.createElement('div');
                 productBg.className = 'product-bg-size';

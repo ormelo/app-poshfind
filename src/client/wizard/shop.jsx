@@ -16,6 +16,7 @@ class Shop extends Component {
       $('.logo').css('top','18px');
       $('.merchant-frame').hide();
       gtag('event', 'Stage', {'event_category':'load', 'event_label':'shop'}); 
+      gtag('config', 'UA-107877274-1',{'page_title': 'shop','page_location': 'http://www.poseding.com/shop','page_path': '/shop'});
       Loggr.Log.trackUser(uid, "", "Navigated to /shop.");
       //temp: commented
       /* setTimeout("$('.splashImg').hide();$('#d1').fadeOut(0).fadeIn(500);",0);
