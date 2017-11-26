@@ -33,10 +33,10 @@ app.get('/sendnotif', function(request, response) {
     );
 
     const pushSubscription = {
-      endpoint: 'https://android.googleapis.com/gcm/send/fjynyHGdf9A:APA91bHgvxqAdUnWHQramoS0q3Evt7tXrxv_HqiCJFzP0u8PPm7k_5JVerEsz8rV8lBA1iAGpc8Rrt2PPQw9LEcTVxQH4J4eRswz9NxyvhTTpznTpHQILL9NQKSzZlXPmyMNHB8lMCO4',
+      endpoint: 'https://android.googleapis.com/gcm/send/eDEDCLqV-jM:APA91bEPU6ibAcHoJPUCx9IC96RbrfsRf_gLVQZHtLZ3sVHzNyvSvskRi_a2ZsMi0wYRqIS1PCEAq20MzZqqlYhGypFHbXdoUrotTXlQo-9mazRT-tD81KjtK5GQlhQhHZXRE-0mnz6B',
       keys: {
-        auth: '0m4fZVW8uvABnWGfdHGVRg==',
-        p256dh: 'BLTrnWMcDMoRVIaL14Rw1bU1AVb-0iENqapOwCnNdnDIg-H7G6A3c_cMvHLFQmtyXRV8gJ0tiNwvsAJjqG58itw='
+        auth: 'VVFq-ho_x19pvLMf2MvvZg==',
+        p256dh: 'BDH9LYp20B9oap0HwMn5ivGV8fNuqvYWF5oDgoTPqTxN3wyoKvBB6eyRo1n05kL6w6mpBFoUvVkt-VVKTrxR5qU='
       }
     };
 
