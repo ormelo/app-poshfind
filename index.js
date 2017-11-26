@@ -35,8 +35,8 @@ app.get('/sendnotif', function(request, response) {
     const pushSubscription = {
       endpoint: 'https://android.googleapis.com/gcm/send/eDEDCLqV-jM:APA91bEPU6ibAcHoJPUCx9IC96RbrfsRf_gLVQZHtLZ3sVHzNyvSvskRi_a2ZsMi0wYRqIS1PCEAq20MzZqqlYhGypFHbXdoUrotTXlQo-9mazRT-tD81KjtK5GQlhQhHZXRE-0mnz6B',
       keys: {
-        auth: 'VVFq-ho_x19pvLMf2MvvZg==',
-        p256dh: 'BDH9LYp20B9oap0HwMn5ivGV8fNuqvYWF5oDgoTPqTxN3wyoKvBB6eyRo1n05kL6w6mpBFoUvVkt-VVKTrxR5qU='
+        auth: 'b-UTZCGu2p735HpH1g5g4w==',
+        p256dh: 'BAtnK3PMuoczYKkRi2Iqzz-BJnPo1ZUhk_9ontvTVWcVLmFy44dN_RoiCfIy22y03TASWlbRxxuVlntwCVf8_e8='
       }
     };
 
