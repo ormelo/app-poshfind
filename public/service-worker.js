@@ -48,6 +48,41 @@ self.addEventListener('install', function(event) {
   }
 });
 
+self.addEventListener('push', function(event) {
+  console.log('Service Worker recived a push message', event.data.text());
+
+  var title = 'Click to open push message';
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      'body': event.data.text(),
+      'icon': 'icon192.png'
+    }));
+});
+
+self.addEventListener('notificationclick', function(event) {
+  console.log('Notification click: tag', event.notification.tag);
+  event.notification.close();
+  var url = 'https://www.poseding.com';
+  event.waitUntil(
+    clients.matchAll({
+      type: 'window'
+    })
+    .then(function(windowClients) {
+      console.log('WindowClients', windowClients);
+      for (var i = 0; i < windowClients.length; i++) {
+        var client = windowClients[i];
+        console.log('WindowClient', client);
+        if (client.url === url && 'focus' in client) {
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow(url);
+      }
+    })
+  );
+});
+
 // When the webpage goes to fetch files, we intercept that request and serve up the matching files
 // if we have them
 self.addEventListener('fetch', function(event) {

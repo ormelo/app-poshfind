@@ -1,6 +1,7 @@
 {
 "short_name": "PoseDing",
 "name": "Poseding - try on!",
+"gcm_sender_id": "240820796710",
 "icons": [
 {
 "src": "icon192.png",

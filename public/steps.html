@@ -1330,6 +1330,23 @@ window.addEventListener('beforeinstallprompt', function(e) {
     }
   });
 });
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js').then(function() {
+    return navigator.serviceWorker.ready;
+  }).then(function(reg) {
+    console.log('Service Worker is ready to go!', reg);
+    reg.pushManager.subscribe(
+      {
+        userVisibleOnly: true
+      }
+    ).then(function(sub) {
+      console.log(JSON.stringify(sub));
+    });
+  }).catch(function(error) {
+    console.log('Service Worker failed to boot', error);
+  });
+}
   
 var selectedCat = 'tops';
 var gui,options,ctx,canvasWidth,canvasHeight;
