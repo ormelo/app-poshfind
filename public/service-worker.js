@@ -55,7 +55,7 @@ self.addEventListener('push', function(event) {
   event.waitUntil(
     self.registration.showNotification(title, {
       'body': event.data.text(),
-      'icon': 'icon192.png'
+      'icon': 'icon.png'
     }));
 });
 

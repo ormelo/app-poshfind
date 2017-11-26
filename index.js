@@ -23,7 +23,7 @@ app.get('/sendnotif', function(request, response) {
     // VAPID keys should only be generated only once.
     var vapidKeys = webpush.generateVAPIDKeys();
 
-    webpush.setGCMAPIKey('AAAAOBIJvSY:APA91bGezg-tBmLJ7xKsFCa6EEyCqvibb7KtfubDJEBIuUFmMrM6t06SdIGZ6FIZMu0K57EzAy3HfUjA-yC6brm9rXJqOonEl8mn4F4-lhyY3uuYzx3BJNvlmnhDkdCxP7vlj4RrkS3k');
+    webpush.setGCMAPIKey('AAAAb0Jcd5Y:APA91bF0de1UNG5yFMZinQhn1We89nTyigofC-kIrTGeM2RoI4bgSXUcYyUy17W4IgRJborqAENOb-t4zEo2MQD32LoAr64KFQdb8CPKdV-yOzVdG7RDhrWcqTvx96Yaf9_oQsX70Yl-');
     //Above is obtained from https://console.firebase.google.com/project/push-notification-web-d0beb/settings/cloudmessaging
 
     webpush.setVapidDetails(
@@ -33,14 +33,14 @@ app.get('/sendnotif', function(request, response) {
     );
 
     const pushSubscription = {
-      endpoint: 'https://android.googleapis.com/gcm/send/dqeyAVdBBYg:APA91bE8mq-Nl8I0WDUyLSbXzH-1Y18vXaH_8VM4QBOMcV5n2CXoWbFWqSO9IPpmTNSrGtrdW68_mnUcWwR08ICZXje8x2JeCQlcN1L-EMPzo0U8kLljbA5rCG-L7QEtV5VWiSzqjrJ6',
+      endpoint: 'https://android.googleapis.com/gcm/send/fjynyHGdf9A:APA91bHgvxqAdUnWHQramoS0q3Evt7tXrxv_HqiCJFzP0u8PPm7k_5JVerEsz8rV8lBA1iAGpc8Rrt2PPQw9LEcTVxQH4J4eRswz9NxyvhTTpznTpHQILL9NQKSzZlXPmyMNHB8lMCO4',
       keys: {
-        auth: '7P2G6yPjWyVySgyvwid9PQ==',
-        p256dh: 'BLJaat9FW_NbKBiLIxv8GY2Pvjs-P7pJ7km8Ti8MV7fVj70xIQ3aGWO50d5s7tyP1stNYnXiEmyjmpBM73fh62c='
+        auth: '0m4fZVW8uvABnWGfdHGVRg==',
+        p256dh: 'BLTrnWMcDMoRVIaL14Rw1bU1AVb-0iENqapOwCnNdnDIg-H7G6A3c_cMvHLFQmtyXRV8gJ0tiNwvsAJjqG58itw='
       }
     };
 
-    webpush.sendNotification(pushSubscription, 'The server remembers!')
+    webpush.sendNotification(pushSubscription, 'First notification.')
     .then(function(result){
       console.log(result)
     }).catch(function(error){
