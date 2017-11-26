@@ -130,30 +130,24 @@ if ('serviceWorker' in navigator) {
           }, function(err) {
             // registration failed :(
             console.log('ServiceWorker registration failed: ', err);
-          }).catch(function(err) {
+          })then(function(reg) {
+              console.log('Service Worker is ready to go!', reg);
+              reg.pushManager.subscribe(
+                {
+                  userVisibleOnly: true
+                }
+            ).then(function(sub) {
+              console.log(JSON.stringify(sub));
+            });
+          }).catch(function(error) {
+            console.log('Service Worker failed to boot', error);
+          });.catch(function(err) {
             console.log(err)
           });
         });
       } else {
         console.log('service worker is not supported');
       }
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js').then(function() {
-    return navigator.serviceWorker.ready;
-  }).then(function(reg) {
-    console.log('Service Worker is ready to go!', reg);
-    reg.pushManager.subscribe(
-      {
-        userVisibleOnly: true
-      }
-    ).then(function(sub) {
-      console.log(JSON.stringify(sub));
-    });
-  }).catch(function(error) {
-    console.log('Service Worker failed to boot', error);
-  });
-}
 
 gtag('config', 'UA-107877274-1',{'page_title': 'homepage','page_location': 'http://www.poseding.com','page_path': '/'}); 
 
