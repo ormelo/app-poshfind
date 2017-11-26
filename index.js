@@ -33,7 +33,7 @@ app.get('/sendnotif', function(request, response) {
     );
 
     var pushSubscription = {
-      endpoint: 'https://android.googleapis.com/gcm/send/eDEDCLqV-jM:APA91bEPU6ibAcHoJPUCx9IC96RbrfsRf_gLVQZHtLZ3sVHzNyvSvskRi_a2ZsMi0wYRqIS1PCEAq20MzZqqlYhGypFHbXdoUrotTXlQo-9mazRT-tD81KjtK5GQlhQhHZXRE-0mnz6B',
+      endpoint: 'https://android.googleapis.com/gcm/send/fiSjtrIp9u0:APA91bF9zt6Q2nTmvAXeq7_bUzdD9GopkXfSmpW2kkbEGAluHCdzSRutceviXn4Xcu8E1r1PS4aUsfIXq4I5zTrxYNXaM03q0hUyH3QiNdpw7MqQt60xmuEPWEe3amVo3dH96TWOe_P5',
       keys: {
         auth: 'b-UTZCGu2p735HpH1g5g4w==',
         p256dh: 'BAtnK3PMuoczYKkRi2Iqzz-BJnPo1ZUhk_9ontvTVWcVLmFy44dN_RoiCfIy22y03TASWlbRxxuVlntwCVf8_e8='
