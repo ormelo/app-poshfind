@@ -32,7 +32,7 @@ app.get('/sendnotif', function(request, response) {
       vapidKeys.privateKey
     );
 
-    const pushSubscription = {
+    var pushSubscription = {
       endpoint: 'https://android.googleapis.com/gcm/send/eDEDCLqV-jM:APA91bEPU6ibAcHoJPUCx9IC96RbrfsRf_gLVQZHtLZ3sVHzNyvSvskRi_a2ZsMi0wYRqIS1PCEAq20MzZqqlYhGypFHbXdoUrotTXlQo-9mazRT-tD81KjtK5GQlhQhHZXRE-0mnz6B',
       keys: {
         auth: 'b-UTZCGu2p735HpH1g5g4w==',
