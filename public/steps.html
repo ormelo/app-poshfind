@@ -14,13 +14,12 @@
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>PoseDing - Trial & Shop</title>
+<title>attirsit - shop looks that suit you</title>
 <link rel="manifest" href="/manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#ffffff">
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 *{
@@ -31,7 +30,7 @@
 
 html{
     background-color: #ffffff;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'f', sans-serif;
 }
 .slider {
   width: 80%;
@@ -49,6 +48,22 @@ html{
   background-size: contain;
   background-position-y: 0px;
 }
+
+.bag {
+  position: relative;
+  float: right;
+  margin-top: 8px;
+  right: 20px;
+}
+.logoFont {
+    font-family: f;
+    font-size: 32px;
+    position: absolute;
+    margin-top: 3px;
+    left: 19px;
+    color: #8e8c92;
+}
+
 .slick-prev:before,
 .slick-next:before {
     color: black;
@@ -81,16 +96,39 @@ html{
   width: 100%;
 }
 @font-face{
-  font-family:'proxima';
-  src: url('fonts/Proxima.otf');
+  font-family:'f';
+  src: url('fonts/f.ttf');
+}
+@font-face{
+  font-family:'a';
+  src: url('fonts/a.otf');
 }
 .button-container {
-    padding-top: 36px;
     margin: 0 auto;
-    position: relative;
-    width: 212px;
+    position: fixed;
+    width: 297px;
+    bottom: 0px;
+    height: 100px;
+    padding-top: 36px;
     z-index: 1;
-    display: none;
+}
+.selfie-title {
+  margin-top: 60px;
+  float: left;
+  font-size: 24px;
+  font-family: "a";
+  color: #4b4b4b;
+  letter-spacing: 2px;
+}
+.selfie-desc {
+  width: 300px;
+  font-family: Open Sans;
+  font-size: 18px;
+  float: left;
+  margin-top: 6px;
+  text-align: left;
+  margin-left: 3px;
+  color: #8e8c92;
 }
 .products {
     position: absolute;
@@ -537,9 +575,10 @@ background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 
 }
 .btn, .btn-nobg {
     display: block;
+    bottom: 22px;
     height: 50px;
-    width: 214px;
-    font-family: proxima;
+    width: 300px;
+    font-family: f;
     position: relative;
     overflow: hidden;
     text-decoration: none;
@@ -560,19 +599,18 @@ background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 
     position: absolute;
     content: '';
     display: inline-block;
-    background: #343339;
+    background: #7243a9;
+    background: -webkit-linear-gradient(0deg, #fb3152 0%, #fb576f 100%);
+    background: linear-gradient(0deg, #fb3152 0%, #fb576f 100%);
     height: 50px;
     width: 402px;
     z-index: -1;
-    background: -webkit-linear-gradient(0deg, #fa880f 0%, #fa880f 25%, #fdb446 81%, #fdb446 100%);
-    background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 100%);
     -webkit-transform: translateX(-280px);
     transform: translateX(-280px);
     -webkit-transition: -webkit-transform 400ms ease-in;
     transition: -webkit-transform 400ms ease-in;
     transition: transform 400ms ease-in;
     transition: transform 400ms ease-in, -webkit-transform 400ms ease-in;
-    box-shadow: inset 0 1px 0 0px #ffe1b3;
 }
 
 .btn-nobg span {
@@ -928,14 +966,15 @@ p img.right { float: right; margin-left: 1em; }
       background-position-y: -15px;
     }
     .logo {
-      background-image: url(icon192.png);
-      width: 36px;
-      left: 12px;
-      top: 19px;
-      height: 37px;
-      background-size: contain;
-      position: relative;
-      z-index: 1;
+      width: 100%;
+      height: 58px;
+      margin: 0 auto;
+      top: 15px;
+      position: absolute;
+      left: 0px;
+      -webkit-box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
+      -moz-box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
+      box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
     }
     .headline {
       margin: 0 auto;
@@ -964,10 +1003,14 @@ p img.right { float: right; margin-left: 1em; }
         position: relative;
     }
     .button-container {
-      padding-top: 2px;
       margin: 0 auto;
-      position: relative;
-      width: 212px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100px;
+      position: fixed;
+      width: 297px;
+      background: rgba(255, 255, 255, 0.8);
     }
     .tabs-menu {
       height: 30px;
@@ -1020,14 +1063,12 @@ p img.right { float: right; margin-left: 1em; }
       background-position-y: -31px;
     }
     .logo {
-      background-image: url(img/pdlogo.png);
-      width: 129px;
-      left: 12px;
-      top: 21px;
-      height: 36px;
-      background-size: contain;
-      position: relative;
-      z-index: 1;
+      width: 178px;
+      height: 44px;
+      margin: 0 auto;
+      top: 20px;
+      position: absolute;
+      left: 20px;
     }
     .headline {
       margin-left: 65px;
@@ -1129,14 +1170,13 @@ p img.right { float: right; margin-left: 1em; }
       background-position-y: -31px;
     }
     .logo {
-      background-image: url(img/pdlogo.png);
-      width: 129px;
-      left: 12px;
-      top: 21px;
-      height: 36px;
+      width: 178px;
+      height: 44px;
+      margin: 0 auto;
       background-size: contain;
-      position: relative;
-      z-index: 1;
+      top: 20px;
+      position: absolute;
+      left: 20px;
     }
     .headline {
       margin-left: 85px;
@@ -1161,7 +1201,7 @@ p img.right { float: right; margin-left: 1em; }
         margin: 0 auto;
     }
     .button-container {
-      padding-top: 16px;
+      padding-top: 36px;
       margin: 0 auto;
       position: relative;
       width: 240px;
@@ -1205,8 +1245,8 @@ p img.right { float: right; margin-left: 1em; }
                   </div>
                   <img src="img/outlinew.png" class="outline content"/>
                 </div>
-               <div class="button-container" style="width:307px">
-                  <a class="btn" id="capture-photo" style="position:fixed; bottom:20px;margin: 0 auto;width:314px"><span style="left: 16px;"><i class="material-icons" style="left: -32px;position: absolute;top: -2px;">camera_alt</i>Click selfie</span></a>
+               <div class="button-container">
+                  <a class="btn" id="capture-photo" style="position:fixed; bottom:20px;margin: 0 auto;width:314px"><span style="left: 16px;"><i class="material-icons" style="left: -32px;position: absolute;top: -2px;">camera_alt</i>Launch Camera</span></a>
                 </div>
                 <div class="mask" style="position: absolute;top: 0px;"></div>
 <!--Bundled file-->

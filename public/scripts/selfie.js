@@ -133,8 +133,8 @@ if(variation == 0) {
       }
     );*/
 
-    var gum = new GumWrapper({video: 'camera-stream'}, showSuccess, showError);
-    gum.play();
+    /* var gum = new GumWrapper({video: 'camera-stream'}, showSuccess, showError);
+    gum.play();*/
 
   }
 }
