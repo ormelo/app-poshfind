@@ -88,6 +88,7 @@ var video = document.querySelector('#camera-stream'),
     start_camera = document.querySelector('#start-camera'),
     controls = document.querySelector('.controls'),
     take_photo_btn = document.querySelector('#capture-photo'),
+    take_photo_capture_btn = document.querySelector('#selfie-capture-photo'),
     delete_photo_btn = document.querySelector('#delete-photo'),
     download_photo_btn = document.querySelector('#download-photo'),
     error_message = document.querySelector('#error-message');
@@ -159,7 +160,7 @@ function showError(error) {
   showVideo();
 
 if(variation == 0){
-  var forceRedraw = function(element){
+  forceRedraw = function(element){
 
       if (!element) { return; }
 
@@ -175,11 +176,20 @@ if(variation == 0){
             document.body.scrollTop = 0;
       },20);
   }
-  scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
+  //scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
 }
 
-if(variation == 0) {
-  take_photo_btn.addEventListener("click", function(e){
+
+  take_photo_btn.addEventListener("click", function(e) {
+    variation = 0;
+    var gum = new GumWrapper({video: 'camera-stream'});
+    gum.play();
+    $('.selfie-desc').html("Capture selfie when you're ready!");
+    take_photo_capture_btn.style.display = 'inline';
+    scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600);
+  })
+
+  take_photo_capture_btn.addEventListener("click", function(e){
     Loggr.Log.trackUser(uid, "", "capture button clicked.");
     e.preventDefault();
     clearInterval(scr);
@@ -195,7 +205,7 @@ if(variation == 0) {
 
     // Set the href attribute of the download button to the snap url.
     download_photo_btn.href = snap;
-    $('#selfieMsg').html('Scanning...');
+    $('#selfieMsg').html('SCANNING...');
     if(screen.width < 1000) {$('.mask').addClass('scanning');} else {$('body').css('opacity','0.4');}
     setTimeout("demo_app();",100);
     setTimeout("tick(faceClassifier, 'face');",100);
@@ -204,6 +214,8 @@ if(variation == 0) {
 
     // Pause video playback of stream.
     video.pause();
+    $('#selfie-capture-photo').css('display','none');
+    $('.selfie-desc').html('');
     
       setTimeout(function () {
         if(screen.width < 1000) {
@@ -331,7 +343,6 @@ if(variation == 0) {
       }, 2200);
 
   });
-}
 
 function getDataUri(url, callback) {
     var image = new Image();

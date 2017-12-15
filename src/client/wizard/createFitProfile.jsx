@@ -64,7 +64,7 @@ class CreateFitProfile extends Component {
                  <div id="result" className="result">
                  <a id="selfie-url" target="_blank"><canvas id="load-img-canvas"></canvas></a>
                  </div></center>
-                 <div className="button-container" id="captureButton" style={{display:'none',marginTop:'40px'}}><label className="btn" htmlFor="file-input" style={{width:'314px'}}><span style={{left:'16px'}}><i className="material-icons" style={{left:'-32px',position:'absolute',top:'-2px'}}>camera_alt</i>Launch camera</span></label></div>
+                 <div className="button-container" id="captureButton" style={{marginTop:'40px'}}><label style={{border:'2px solid #fb3453',color:'#fb3453',background:'#fff',width:'296px'}} className="btn" htmlFor="file-input"><span style={{left:'16px'}}>Browse Gallery</span></label></div>
                  
               </div>
           );

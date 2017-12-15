@@ -13,8 +13,8 @@ class CaptureMeasurements extends Component {
     }
     render(){
         return (<div className="content">
-            <div style={{fontSize:'22px',textAlign:'center',lineHeight:'28px',paddingTop:'6px'}}>Congratulations!</div>
-            <div style={{fontSize:'18px',textAlign:'center',lineHeight:'28px',paddingTop:'40px'}}>Your body measurements have been captured! All set to find best dresses that suit you!</div>
+            <div style={{fontSize:'22px',textAlign:'center',lineHeight:'28px',paddingTop:'70px',color: '#4b4b4b',fontFamily:'a'}}>CONGRATULATIONS!</div>
+            <div style={{fontSize:'18px',textAlign:'center',lineHeight:'28px',paddingTop:'12px',color: '#8e8c92',fontFamily:'Open Sans'}}>Your body measurements have been captured! All set to find best dresses that suit you!</div>
             <img src="../img/success.png"  style={{margin:'0 auto',width:'200px',padding:'40px'}}/>
             <Link to="/shop" className="btn" style={{margin:'0 auto',zIndex:0,marginTop:'24px'}}>
               <span>Let's shop!</span>

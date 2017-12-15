@@ -56,6 +56,7 @@ class Shop extends Component {
             </div>
           </div>
 
+        <div className="logo" style={{boxShadow:'none',position:'fixed',top:'20px',background:'#fff'}}><img src="img/logoimg.png" style={{width: '16px', left: '20px', position: 'absolute', top:'0px'}}/><span className="logoFont" style={{top:'-2px'}}>a</span><img className="bag" src="img/bag.jpg" width="20px" style={{top:'-4px'}}/></div>
         <div id="tabs" style={{display:'none',position: 'fixed',width:'100%',top:'0px',left:'0px',height:'70px',textAlign:'center',padding:'22px'}}>
 
 

@@ -113,10 +113,6 @@ html{
     transition: transform 400ms ease-in;
     transition: transform 400ms ease-in, -webkit-transform 400ms ease-in;
 }
-.btn:hover:after {
-    -webkit-transform: translateX(-200px);
-    transform: translateX(-200px);
-}
 .fader {
     -moz-transition: opacity 0.7s linear;
     -o-transition: opacity 0.7s linear;
@@ -321,7 +317,7 @@ html{
   <div class="headline" style="font-size: 22px;">your</div>
   <div class="headline" id="attri" style="font-family:a;font-size: 30px;color:#494b4b;">body shape</div>
 <br/>
-  <div class="prod-container"><img src="img/product1.png" width="150px"/></div>
+  <div class="prod-container"><img id="prod" src="img/product1.png" width="150px"/></div>
   <div class="button-container">
     <a id="cta" href="/fit-profile?from=get_started" class="btn"><span>Try looks on me</span></a>
   </div>
@@ -447,13 +443,14 @@ s.src = "scripts/load-image-orientation.js";
 addToHead(s);
 }
 setTimeout(function(){appendScripts();},1800);
-if(nonLatestChrome) {
+//if(nonLatestChrome) {
   appendNonChromeScripts();
-}
+//}
 
 var changeInt = 0;
-var i = 0;
+var i=0,j=0;
 var text = ["body shape", "skin color", "shoulder width"];
+var imgs = ["img/product1.png","img/product2.png","img/product3.png","img/product4.png"]
 
 setInterval(function() {
     $("#attri").fadeOut(400, function() {
@@ -462,6 +459,16 @@ setInterval(function() {
     i++;
     if (i >= text.length) {
         i = 0;
+    }
+}, 1800);
+
+setInterval(function() {
+    $("#prod").fadeOut(400, function() {
+        $(this).attr('src', imgs[j]);
+    }).fadeIn(400);
+    j++;
+    if (j >= imgs.length) {
+        j = 0;
     }
 }, 1800);
 

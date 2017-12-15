@@ -134,7 +134,7 @@ html{
     position: absolute;
     opacity: 1;
     left: 0px;
-    top: -18px;
+    top: 70px;
     display: none;
 }
 .product-bg {
@@ -489,8 +489,7 @@ html{
   right: 0;
 }
 #tabs {
-background: -webkit-linear-gradient(0deg, #fa880f 0%, #fa880f 25%, #fdb446 81%, #fdb446 100%);
-background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 100%);
+background: transparent;
 }
 .tabs-menu {
     height: 30px;
@@ -512,7 +511,7 @@ background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 
     position: relative;
     font-weight: bold;
     z-index: 5;
-    background: rgba(255,255,255,0.2);
+    background: rgb(241, 241, 241);
     border-radius: 20px;
     padding: 0px 10px;
     border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -521,12 +520,12 @@ background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 
 .tabs-menu li a {
     padding: 6px;
     font-size: 16px;
-    color: #fff;
+    color: #000;
     text-decoration: none; 
 }
 
 .tabs-menu .current a {
-    color: #fff;
+    color: #000;
 }
 
 .tab {
@@ -798,11 +797,13 @@ background: linear-gradient(0deg, #ff9c34 0%, #ff9c34 25%, #fdb446 66%, #fbb853 
 .app video#camera-stream{
     display: none;
     width: 100%;
+    position: absolute;
+    top: -190px;
 }
 
 .app img#snap{
     position: absolute;
-    top: 0;
+    top: -190px;
     left: 0;
     width: 100%;
     z-index: 10;
@@ -1010,7 +1011,6 @@ p img.right { float: right; margin-left: 1em; }
       height: 100px;
       position: fixed;
       width: 297px;
-      background: rgba(255, 255, 255, 0.8);
     }
     .tabs-menu {
       height: 30px;
@@ -1245,8 +1245,9 @@ p img.right { float: right; margin-left: 1em; }
                   </div>
                   <img src="img/outlinew.png" class="outline content"/>
                 </div>
-               <div class="button-container">
-                  <a class="btn" id="capture-photo" style="position:fixed; bottom:20px;margin: 0 auto;width:314px"><span style="left: 16px;"><i class="material-icons" style="left: -32px;position: absolute;top: -2px;">camera_alt</i>Launch Camera</span></a>
+               <div class="button-container" style="z-index:0;">
+                  <a class="btn" id="capture-photo" style="position:fixed; bottom:96px;margin: 0 auto;width:296px;"><span style="left: 16px;"><i class="material-icons" style="left: -32px;position: absolute;top: -2px;">camera_alt</i>Launch Camera</span></a>
+                  <a class="btn" id="selfie-capture-photo" style="display: none; position:fixed; bottom:96px;margin: 0 auto;width:296px"><span style="left: 16px;"><i class="material-icons" style="left: -32px;position: absolute;top: -2px;">camera_alt</i>Capture</span></a>
                 </div>
                 <div class="mask" style="position: absolute;top: 0px;"></div>
 <!--Bundled file-->
@@ -1282,10 +1283,11 @@ uid = guid();
 var nonLatestChrome = true;
 if(jscd.browser == 'Chrome' && navigator.userAgent.indexOf('Samsung') == -1
   && jscd.browserMajorVersion >= 54) {
-  nonLatestChrome = false;
+  nonLatestChrome = true;
 }
 
 var variation = nonLatestChrome ? 1 : 0;
+
 if(variation == 1) {
 Loggr.Log.trackUser(uid, "", "non-latest-chrome. Loading variation 1");
 } else {
