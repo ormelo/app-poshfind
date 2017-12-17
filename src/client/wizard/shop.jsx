@@ -56,7 +56,7 @@ class Shop extends Component {
             </div>
           </div>
 
-        <div className="logo" style={{boxShadow:'none',position:'fixed',top:'20px',background:'#fff'}}><img src="img/logoimg.png" style={{width: '16px', left: '20px', position: 'absolute', top:'0px'}}/><span className="logoFont" style={{top:'-2px'}}>a</span><img className="bag" src="img/bag.jpg" width="20px" style={{top:'-4px'}}/></div>
+        <div className="logo" style={{boxShadow:'none',position:'fixed',top:'20px',background:'#fff'}}><img src="../img/logoimg.png" style={{width: '16px', left: '20px', position: 'absolute', top:'0px'}}/><span className="logoFont" style={{top:'-2px'}}>a</span><img className="bag" src="../img/bag.jpg" width="20px" style={{top:'-4px'}}/></div>
         <div id="tabs" style={{display:'none',position: 'fixed',width:'100%',top:'0px',left:'0px',height:'70px',textAlign:'center',padding:'22px'}}>
 
 
@@ -98,7 +98,7 @@ class Shop extends Component {
 
           <div id="footerSlideContainer">
           <div className="close"></div>
-          <img className="size-hanger" src="img/hanger.png"></img>
+          <img className="size-hanger" src="../img/hanger.png"></img>
           <div className="size-title blink">Trying size M</div>
             <div id="footerSlideContent">
               <div id="footerSlideText">
@@ -121,7 +121,7 @@ class Shop extends Component {
           <div className="fit-waist-left"></div>
           <div className="fit-waist-right"></div>
 
-          <div class="button-container">
+          <div className="button-container">
                   <a className="btn" id="buy-now" style={{position:"fixed",bottom:"20px",margin: "0 auto",display:"none"}}><span>Buy Now</span></a>
                 </div>
             

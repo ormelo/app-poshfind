@@ -256,7 +256,7 @@ html{
 }
 .merchant-frame {
   display: none;
-  font-size: 16px;text-align: center;line-height: 28px;padding-top: 6px;height: 73px;background: #e6e6e6;position: static;
+  font-size: 16px;text-align: center;line-height: 28px;padding-top: 6px;height: 73px;background: #fff;position: static;
   width: 100%;
 }
 .merchant-size-container {
@@ -404,7 +404,7 @@ html{
     -o-border-radius: 8px 8px 8px 0px;
     -ms-border-radius: 8px 8px 8px 0px;
     border-radius: 8px 8px 8px 0px;
-    background: linear-gradient(45deg, #d55f5f 0%, #F44336 25%, #f66c6c 81%, #f0a0a0 100%);
+    background: #646267;
     color: #ffffff;
     font-size: 18px;
     line-height: 18px;
@@ -412,7 +412,7 @@ html{
 }
 
 .bubbledLeft:before {
-    border-bottom: 10px solid rgb(227, 84, 84);
+    border-bottom: 10px solid #646267;
     border-left: 9px solid rgba(0, 0, 0, 0);
     position: absolute;
     bottom: 0;
@@ -637,7 +637,9 @@ background: transparent;
     left: 0;
     right: 0;
     font-size: 18px;
+    font-family: 'f';
     bottom: 20px;
+    z-index: 9;
 }
 .btn-check span {
     position: relative;
@@ -1281,9 +1283,11 @@ var guid = function() {
 uid = guid();
 
 var nonLatestChrome = true;
+var chromeOnly = false;
 if(jscd.browser == 'Chrome' && navigator.userAgent.indexOf('Samsung') == -1
   && jscd.browserMajorVersion >= 54) {
   nonLatestChrome = true;
+  chromeOnly = true;
 }
 
 var variation = nonLatestChrome ? 1 : 0;

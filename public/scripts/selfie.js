@@ -184,6 +184,7 @@ if(variation == 0){
     variation = 0;
     var gum = new GumWrapper({video: 'camera-stream'});
     gum.play();
+    $('.selfie').css('visibility', 'hidden');
     $('.selfie-desc').html("Capture selfie when you're ready!");
     take_photo_capture_btn.style.display = 'inline';
     scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600);
@@ -531,11 +532,12 @@ function showProducts(category) {
         neckImg.className = 'pngneck-'+getSize();
         productBg.appendChild(neckImg);
 
-        var btnTag = document.createElement('a');
+        /*var btnTag = document.createElement('a');
         btnTag.className = 'btn-nobg';
         btnTag.id='size-trial';
         btnTag.innerHTML = '<span style="top: 12px; font-size: 18px;font-family:\'Open Sans\'">Try it on</span>';
-        productBg.appendChild(btnTag);
+        productBg.appendChild(btnTag);*/
+        
         productBg.appendChild(productImg);
 
         document.getElementById('product').appendChild(productBg);

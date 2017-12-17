@@ -5,7 +5,6 @@ class Merchant extends Component {
     componentDidMount(){
       $('.content').fadeOut(0).fadeIn(300);
       $('.outline').hide();
-      $('.logo').css('top','-57px');
       $('.merchant-frame').show();
       $('#currProduct').attr('src', '../'+sessionStorage.getItem('current-product').replace(/shop/g,''));
       $('#buyPrice').html('');
@@ -39,8 +38,8 @@ class Merchant extends Component {
       });
     }
     render(){
-        return (<div className="content buy">
-            <div style={{fontSize:'22px',textAlign:'center',lineHeight:'28px',paddingTop:'16px'}}><img style={{width:'120px'}} src="../img/merch_logo.png"/> 
+        return (<div className="content buy" style={{display:'block',height:'auto'}}>
+            <div style={{fontSize:'22px',textAlign:'center',lineHeight:'28px',paddingTop:'16px',marginTop:'50px'}}><img style={{width:'120px'}} src="../img/merch_logo.png"/> 
             </div>
             <hr style={{marginTop: '10px', marginBottom: '14px'}}/>
             <div style={{width: '250px', margin: '0 auto', left: '0',right: '0'}}>
