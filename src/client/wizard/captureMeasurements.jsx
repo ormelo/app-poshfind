@@ -17,7 +17,7 @@ class CaptureMeasurements extends Component {
             <div style={{fontSize:'18px',textAlign:'center',lineHeight:'28px',paddingTop:'12px',color: '#8e8c92',fontFamily:'Open Sans'}}>You have a wheatish tone & average build. We're ready to surprise you with looks tailored for you.</div>
             <img src="../img/success.png"  style={{margin:'0 auto',width:'200px',padding:'40px'}}/>
             <div className="btn-container" style={{bottom: '10px'}}>
-            <Link to="/shop" className="btn" style={{margin:'0 auto',zIndex:0,marginTop:'24px'}}>
+            <Link to="/shop" className="btn" style={{margin:'0 auto',zIndex:1,marginTop:'24px',width: '286px'}}>
               <span>Let's shop!</span>
             </Link>
             </div>
