@@ -62,7 +62,7 @@ self.addEventListener('push', function(event) {
 self.addEventListener('notificationclick', function(event) {
   console.log('Notification click: tag', event.notification.tag);
   event.notification.close();
-  var url = 'https://www.poseding.com';
+  var url = 'https://www.attirist.in';
   event.waitUntil(
     clients.matchAll({
       type: 'window'
