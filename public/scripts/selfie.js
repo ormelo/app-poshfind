@@ -183,6 +183,7 @@ function showError(error) {
     variation = 0;
     var gum = new GumWrapper({video: 'camera-stream'});
     gum.play();
+    $('#captureButton').hide();
     $('.selfie').css('visibility', 'hidden');
     $('.selfie-desc').html("Capture selfie when you're ready!");
     take_photo_capture_btn.style.display = 'inline';
