@@ -159,9 +159,8 @@ function showError(error) {
   video.play();
   showVideo();
 
-if(variation == 0){
-  forceRedraw = function(element){
 
+  forceRedraw = function(element){
       if (!element) { return; }
 
       var n = document.createTextNode(' ');
@@ -177,7 +176,7 @@ if(variation == 0){
       },20);
   }
   //scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600); 
-}
+
 
 
   take_photo_btn.addEventListener("click", function(e) {
@@ -537,7 +536,7 @@ function showProducts(category) {
         btnTag.id='size-trial';
         btnTag.innerHTML = '<span style="top: 12px; font-size: 18px;font-family:\'Open Sans\'">Try it on</span>';
         productBg.appendChild(btnTag);*/
-        
+
         productBg.appendChild(productImg);
 
         document.getElementById('product').appendChild(productBg);
