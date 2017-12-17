@@ -1,6 +1,6 @@
 {
-"short_name": "PoseDing",
-"name": "Poseding - try on!",
+"short_name": "attirist",
+"name": "attirist - try on!",
 "gcm_sender_id": "477854726038",
 "icons": [
 {
@@ -14,7 +14,7 @@
 "type": "image/png"
 }
 ],
-"start_url": "/home",
+"start_url": "/?from=hs",
 "background_color": "#f8f8f8",
 "theme_color": "#ffffff",
 "display": "fullscreen"
