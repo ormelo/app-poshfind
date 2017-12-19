@@ -187,6 +187,7 @@ function showError(error) {
     $('.selfie').css('visibility', 'hidden');
     $('.selfie-desc').html("Capture selfie when you're ready!");
     take_photo_capture_btn.style.display = 'inline';
+    $('#capture-photo').hide();
     scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600);
   })
 
@@ -521,7 +522,7 @@ function showProducts(category) {
         var productImg = document.createElement('img');
         productImg.className = 'actual-prod clip';
         var folder = getCategory();
-        productImg.src =  folder == 'tops' && (i == 0 || i == 1 || i == 2 )   ? 'img/products/'+getGender()+'/'+folder+'/'+i+'/'+getSize()+'.png' : 'img/products/'+getGender()+'/'+folder+'jpg/'+i+'/'+getSize()+'.jpg';
+        productImg.src =  folder == 'tops' && (i == 24 || i == 25 || i == 26 )   ? 'img/products/'+getGender()+'/'+folder+'/'+i+'/'+getSize()+'.png' : 'img/products/'+getGender()+'/'+folder+'jpg/'+i+'/'+getSize()+'.jpg';
         /*$('#size1').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
         $('#size2').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
         $('#size3').attr('src','img/products/'+getGender()+'/'+getCategory()+'/'+i+'/s.png');
