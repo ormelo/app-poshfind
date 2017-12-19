@@ -189,6 +189,7 @@ function showError(error) {
     take_photo_capture_btn.style.display = 'inline';
     $('#capture-photo').hide();
     scr = setInterval(function(){ forceRedraw(document.getElementById('start-camera')); }, 600);
+    Loggr.Log.trackUser(uid, "", "Launch camera button clicked");
   })
 
   take_photo_capture_btn.addEventListener("click", function(e){
