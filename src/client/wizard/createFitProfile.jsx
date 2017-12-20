@@ -26,6 +26,10 @@ class CreateFitProfile extends Component {
         // $('#selfieMsg').html("Take a selfie when you're ready!");
         // $('.loading-container').show();
       }
+
+      if(!chromeOnly) {
+        $('#capture-photo').hide();
+      }
       var h = this.props.history;
       const unlisten = h.listen((location, action) => {
         // location is an object like window.location
