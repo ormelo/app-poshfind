@@ -112,16 +112,88 @@ html{
     padding-top: 36px;
     z-index: 1;
 }
-.selfie-title {
+.dot-line {
+    color: #8e8c92;
+    text-align: center;
+    height: 1px;
+    margin: 1.00em 0;
+}
+.dot-line span {
+    font-size: 20px;
+    line-height: 1px;
+    position: absolute;
+    text-align: center;
+    margin-left: -11px;
+}
+.line-left {
+    background-color: #c3c3c3;
+    width: 45%;
+    height: 1px;
+    float: left;
+}
+.line-right {
+    background-color: #c3c3c3;
+    width: 45%;
+    height: 1px;
+    float: right;
+}
+.skin-tone {
+  background:#666;width:50px;height:50px;display: inline-block;vertical-align: middle;margin-left: 8px;padding-top: 9px;
+}
+.shoulders {
+  background:#f0f0f0;
+  width: 90px;
+  height:50px;display: inline-block;vertical-align: middle;margin-left: 8px;padding-top: 8px;border-bottom: 4px solid #fff;
+}
+.htwt {
+  border: 1px solid #666;
+  height: 43px;
+  font-size: 18px;
+  width: 70px;
+}
+.silhoutte {
+  position: relative;
+  top: 29px;
+  z-index: 0;
+  width: 170px;
+  left: 6px;
+}
+.hightop {
+  top: 26px;
+}
+.selfie-tbl {
+  display: inline-table;
+  margin-top: 20px;
+  margin-left: -16px;
+}
+.selfie-img-cell {
+  display: table-cell;vertical-align: middle;padding: 24px;
+}
+.selfie-img-cell img {
+  width: 70px;margin-top: 40px;
+}
+.fit-profile-heading {
   margin-top: 60px;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 18px;
+  color:#8e8c92;
+}
+.upload-btn {
+  width: 200px;
+  top: 11px;
+  left: -10px;
+}
+.selfie-title {
+  margin-top: 10px;
   float: left;
-  font-size: 24px;
+  font-size: 20px;
   font-family: "a";
   color: #4b4b4b;
   letter-spacing: 2px;
 }
 .selfie-desc {
-  width: 300px;
+  width: 220px;
   font-family: Open Sans;
   font-size: 18px;
   float: left;
@@ -602,7 +674,7 @@ background: transparent;
     background: -webkit-linear-gradient(0deg, #fb3152 0%, #fb576f 100%);
     background: linear-gradient(0deg, #fb3152 0%, #fb576f 100%);
     height: 50px;
-    width: 402px;
+    width: 406px;
     z-index: -1;
     -webkit-transform: translateX(-280px);
     transform: translateX(-280px);
@@ -1234,7 +1306,7 @@ p img.right { float: right; margin-left: 1em; }
 </div>
 <div class="app" >
                     <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
-                    <video id="camera-stream" style="visibility: hidden"></video>
+                    <video id="camera-stream" style="visibility: hidden;display: none;"></video>
                     <img id="snap" />
                     <p id="error-message"></p>
                     <div class="controls">
@@ -1247,10 +1319,7 @@ p img.right { float: right; margin-left: 1em; }
                   </div>
                   <img src="img/outlinew.png" class="outline content"/>
                 </div>
-               <div class="button-container" style="z-index:0;">
-                  <a class="btn" id="capture-photo" style="position:fixed; bottom:96px;margin: 0 auto;width:296px;"><span style="left: 16px;"><i class="material-icons" style="left: -32px;position: absolute;top: -2px;">camera_alt</i>Launch Camera</span></a>
-                  <a class="btn" id="selfie-capture-photo" style="display: none; position:fixed; bottom:36px;margin: 0 auto;width:296px"><span style="left: 16px;"><i class="material-icons" style="left: -32px;position: absolute;top: -2px;">camera_alt</i>Capture</span></a>
-                </div>
+               
                 <div class="mask" style="position: absolute;top: 0px;"></div>
 <!--Bundled file-->
 <script src="https://api.loggr.net/1/loggr.min.js?l=poshfind&a=b687eacebeee405cafc202bc350d4f71"></script>
@@ -1434,7 +1503,7 @@ function closest(arr, closestTo){
 
 function clearLocalStorage() {
   localStorage.removeItem('faceX');localStorage.removeItem('faceY');localStorage.removeItem('faceW');localStorage.removeItem('faceH');
-  localStorage.removeItem('shoulderX');localStorage.removeItem('shoulderY');localStorage.removeItem('shoulderW');localStorage.removeItem('shoulderH');localStorage.removeItem('pic');localStorage.removeItem('userSize');
+  localStorage.removeItem('shoulderX');localStorage.removeItem('shoulderY');localStorage.removeItem('shoulderW');localStorage.removeItem('shoulderH');localStorage.removeItem('pic');localStorage.removeItem('userSize'); localStorage.removeItem('quizFlow');
 }
 
 clearLocalStorage();
@@ -1653,6 +1722,7 @@ function computeNearestSize(imgsrc) {
         stepEMeasure();
     //temp: 100, actual: 4000
     }, 2200);
+
 }
 
 function showSizeVal(slideNum) {

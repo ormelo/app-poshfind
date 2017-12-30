@@ -54,6 +54,10 @@ $(function () {
       img.id="load-img-canvas";
       image = img;
       $('.selfie').hide();
+      $('.fit-profile-heading').hide();
+      $('.selfie-tbl').hide();
+      $('.dot-line').hide();
+      img.style.marginTop='35px';
       setTimeout("computeNearestSize(image.src || image.toDataURL());",800);
       content = $('<a id="selfie-url" target="_blank">').append(img)
         .attr('download', currentFile.name)
