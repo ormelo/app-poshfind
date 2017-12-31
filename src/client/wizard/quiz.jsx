@@ -12,8 +12,9 @@ class Quiz extends Component {
       $('.content').fadeOut(0).fadeIn(300);
       $('.outline').hide();
       gtag('event', 'Stage', {'event_category':'load', 'event_label':'style-quiz'}); 
-      gtag('config', 'UA-107877274-1',{'page_title': 'fit_profile_update','page_location': 'http://www.poseding.com/fit-profile-update','page_path': '/fit-profile-update'});
-      Loggr.Log.trackUser(uid, "", "Navigated to fit-profile/update.");
+      gtag('config', 'UA-107877274-1',{'page_title': 'fit_profile_update','page_location': 'http://www.poseding.com/style-quiz','page_path': '/style-quiz'});
+      
+      Loggr.Log.trackUser(uid, "", "Take style quiz clicked. Navigated to quiz page.");
       window.hObj = this.props.history;
 
       var questions = [{
@@ -74,8 +75,14 @@ var radios = document.getElementsByName('answer');
 $('#button').on('click', function() {
     if(questionCounter == 0) {
       sessionStorage.setItem('skinTone', $("input[name=answer]:checked").val());
+      gtag('event', 'Stage', {'event_category':'style-quiz', 'event_label':'style-quiz-skin-color'}); 
+      gtag('config', 'UA-107877274-1',{'page_title': 'style-quiz-skin-color','page_location': 'http://www.poseding.com/style-quiz-skin-color','page_path': '/style-quiz-skin-color'});
+      Loggr.Log.trackUser(uid, "", "Style quiz. Skin color entered: "+$("input[name=answer]:checked").val());
     } else if(questionCounter == 1) {
       sessionStorage.setItem('shoulderWidth', $("input[name=answer]:checked").val());
+      gtag('event', 'Stage', {'event_category':'style-quiz', 'event_label':'style-quiz-shoulders'}); 
+      gtag('config', 'UA-107877274-1',{'page_title': 'style-quiz','page_location': 'http://www.poseding.com/style-quiz-shoulders','page_path': '/style-quiz-shoulders'});
+      Loggr.Log.trackUser(uid, "", "Style quiz. Skin color entered: "+$("input[name=answer]:checked").val());
     } else {
       sessionStorage.setItem('heightVal',$('#heightVal').val());
       sessionStorage.setItem('weightVal',$('#weightVal').val());
@@ -102,7 +109,9 @@ $('#button').on('click', function() {
         sessionStorage.setItem('quizSize','xxl');
         localStorage.setItem('userSize','xxl');
       }
-
+      Loggr.Log.trackUser(uid, "", "Style quiz. Height entered: "+$('#heightVal').val());
+      Loggr.Log.trackUser(uid, "", "Style quiz. Weight entered: "+$('#weightVal').val());
+      Loggr.Log.trackUser(uid, "", "Style quiz. Size computed."+sessionStorage.getItem('quizSize'));
       localStorage.setItem('faceH', 242);
       localStorage.setItem('faceW', 242);
       localStorage.setItem('faceX', 110);
