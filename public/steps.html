@@ -1901,7 +1901,13 @@ function goodSize(msg,hangerSize) {
     sessionStorage.setItem('current-product-size', hangerSize);
     $('#buy-now').removeClass('badfit').removeClass('bubbledLeft').addClass('btn'); 
     $('#buy-now').html('<span>Buy at special price</span>');
-    $('#buy-now').on('click',function() { location.href = sessionStorage.getItem('current-product-url');});
+    $('#buy-now').on('click',function() { 
+      gtag('event', 'Stage', {'event_category':'buy', 'event_label':'buy-button-clicked'}); 
+      gtag('config', 'UA-107877274-1',{'page_title': 'buy','page_location': 'http://www.poseding.com/buy-button-clicked','page_path': '/buy-button-clicked'});
+      
+      Loggr.Log.trackUser(uid, "", "Buy button clicked. Navigating to partner site.");
+      location.href = sessionStorage.getItem('current-product-url');
+    });
     $($('#buy-now').children()[0]).css('top','14px');
     $($('#buy-now').children()[0]).css('font-size','18px');
     $('.size-hanger').attr('src','img/success.png');
