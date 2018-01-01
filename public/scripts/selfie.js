@@ -465,7 +465,6 @@ function shuffle(array) {
   return array;
 }
 
-
 function showProducts(category) {
   Loggr.Log.trackUser(uid, "", "showProducts() called.");
   $('.loading-container').show();
@@ -480,12 +479,12 @@ function showProducts(category) {
     //setTimeout("$('.products').show();$('.contentShop').css('margin-top','20px');", 4000);
     $('#product').html(''); $('.face').remove(); $('.contentShop').scrollTop(0);
     $('.products').show();$('.contentShop').css('margin-top','20px');
-    var dataArr = shuffle(data);
-      for(var i=0;i<dataArr.length;i++) {
+    //var dataArr = shuffle(data);
+      for(var i=0;i<data.length;i++) {
         var productBg = document.createElement('div');
         productBg.className = 'product-bg';
         productBg.id = i;
-
+        productBg.setAttribute('current-product-url', data[i]['orig_url']);
         var productCanvas = document.createElement('canvas');
         productCanvas.id = 'canvas'+i;
         productCanvas.height = '460';
@@ -540,7 +539,31 @@ function showProducts(category) {
         transparentImg.src = 'img/tbg.png';
         transparentImg.style.top = '28px';
         productBg.appendChild(transparentImg);
-        
+
+        var shoulderFitHeading = document.createElement('div');
+        shoulderFitHeading.className = 'shoulder-fit';
+        shoulderFitHeading.innerHTML = data[i].shoulderTitle;
+        productBg.appendChild(shoulderFitHeading);
+
+        var shoulderFitDesc = document.createElement('div');
+        shoulderFitDesc.className = 'shoulder-fit-desc';
+        shoulderFitDesc.innerHTML = sessionStorage.getItem('shoulderWidth') == "undefined"? data[i]['shoulderMsg-none'] : data[i]['shoulderMsg-'+sessionStorage.getItem('shoulderWidth')];
+        productBg.appendChild(shoulderFitDesc);
+
+        var skintoneFitHeading = document.createElement('div');
+        skintoneFitHeading.className = 'skintone-fit';
+        skintoneFitHeading.innerHTML = data[i]['skintToneTitle'];
+        productBg.appendChild(skintoneFitHeading);
+
+        var skintoneFitDesc = document.createElement('div');
+        skintoneFitDesc.className = 'skintone-fit-desc';
+        skintoneFitDesc.innerHTML = data[i]['skintoneMsgWheatish'];
+        productBg.appendChild(skintoneFitDesc);
+
+        var checkFitBtn = document.createElement('div');
+        checkFitBtn.className = 'check-fit';
+        checkFitBtn.innerHTML = 'Check fit';
+        productBg.appendChild(checkFitBtn);
 
         var productImg = document.createElement('img');
         productImg.className = 'actual-prod clip';
@@ -567,11 +590,33 @@ function showProducts(category) {
         document.getElementById('product').appendChild(productBg);
         $('.loading-container').hide();
       }
-
+      setTimeout(function(){
+        $('.shoulder-fit').fadeIn(1200).animate({opacity:1});
+        $('.shoulder-fit-desc').fadeIn(1200).animate({opacity:1});
+        $('.skintone-fit').fadeIn(1200).animate({opacity:1});
+        $('.skintone-fit-desc').fadeIn(1200).animate({opacity:1});
+      },800);
+      var isScrolling;
+      $('.contentShop').on('scroll',function(){
+        window.clearTimeout( isScrolling );
+        $('.shoulder-fit').css('opacity') == 1 ? $('.shoulder-fit').css('display', 'none') : null;
+        $('.shoulder-fit-desc').css('opacity') == 1 ? $('.shoulder-fit-desc').css('display', 'none') : null;
+        $('.skintone-fit').css('opacity') == 1 ? $('.skintone-fit').css('display', 'none') : null;
+        $('.skintone-fit-desc').css('opacity') == 1 ? $('.skintone-fit-desc').css('display', 'none') : null;
+          isScrolling = setTimeout(function() {
+            if($('.shoulder-fit').css('display')=='none') {
+              $('.shoulder-fit').animate({display:'inline'}).fadeIn();
+              $('.shoulder-fit-desc').animate({display:'inline'}).fadeIn();
+              $('.skintone-fit').animate({display:'inline'}).fadeIn();
+              $('.skintone-fit-desc').animate({display:'inline'}).fadeIn();
+            }
+          }, 166);
+      });
       var open = false;
       $('.product-bg').click(function() {
 
           $('#tabs').hide();
+          $('.logo').css('z-index','0');
           setTimeout("$('#buy-now').show();",300);
           for(var i=0;i<4;i++) {
             var suffix = i+1;
@@ -579,6 +624,7 @@ function showProducts(category) {
           }
           var prodId = $(this).attr('id');
           sessionStorage.setItem('current-product-index', prodId);
+          sessionStorage.setItem('current-product-url', $(this).attr('current-product-url'));
           gtag('event', 'Stage', {'event_category':'load', 'event_label':'fit-trial'});
           gtag('config', 'UA-107877274-1',{'page_title': 'try_on','page_location': 'http://www.poseding.com/fit-try-on','page_path': '/try-on'});
               for(var i=0;i<4;i++) {
@@ -627,14 +673,14 @@ function showProducts(category) {
                 }
 
                 var transparentImg = document.createElement('img');
-                transparentImg.className = 'actual-prod';
+                transparentImg.className = 'actual-prod clip';
                 transparentImg.src = 'img/tbg.png';
                 transparentImg.style.top = '28px';
                 productBg.appendChild(transparentImg);
                 
 
                 var productImg = document.createElement('img');
-                productImg.className = 'actual-prod';
+                productImg.className = 'actual-prod clip';
                 if(i==0)
                   sizeVal = 's';
                 else if(i==1)
@@ -644,7 +690,7 @@ function showProducts(category) {
                 else if(i==3)
                   sizeVal = 'xxl';
 
-                productImg.src = 'img/products/'+getGender()+'/'+getCategory()+'/'+prodId+'/'+sizeVal+'.png';
+                productImg.src = 'img/products/'+getGender()+'/'+getCategory()+'jpg/'+prodId+'/'+sizeVal+'.jpg';
                 Loggr.Log.trackUser(uid, "", "product image clicked: https://poshfind/"+productImg.src);
                 console.log('productImg.src: ', productImg.src);
                 productBg.appendChild(productImg);
@@ -702,6 +748,7 @@ function showProducts(category) {
       $('.close').click(function() {
           $('#tabs').show();
           $('#buy-now').hide();
+          $('.logo').css('z-index','1');
           $('.fit-shoulder-left').hide();
           $('.fit-shoulder-right').hide();
           $('.fit-waist-left').hide();

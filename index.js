@@ -15,6 +15,10 @@ app.get('/fit-profile', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'steps.html'));
 });
 
+app.get('/shop', function(request, response) {
+  response.redirect('/');
+});
+
 app.get('/home', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'home.html'));
 });

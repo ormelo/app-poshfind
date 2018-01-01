@@ -535,6 +535,77 @@ html{
   left: 0;
   right: 0;
 }
+.skintone-fit {
+  z-index: 0;
+  position: relative;
+  opacity: 0;
+  text-align: center;
+  right: 22px;
+  top: -256px;
+  font-size: 13px;
+  padding: 7px 7px 7px 7px;
+  background: #3f3f3f;
+  width: 110px;
+  color: #fff;
+  border-radius: 9px;
+  float: right;
+}
+.skintone-fit-desc {
+    position: relative;
+    opacity: 0;
+    text-align: center;
+    top: -229px;
+    font-size: 12px;
+    padding: 7px 7px 7px 7px;
+    width: 125px;
+    color: #666;
+    border-radius: 9px;
+    float: right;
+    right: -97px;
+}
+.check-fit {
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  background: #fb3152;
+  background: -webkit-linear-gradient(0deg, #fb3152 0%, #fb576f 100%);
+  background: linear-gradient(0deg, #fb3152 0%, #fb576f 100%);
+  color: #fff;
+  border-radius: 40px;
+  font-size: 16px;
+  width: 240px;
+  height: 41px;
+  padding-top: 11px;
+  position: absolute;
+  z-index: 1;
+  bottom: 26px;
+}
+.shoulder-fit {
+  position: relative;
+  opacity: 0;
+  text-align: center;
+  right: -10px;
+  top: -140px;
+  font-size: 13px;
+  padding: 7px 7px 7px 7px;
+  background: #3f3f3f;
+  width: 110px;
+  color: #fff;
+  border-radius: 9px;
+}
+.shoulder-fit-desc {
+  position: relative;
+  opacity: 0;
+  text-align: center;
+  right: -6px;
+  top: -144px;
+  font-size: 12px;
+  padding: 7px 7px 7px 7px;
+  width: 125px;
+  color: #666;
+  border-radius: 9px;
+}
 .size-title {
   display: block;
   position: absolute;
@@ -563,7 +634,7 @@ html{
   right: 0;
 }
 #tabs {
-background: transparent;
+background: transparent;z-index: 1;
 }
 .tabs-menu {
     height: 30px;
@@ -1050,6 +1121,7 @@ p img.right { float: right; margin-left: 1em; }
       top: 15px;
       position: absolute;
       left: 0px;
+      z-index: 1;
       -webkit-box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
       -moz-box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
       box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
@@ -1144,6 +1216,7 @@ p img.right { float: right; margin-left: 1em; }
       height: 44px;
       margin: 0 auto;
       top: 20px;
+      z-index: 1;
       position: absolute;
       left: 20px;
     }
@@ -1252,6 +1325,7 @@ p img.right { float: right; margin-left: 1em; }
       margin: 0 auto;
       background-size: contain;
       top: 20px;
+      z-index: 1;
       position: absolute;
       left: 20px;
     }
@@ -1732,10 +1806,10 @@ function showSizeVal(slideNum) {
   
   var sizeSrc = $($($('.slick-active').children()[0]).children()[2]).attr('src');
   console.log(sizeSrc);
-  if(sizeSrc.indexOf('s.png') > 0) { $('.size-title').html('Trying size M');computeFitCircles('M'); Loggr.Log.trackUser(uid, "", "Trying Size: M"); }
-  if(sizeSrc.indexOf('m.png') > 0) { $('.size-title').html('Trying size L');computeFitCircles('L'); Loggr.Log.trackUser(uid, "", "Trying Size: L"); }
-  if(sizeSrc.indexOf('xl.png') > 0) { $('.size-title').html('Trying size XL');computeFitCircles('XL'); Loggr.Log.trackUser(uid, "", "Trying Size: XL");}
-  if(sizeSrc.indexOf('xxl.png') > 0) { $('.size-title').html('Trying size XXL');computeFitCircles('XXL'); Loggr.Log.trackUser(uid, "", "Trying Size: XXL");}
+  if(sizeSrc.indexOf('s.jpg') > 0) { $('.size-title').html('Trying size M');computeFitCircles('M'); Loggr.Log.trackUser(uid, "", "Trying Size: M"); }
+  if(sizeSrc.indexOf('m.jpg') > 0) { $('.size-title').html('Trying size L');computeFitCircles('L'); Loggr.Log.trackUser(uid, "", "Trying Size: L"); }
+  if(sizeSrc.indexOf('xl.jpg') > 0) { $('.size-title').html('Trying size XL');computeFitCircles('XL'); Loggr.Log.trackUser(uid, "", "Trying Size: XL");}
+  if(sizeSrc.indexOf('xxl.jpg') > 0) { $('.size-title').html('Trying size XXL');computeFitCircles('XXL'); Loggr.Log.trackUser(uid, "", "Trying Size: XXL");}
 }
 
 function getRandomInt(min, max) {
@@ -1826,8 +1900,8 @@ function goodSize(msg,hangerSize) {
     }
     sessionStorage.setItem('current-product-size', hangerSize);
     $('#buy-now').removeClass('badfit').removeClass('bubbledLeft').addClass('btn'); 
-    $('#buy-now').html('<span>Buy now!</span>');
-    $('#buy-now').on('click',function() { sessionStorage.setItem('current-product',$($($('.slick-active').children()[0]).children()[2]).attr('src'));window.onBuy('/shop/buy?p=41hDeojaueL&r=879&s=s-l-xl-xxl&g=3');});
+    $('#buy-now').html('<span>Buy at special price</span>');
+    $('#buy-now').on('click',function() { location.href = sessionStorage.getItem('current-product-url');});
     $($('#buy-now').children()[0]).css('top','14px');
     $($('#buy-now').children()[0]).css('font-size','18px');
     $('.size-hanger').attr('src','img/success.png');
