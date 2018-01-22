@@ -62,8 +62,7 @@ class Shop extends Component {
 
 <div id="tabs-container">
     <ul className="tabs-menu">
-        <li className="current"><a id="tab1" href="#tab-1">Tops</a></li>
-        <li><a>Dresses <span style={{fontSize:'12px',color:'#666'}}>(coming soon)</span></a></li>
+        <li><a id="tab1" href="#tab-1">Your Personal Lookbook</a></li>
     </ul>
     <div className="tab">
         <div id="tab-1" className="tab-content">
