@@ -21,7 +21,6 @@
 
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -29,8 +28,11 @@
 }
 
 html{
-    background-color: #ffffff;
     font-family: 'f', sans-serif;
+    background: url(img/main1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 73px;
 }
 .content {
     position: relative;
@@ -72,7 +74,11 @@ html{
   margin: 0 auto;
   left: 0;
   right: 0;
-  width: 150px;
+  width: 340px;
+  font-size: 14px;
+  color: #fff;
+  margin-top: 40px;
+  text-align: center;
 }
 .btn {
     display: block;
@@ -122,6 +128,31 @@ html{
 
 .fadedOut {
     opacity: 0;
+}
+
+.tag {
+  font-family: a;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.39);
+  border-radius: 6px;
+  padding: 4px;
+  width: 340px;
+  margin: 0 auto;
+  margin-top: 90px;
+}
+.second {
+  top: 57vh;
+  position: absolute;
+  margin: 0 auto;
+  width: 340px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  color: rgb(73, 75, 75);
+  font-family: "a";
+  font-size: 24px;
 }
 @media (max-width: 599px){
     .container{
@@ -241,6 +272,12 @@ html{
       position: relative;
       width: 240px;
     }
+    .tag {
+      font-size: 30px;
+      width: 500px;
+      padding: 12px;
+    }
+    .second { display: none; }
 }
 @media (min-width: 1025px){
     .container{
@@ -302,6 +339,15 @@ html{
       position: relative;
       width: 240px;
     }
+    .tag {
+      font-size: 34px;
+      width: 560px;
+      padding: 16px;
+    }
+    .city {
+      margin-top: 400px;
+    }
+    .second { display: none; }
 }
 </style>
 </head>
@@ -310,20 +356,27 @@ html{
 <div class="container fader" id="container">
 <div>
   <div class="logo"><img src="img/logoimg.png" style="width: 16px;margin-left: 20px;"><span class="logoFont">attirist</span>
-  <img class="bag" src="img/bag.jpg" class="bag" width="20px"/>
+  
   </div>
   
-  <div class="headline" style="margin-top: 120px;font-size: 28px;">Shop looks that suit</div>
-  <div class="headline" style="font-size: 22px;">your</div>
-  <div class="headline" id="attri" style="font-family:a;font-size: 30px;color:#494b4b;">body shape</div>
+  <div class="tag">Your personal partywear shopper at your price!</div>
 <br/>
-  <div class="prod-container"><img id="prod" src="img/product1.png" width="150px"/></div>
+  <div class="prod-container city">Bangalore  •  Mumbai  •  Hyderabad  •  Chennai</div>
   <div class="button-container">
-    <a id="cta" href="/fit-profile?from=get_started" class="btn"><span>Try looks on me</span></a>
+    <a id="cta" href="/fit-profile?from=get_started" class="btn"><span>Get started</span></a>
   </div>
 
 </div>
 </div>
+<div class="second">Shopping party attire stressing you out?
+<br><br>
+<div style="font-size: 17px;font-family: Open Sans;margin-top: -10px;">
+Tell us your needs and we'll go shopping on your behalf to suggest attires that suit you within your budget!
+</div>
+<br><br><br><br><br>
+</div>
+
+
 <!--Bundled file-->
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
