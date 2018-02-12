@@ -54,7 +54,7 @@ html{
     bottom: 0px;
     height: 100px;
     padding-top: 36px;
-    z-index: 1;
+    z-index: 2;
 }
 .bag {
   position: relative;
@@ -153,6 +153,23 @@ html{
   color: rgb(73, 75, 75);
   font-family: "a";
   font-size: 24px;
+}
+#G {
+    background: -moz-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,1)),color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 @media (max-width: 599px){
     .container{
@@ -375,6 +392,7 @@ Tell us your needs and we'll go shopping on your behalf to suggest attires that 
 </div>
 <br><br><br><br><br>
 </div>
+<div id="G"></div>
 
 
 <!--Bundled file-->
