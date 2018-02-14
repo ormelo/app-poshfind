@@ -11,6 +11,10 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+app.get('/get-styled', function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'getstyled.html'));
+});
+
 app.get('/fit-profile', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'steps.html'));
 });
