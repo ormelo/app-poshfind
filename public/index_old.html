@@ -26,6 +26,14 @@
     margin: 0;
     padding: 0;
 }
+
+html{
+    font-family: 'f', sans-serif;
+    background: url(img/main1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 73px;
+}
 .content {
     position: relative;
     margin: 0 auto;
@@ -132,21 +140,11 @@
   padding: 4px;
   width: 340px;
   margin: 0 auto;
-  margin-top: -160px;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-.city-main {
-  margin: 0 auto;left: 0;right: 0;width: 340px;font-size: 14px;
-  color: #fff;margin-top: -36px;font-family: 'f';text-align: center;
-}
-.main-img {
-  background: url(img/main1.jpg);
-  background-size: cover;
-  height: 250px;
+  margin-top: 90px;
 }
 .second {
+  top: 57vh;
+  position: absolute;
   margin: 0 auto;
   width: 340px;
   text-align: center;
@@ -155,7 +153,6 @@
   color: rgb(73, 75, 75);
   font-family: "a";
   font-size: 24px;
-  margin-top: 12px;
 }
 #G {
     background: -moz-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
@@ -238,21 +235,11 @@
     }
 }
 @media (min-width: 600px){
-    html{
-      font-family: 'f', sans-serif;
-      background: url(img/main1.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      margin-top: 73px;
-    }
     .container{
         width: 100%;
         height: 100%;
         background-size: cover;
         background-position-y: -31px;
-    }
-    .main-img, .city-main {
-      display: none;
     }
     .btn {
       width: 275px;
@@ -306,8 +293,6 @@
       font-size: 30px;
       width: 500px;
       padding: 12px;
-      position: relative;
-      margin-top: 90px;
     }
     .second { display: none; }
 }
@@ -318,9 +303,6 @@
         height: 100%;
         background-size: cover;
         background-position-y: -31px;
-    }
-    .main-img, .city-main {
-      display: none;
     }
     .btn {
       width: 275px;
@@ -378,8 +360,6 @@
       font-size: 34px;
       width: 560px;
       padding: 16px;
-      position: relative;
-      margin-top: 90px;
     }
     .city {
       margin-top: 400px;
@@ -395,11 +375,8 @@
   <div class="logo"><img src="img/logoimg.png" style="width: 16px;margin-left: 20px;"><span class="logoFont">attirist</span>
   
   </div>
-  <div>
-    <div class="main-img" style="margin-top: 73px;"></div>
-    <div class="tag">Your personal partywear shopper at your price!</div>
-    <div class="city-main">Bangalore  •  Mumbai  •  Hyderabad  •  Chennai</div>
-  </div>
+  
+  <div class="tag">Your personal partywear shopper at your price!</div>
 <br/>
   <div class="prod-container city">Bangalore  •  Mumbai  •  Hyderabad  •  Chennai</div>
   <div class="button-container">
