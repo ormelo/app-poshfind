@@ -168,6 +168,48 @@
   border: 1px solid #d9d9d9;
   border-top: 0px;
 }
+.loading-msg {
+  position: absolute;
+  top: -38px;
+  width: 400px;
+  left: -78px;
+  margin: 0 auto;
+  right: 0;
+}
+.loading {
+  position: absolute;
+  background-color: rgba(0,0,0,0);
+  border: 7px solid #343339;
+  opacity: .9;
+  border-top: 7px solid rgba(0,0,0,0);
+  border-left: 7px solid rgba(0,0,0,0);
+  border-radius: 50px;
+  box-shadow: 0 0 35px #343339;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 1.2s infinite linear;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 10px;
+}
+.loading-container {
+    display: none;
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 42vh;
+    border-radius: 12px;
+    opacity: 0.8;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(360deg); }
+}
 .main-img {
   background: url(img/main1.jpg);
   background-size: cover;
@@ -304,9 +346,23 @@ input {
 }
 
 </style>
+<script language="Javascript">
+  function submitData() {
+     $('#container').css('opacity','0.3');
+     $('.second').css('opacity','0.3');
+     $('.loading-container').show();
+     Loggr.Log.trackUser(uid, "", "User request submitted.");
+     Loggr.Log.trackUser(uid, "", "Date:"+document.getElementById("partydate").value);
+     Loggr.Log.trackUser(uid, "", "Occasion:"+document.getElementById("occasion").value);
+     Loggr.Log.trackUser(uid, "", "Number:"+document.getElementById("num").value);
+     setTimeout(function(){$('.loading-container').hide();$('.second').css('opacity','1');$('#container').css('opacity','1');$('.second').html('Thank you!<br><div class="step-desc">Our stylist will get in touch with you soon.</div>');},1000);
+     setTimeout(function(){$('.button-container').html('');},1000);
+  }
+</script>
 </head>
 
 <body>
+<div class="loading-container"><div class="loading"></div><span class="loading-msg"></span></div>
 <div class="container fader" id="container">
 <div>
   <div class="logo"><img src="img/logoimg.png" style="width: 16px;margin-left: 20px;"><span class="logoFont">attirist</span>
@@ -332,20 +388,21 @@ Once you submit the details below, our stylist will get in touch with you.</div>
 </div>
 
 <br>
-<div class="step-desc" style="margin-top: -8px">Occasion:<input type="text" style="width:191px; margin-left:19px" placeholder="eg. Engagement"></div>
+<div class="step-desc" style="margin-top: -8px">Occasion:<input id="occasion" type="text" style="width:191px; margin-left:19px" placeholder="eg. Engagement"></div>
 <br>
 <hr size="1" class="line"/>
 <div class="step">Your whatsapp mobile number</div>
-<div class="step-desc" style="margin-top: 8px;text-align: center;"><input type="number" style="width: 268px;margin-top: 14px;margin-left: -14px;" placeholder="Your 10-digit mobile number"/></div>
+<div class="step-desc" style="margin-top: 8px;text-align: center;"><input id="num" type="number" style="width: 268px;margin-top: 14px;margin-left: -14px;" placeholder="Your 10-digit mobile number"/></div>
 <br>
 </div>
 <div class="button-container">
-    <a id="cta" href="/get-styled" class="btn"><span>Submit</span></a>
+    <a id="cta" onClick="submitData();" class="btn"><span>Submit</span></a>
   </div>
 <br>
 <br><br>
 </div>
 
+<script src="https://api.loggr.net/1/loggr.min.js?l=poshfind&a=b687eacebeee405cafc202bc350d4f71"></script>
 
 <!--Bundled file-->
 <script
@@ -413,87 +470,7 @@ if ('serviceWorker' in navigator) {
 
 gtag('config', 'UA-107877274-1',{'page_title': 'homepage','page_location': 'http://www.poseding.com','page_path': '/'}); 
 
-function appendScripts() {
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "haar/lib/jsfeat-samples/js/jsfeat-min.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "haar/lib/jsfeat/cascades/upperbody.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "haar/lib/jsfeat-samples/js/compatibility.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "haar/lib/jsfeat-samples/js/frontalface.js";
-addToHead(s);
-}
-function addToHead(scr) {
-  var scriptAdded = document.head.append ? document.head.append(scr) : document.head.appendChild(scr);
-}
-
-function appendNonChromeScripts(){
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "scripts/load-image.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "scripts/load-image-scale.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "scripts/load-image-meta.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "scripts/load-image-fetch.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "scripts/load-image-exif.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "scripts/load-image-exif-map.js";
-addToHead(s);
-var s = document.createElement("script");
-s.type = "text/javascript";
-s.src = "scripts/load-image-orientation.js";
-addToHead(s);
-}
-setTimeout(function(){appendScripts();},1800);
-//if(nonLatestChrome) {
-  appendNonChromeScripts();
-//}
-
-var changeInt = 0;
-var i=0,j=0;
-var text = ["body shape", "skin color", "shoulder width"];
-var imgs = ["img/product1.png","img/product2.png","img/product3.png","img/product4.png"]
-
-setInterval(function() {
-    $("#attri").fadeOut(400, function() {
-        $(this).text(text[i])
-    }).fadeIn(400);
-    i++;
-    if (i >= text.length) {
-        i = 0;
-    }
-}, 1800);
-
-setInterval(function() {
-    $("#prod").fadeOut(400, function() {
-        $(this).attr('src', imgs[j]);
-    }).fadeIn(400);
-    j++;
-    if (j >= imgs.length) {
-        j = 0;
-    }
-}, 1800);
+Loggr.Log.trackUser(uid, "", "Get styled page loaded.");
 
 </script>
 
