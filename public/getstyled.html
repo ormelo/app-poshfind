@@ -354,12 +354,13 @@ input {
      Loggr.Log.trackUser(uid, "", "User request submitted.");
      Loggr.Log.trackUser(uid, "", "Date:"+document.getElementById("partydate").value);
      Loggr.Log.trackUser(uid, "", "Occasion:"+document.getElementById("occasion").value);
+     Loggr.Log.trackUser(uid, "", "Mode:"+mode);
      Loggr.Log.trackUser(uid, "", "Number:"+document.getElementById("num").value);
      setTimeout(function(){$('.loading-container').hide();$('.second').css('opacity','1');$('#container').css('opacity','1');$('.second').html('Thank you!<br><div class="step-desc">Our stylist will get in touch with you soon.</div>');},1000);
      setTimeout(function(){$('.button-container').html('');},1000);
   }
   function onSelectChange() {
-    var mode = document.getElementById('mode').options[document.getElementById('mode').selectedIndex].value;
+    window.mode = document.getElementById('mode').options[document.getElementById('mode').selectedIndex].value;
     var plc = '';
     if(mode == 'fb') {
       plc = 'Enter your email id you use to login to FB:'
@@ -415,7 +416,7 @@ Once you submit the details below, our stylist will get in touch with you.</div>
 </select>
 <br><br>
 <label id="numLabel" for="num" style="display: none;"></label>
-<input id="num" type="number" style="display:none;width: 268px;margin-top: 14px;margin-left: -14px;" placeholder=""/></div>
+<input id="num" type="text" style="display:none;width: 268px;margin-top: 14px;margin-left: -14px;" placeholder=""/></div>
 <br>
 </div>
 <div class="button-container">
