@@ -74,7 +74,7 @@ html, body {
 }
 
 body {
-    background: #111111;
+    // background: #111111;
     font-family: "lora-regular", serif;
     font-size: 1.7rem;
     font-style: normal;
@@ -190,7 +190,7 @@ p.lead {
     font-size: 2rem;
     font-weight: 300;
     line-height: 1.8;
-    margin-bottom: 3.6rem;
+    margin-bottom: 1.6rem;
     color: #000000;
 }
 
@@ -212,7 +212,8 @@ em, i {
 }
 
 strong, b {
-    font-family: "lora-bold", serif;
+    font-family: 'montserrat-light', sans-serif;
+    font-weight: bold;
 }
 
 small {
@@ -468,7 +469,7 @@ fieldset {
     margin-bottom: 1.5rem;
 }
 
-input,
+
 textarea,
 select,
 pre,
@@ -479,9 +480,7 @@ p,
 ul,
 ol,
 dl,
-form,
-.video-container,
-.cl-custom-select {
+.video-container {
     margin-bottom: 3rem;
 }
 
@@ -706,13 +705,12 @@ select:focus {
 }
 
 label, legend {
-    font-family: "montserrat-regular", sans-serif;
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: .9rem;
+    font-family: 'montserrat-light', sans-serif;
+    font-size: 1.8rem;
     line-height: 1.714;
-    color: #000000;
-    display: block;
+    display: inline;
+    padding-left: 12px;
+    text-align: left;
 }
 
 input[type="checkbox"], input[type="radio"] {
@@ -1226,14 +1224,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .display-2 {
     font-family: "montserrat-medium", sans-serif;
-    font-size: 5.2rem;
+    font-size: 2.3rem;
     line-height: 1.255;
     color: #000000;
     margin-top: 0;
-}
-
-.display-2--light {
-    color: #FFFFFF;
+    text-align: left;
 }
 
 .subhead + .display-2 {
@@ -1265,7 +1260,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
         font-size: 7.2rem;
     }
     .display-2 {
-        font-size: 4.4rem;
+        font-size: 2.4rem;
     }
 }
 
@@ -1283,7 +1278,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
         font-size: 5rem;
     }
     .display-2 {
-        font-size: 3.3rem;
+        font-size: 2.3rem;
     }
     .subhead {
         font-size: 1.5rem;
@@ -1295,7 +1290,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
         font-size: 4.2rem;
     }
     .display-2 {
-        font-size: 3rem;
+        font-size: 2.3rem;
     }
 }
 
@@ -1306,7 +1301,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .section-header {
     text-align: center;
     position: relative;
-    margin-bottom: 3.6rem;
+    // margin-bottom: 3.6rem;
     max-width: 960px;
 }
 
@@ -2501,7 +2496,7 @@ html.no-csstransitions .home-content__main {
 
 .s-works .intro-wrap {
     padding: 15rem 0 25.2rem;
-    background: #111111;
+    background: #fff;
 }
 
 .works-content {
